@@ -4,10 +4,10 @@ from wagtail.core.models import Page
 from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel
 
-from app.mixins import AttachmentsMixin
+from app.mixins import AttachmentsMixin, MenuMixin
 
 
-class ForumModel(Page):
+class ForumModel(MenuMixin, Page):
 
     text = RichTextField()
 
@@ -15,25 +15,11 @@ class ForumModel(Page):
         FieldPanel('text'),
     ]
 
-    parent_page_types = ['home.HomepageModel']
-    allowed_subpage_models = ['forum.ThreadModel']
+    promote_panels = Page.promote_panels + \
+        MenuMixin.promote_panels
 
 
-class ThreadModel(AttachmentsMixin, Page):
-
-    text = RichTextField()
-
-    content_panels = Page.content_panels + \
-        AttachmentsMixin.content_panels + \
-        [
-            FieldPanel('text'),
-        ]
-
-    parent_page_types = ['forum.ForumModel']
-    allowed_subpage_models = ['forum.MessageModel']
-
-
-class MessageModel(AttachmentsMixin, Page):
+class ThreadModel(MenuMixin, AttachmentsMixin, Page):
 
     text = RichTextField()
 
@@ -43,5 +29,19 @@ class MessageModel(AttachmentsMixin, Page):
             FieldPanel('text'),
         ]
 
-    parent_page_types = ['forum.ThreadModel']
-    allowed_subpage_models = []
+    promote_panels = Page.promote_panels + \
+        MenuMixin.promote_panels
+
+
+class MessageModel(MenuMixin, AttachmentsMixin, Page):
+
+    text = RichTextField()
+
+    content_panels = Page.content_panels + \
+        AttachmentsMixin.content_panels + \
+        [
+            FieldPanel('text'),
+        ]
+
+    promote_panels = Page.promote_panels + \
+        MenuMixin.promote_panels

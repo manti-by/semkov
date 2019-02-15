@@ -5,6 +5,8 @@ from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 
+from app.mixins import MenuMixin
+
 
 class HomepageModel(Page):
 
@@ -28,13 +30,8 @@ class HomepageModel(Page):
         ImageChooserPanel('background'),
     ]
 
-    allowed_subpage_models = [
-        'home.CategoryModel',
-        'forum.ForumModel'
-    ]
 
-
-class CategoryModel(Page):
+class CategoryModel(MenuMixin, Page):
 
     text = RichTextField()
 
@@ -42,7 +39,5 @@ class CategoryModel(Page):
         FieldPanel('text'),
     ]
 
-    allowed_subpage_models = [
-        'news.NewsModel',
-        'pages.PageModel'
-    ]
+    promote_panels = Page.promote_panels + \
+        MenuMixin.promote_panels

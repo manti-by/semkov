@@ -50,3 +50,15 @@ class ArticleMixin(Page):
 
     class Meta:
         abstract = True
+
+
+class MenuMixin(Page):
+
+    menu_title = models.CharField(max_length=32, blank=True)
+
+    promote_panels = [
+        FieldPanel('menu_title'),
+    ]
+
+    class Meta:
+        abstract = True
