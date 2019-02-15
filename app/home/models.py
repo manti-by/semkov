@@ -28,11 +28,21 @@ class HomepageModel(Page):
         ImageChooserPanel('background'),
     ]
 
+    allowed_subpage_models = [
+        'home.CategoryModel',
+        'forum.ForumModel'
+    ]
 
-class CategoryModel(HomepageModel):
+
+class CategoryModel(Page):
 
     text = RichTextField()
 
     content_panels = Page.content_panels + [
         FieldPanel('text'),
+    ]
+
+    allowed_subpage_models = [
+        'news.NewsModel',
+        'pages.PageModel'
     ]

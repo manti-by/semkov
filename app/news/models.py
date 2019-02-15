@@ -5,26 +5,14 @@ from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 
-from app.home.models import CategoryModel
+from app.mixins import ImagesMixin, ArticleMixin
 
 
-class NewsModel(CategoryModel):
+class NewsModel(ImagesMixin, ArticleMixin, Page):
 
-    image = models.ForeignKey(
-        'wagtailimages.Image',
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='news_images'
-    )
+    content_panels = Page.content_panels + \
+        ArticleMixin.content_panels + \
+        ImagesMixin.content_panels
 
-    excerpt = RichTextField()
-    text = RichTextField()
-    source = models.URLField()
-
-    content_panels = Page.content_panels + [
-        ImageChooserPanel('image'),
-        FieldPanel('excerpt'),
-        FieldPanel('text'),
-        FieldPanel('source'),
-    ]
+    parent_page_types = ['home.CategoryModel']
+    allowed_subpage_models = []

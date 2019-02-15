@@ -1,14 +1,13 @@
 from django.db import models
 
-from wagtail.admin.edit_handlers import FieldPanel
-from wagtail.core.blocks import PageChooserBlock
+from wagtail.core.models import Page
 from wagtail.core.fields import RichTextField
-from wagtail.documents.blocks import DocumentChooserBlock
+from wagtail.admin.edit_handlers import FieldPanel
 
-from app.home.models import CategoryModel
+from app.mixins import AttachmentsMixin
 
 
-class ForumModel(CategoryModel):
+class ForumModel(Page):
 
     text = RichTextField()
 
@@ -16,36 +15,33 @@ class ForumModel(CategoryModel):
         FieldPanel('text'),
     ]
 
-
-class ThreadModel(ForumModel):
-
-    text = RichTextField()
-    attachments = models.ForeignKey(
-        'wagtaildocs.Document',
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='treads_attachments'
-    )
-
-    content_panels = Page.content_panels + [
-        FieldPanel('text'),
-        DocumentChooserBlock('attachments')
-    ]
+    parent_page_types = ['home.HomepageModel']
+    allowed_subpage_models = ['forum.ThreadModel']
 
 
-class MessageModel(ThreadModel):
+class ThreadModel(AttachmentsMixin, Page):
 
     text = RichTextField()
-    attachments = models.ForeignKey(
-        'wagtaildocs.Document',
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='messages_attachments'
-    )
 
-    content_panels = Page.content_panels + [
-        FieldPanel('text'),
-        DocumentChooserBlock('attachments')
-    ]
+    content_panels = Page.content_panels + \
+        AttachmentsMixin.content_panels + \
+        [
+            FieldPanel('text'),
+        ]
+
+    parent_page_types = ['forum.ForumModel']
+    allowed_subpage_models = ['forum.MessageModel']
+
+
+class MessageModel(AttachmentsMixin, Page):
+
+    text = RichTextField()
+
+    content_panels = Page.content_panels + \
+        AttachmentsMixin.content_panels + \
+        [
+            FieldPanel('text'),
+        ]
+
+    parent_page_types = ['forum.ThreadModel']
+    allowed_subpage_models = []
