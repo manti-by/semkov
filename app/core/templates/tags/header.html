@@ -1,0 +1,15 @@
+{% load i18n core_tags %}
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-10">
+                {% main_menu True %}
+            </div>
+            <div class="contact col-2 text-right">
+                <a href="/admin/login/">
+                    {% trans 'Login' %}
+                </a>
+            </div>
+        </div>
+    </div>
+</header>

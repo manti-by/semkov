@@ -23,5 +23,13 @@ def get_ordered(page):
 
 
 @register.inclusion_tag("tags/main_menu.html")
-def main_menu():
-    return {"menu_items": get_ordered(Page.objects.get(slug="index"))}
+def main_menu(show_index=False):
+    return {
+        "show_index": show_index,
+        "menu_items": get_ordered(Page.objects.get(slug="index"))
+    }
+
+
+@register.inclusion_tag("tags/header.html")
+def header():
+    return {}

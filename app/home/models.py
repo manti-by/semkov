@@ -5,10 +5,10 @@ from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 
-from app.mixins import MenuMixin
+from core.mixins import MenuMixin
 
 
-class HomepageModel(Page):
+class HomepageModel(MenuMixin, Page):
 
     image = models.ForeignKey(
         "wagtailimages.Image",
@@ -29,6 +29,8 @@ class HomepageModel(Page):
         ImageChooserPanel("image"),
         ImageChooserPanel("background"),
     ]
+
+    promote_panels = Page.promote_panels + MenuMixin.promote_panels
 
 
 class CategoryModel(MenuMixin, Page):

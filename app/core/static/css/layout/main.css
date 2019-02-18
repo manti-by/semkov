@@ -1,0 +1,59 @@
+main {
+    margin-top: 5rem;
+}
+
+main article {
+    margin-bottom: 2rem;
+}
+
+.home {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 20vh 0;
+    overflow: hidden;
+    background-repeat: repeat;
+}
+
+.home h1 {
+    margin-bottom: 7rem;
+    font-size: 8rem;
+    font-weight: 600;
+    line-height: .9;
+}
+
+.home .main-menu {
+    padding: 0;
+    list-style: none;
+}
+
+.home .main-menu li {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.home .main-menu li a {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.home .main-menu ul {
+    position: relative;
+    display: block;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.home .main-menu li li {
+    display: inline;
+}
+
+.home .main-menu li li a {
+    font-size: 1.5rem;
+    color: #5C5C5C;
+}
+
+.home .main-menu li li a:hover {
+    color: #1b6d85;
+}

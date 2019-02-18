@@ -1,18 +1,24 @@
 {% extends "base.html" %}
-{% load static menu_tags %}
+{% load static i18n core_tags %}
 
 {% block content %}
-<header>
-    <div class="container">{% main_menu %}</div>
-</header>
+{% header %}
 <main>
-    <article class="container">
+    <section class="container">
         <h1>{{ page.title }}</h1>
-        <ul>
-            {% for child in page.get_children.specific %}
-                <li>{{ child.title }}</li>
-            {% endfor %}
-        </ul>
-    </article>
+        {% for child in page.get_children.specific %}
+            <article>
+                <h2>
+                    <a href="{{ child.url }}">{{ child.title }}</a>
+                </h2>
+                <div class="excerpt">
+                    {{ child.excerpt|safe }}
+                </div>
+                <a href="{{ child.url }}">
+                    {% trans 'Read More' %}
+                </a>
+            </article>
+        {% endfor %}
+    </section>
 </main>
 {% endblock content %}

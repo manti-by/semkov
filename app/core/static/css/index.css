@@ -1,9 +1,32 @@
 html {
+    font-family: 'Open Sans', sans-serif;
     font-size: 16px;
+    line-height: 1.3;
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Open Sans', sans-serif
+    margin: 0;
+    padding: 0;
+    color: #3F3F3F;
+    background: #ffffff;
+}
+
+h1, h2, h3 {
+    font-weight: 500;
+}
+
+h1 {
+    font-size: 2.75rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.25rem;
+}
+
+h3 {
+    font-size: 1.5rem;
 }
 
 a {
@@ -12,51 +35,5 @@ a {
 
 a:hover {
     text-decoration: none;
-    color: #1b6d85;
-}
-
-.main-menu li {
-    display: inline;
-}
-
-.home {
-    width: 100%;
-    height: 100vh;
-    padding: 20vh 0;
-    overflow: hidden;
-    background-repeat: repeat;
-}
-
-.home h1 {
-    margin-bottom: 7rem;
-    font-size: 8rem;
-    font-weight: 600;
-    line-height: .9;
-}
-
-.home ul {
-    padding: 0;
-    list-style: none;
-}
-
-.home li {
-    margin-bottom: 1rem;
-}
-
-.home li a {
-    font-size: 2.5rem;
-    font-weight: 600;
-}
-
-.home li li {
-    display: inline;
-}
-
-.home li li a {
-    font-size: 1.5rem;
-    color: #5C5C5C;
-}
-
-.home li li a:hover {
     color: #1b6d85;
 }

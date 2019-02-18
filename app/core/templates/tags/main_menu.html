@@ -1,4 +1,13 @@
+{% load i18n %}
+
 <ul class="main-menu">
+{% if show_index %}
+    <li>
+        <a href="/">
+            {% trans 'Home' %}
+        </a>
+    </li>
+{% endif %}
 {% for item in menu_items %}
     <li>
         <a href="{{ item.url }}">

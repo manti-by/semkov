@@ -1,6 +1,6 @@
 from wagtail.core.models import Page
 
-from app.mixins import ImagesMixin, ArticleMixin, MenuMixin
+from core.mixins import ImagesMixin, ArticleMixin, MenuMixin
 
 
 class PageModel(MenuMixin, ImagesMixin, ArticleMixin, Page):
