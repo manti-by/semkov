@@ -2,5 +2,6 @@
 exclude =
     .git,
     __pycache__
-max-line-length = 120
+    app/core/settings/
+max-line-length = 90
 max-complexity = 14

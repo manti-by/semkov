@@ -12,22 +12,44 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('wagtailcore', '0041_group_collection_permissions_verbose_name_plural'),
+        ("wagtailcore", "0041_group_collection_permissions_verbose_name_plural")
     ]
 
     operations = [
         migrations.CreateModel(
-            name='NewsModel',
+            name="NewsModel",
             fields=[
-                ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.Page')),
-                ('images', wagtail.core.fields.StreamField([('images', wagtail.core.blocks.ListBlock(wagtail.images.blocks.ImageChooserBlock()))], blank=True, null=True)),
-                ('excerpt', wagtail.core.fields.RichTextField()),
-                ('text', wagtail.core.fields.RichTextField()),
-                ('source', models.URLField()),
+                (
+                    "page_ptr",
+                    models.OneToOneField(
+                        auto_created=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        parent_link=True,
+                        primary_key=True,
+                        serialize=False,
+                        to="wagtailcore.Page",
+                    ),
+                ),
+                (
+                    "images",
+                    wagtail.core.fields.StreamField(
+                        [
+                            (
+                                "images",
+                                wagtail.core.blocks.ListBlock(
+                                    wagtail.images.blocks.ImageChooserBlock()
+                                ),
+                            )
+                        ],
+                        blank=True,
+                        null=True,
+                    ),
+                ),
+                ("excerpt", wagtail.core.fields.RichTextField()),
+                ("text", wagtail.core.fields.RichTextField()),
+                ("source", models.URLField()),
             ],
-            options={
-                'abstract': False,
-            },
-            bases=('wagtailcore.page',),
-        ),
+            options={"abstract": False},
+            bases=("wagtailcore.page",),
+        )
     ]

@@ -11,23 +11,23 @@ from app.mixins import MenuMixin
 class HomepageModel(Page):
 
     image = models.ForeignKey(
-        'wagtailimages.Image',
+        "wagtailimages.Image",
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name='homepage_images'
+        related_name="homepage_images",
     )
     background = models.ForeignKey(
-        'wagtailimages.Image',
+        "wagtailimages.Image",
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name='homepage_backgrounds'
+        related_name="homepage_backgrounds",
     )
 
     content_panels = Page.content_panels + [
-        ImageChooserPanel('image'),
-        ImageChooserPanel('background'),
+        ImageChooserPanel("image"),
+        ImageChooserPanel("background"),
     ]
 
 
@@ -35,9 +35,6 @@ class CategoryModel(MenuMixin, Page):
 
     text = RichTextField()
 
-    content_panels = Page.content_panels + [
-        FieldPanel('text'),
-    ]
+    content_panels = Page.content_panels + [FieldPanel("text")]
 
-    promote_panels = Page.promote_panels + \
-        MenuMixin.promote_panels
+    promote_panels = Page.promote_panels + MenuMixin.promote_panels

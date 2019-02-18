@@ -5,24 +5,22 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('forum', '0001_initial'),
-    ]
+    dependencies = [("forum", "0001_initial")]
 
     operations = [
         migrations.AddField(
-            model_name='forummodel',
-            name='menu_title',
+            model_name="forummodel",
+            name="menu_title",
             field=models.CharField(blank=True, max_length=32),
         ),
         migrations.AddField(
-            model_name='messagemodel',
-            name='menu_title',
+            model_name="messagemodel",
+            name="menu_title",
             field=models.CharField(blank=True, max_length=32),
         ),
         migrations.AddField(
-            model_name='threadmodel',
-            name='menu_title',
+            model_name="threadmodel",
+            name="menu_title",
             field=models.CharField(blank=True, max_length=32),
         ),
     ]
