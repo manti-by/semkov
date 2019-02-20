@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "wagtail.core",
     "modelcluster",
     "taggit",
+    "compressor",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -59,6 +60,9 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.security.SecurityMiddleware",
+    "django.middleware.gzip.GZipMiddleware",
+    "htmlmin.middleware.HtmlMinifyMiddleware",
+    "htmlmin.middleware.MarkRequestMiddleware",
     "wagtail.core.middleware.SiteMiddleware",
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
 ]
@@ -151,3 +155,21 @@ WAGTAIL_SITE_NAME = "core"
 WAGTAIL_FRONTEND_LOGIN_URL = "/user/login/"
 
 BASE_URL = "http://example.com"
+
+# Email settings
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "localhost"
+EMAIL_PORT = 2525
+
+# Static compressor settings
+
+COMPRESS_OUTPUT_DIR = "cache"
+COMPRESS_STORAGE = "compressor.storage.GzipCompressorFileStorage"
+COMPRESS_CSS_FILTERS = [
+    "compressor.filters.css_default.CssAbsoluteFilter",
+    "compressor.filters.cssmin.CSSMinFilter",
+]
+COMPRESS_CSS_HASHING_METHOD = None
+
+COMPRESS_ENABLED = False

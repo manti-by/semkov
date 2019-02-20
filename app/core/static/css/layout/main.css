@@ -10,15 +10,23 @@ main article {
     width: 100%;
     height: 100vh;
     margin: 0;
-    padding: 20vh 0;
+    font-family: 'Josefin Slab', serif;
     overflow: hidden;
     background-repeat: repeat;
+}
+
+.home .left,
+.home .right {
+    padding: 20vh 0 0 10%;
+}
+
+.home .right {
+    background: #EEEEEE;
 }
 
 .home h1 {
     margin-bottom: 7rem;
     font-size: 8rem;
-    font-weight: 600;
     line-height: .9;
 }
 
@@ -34,15 +42,21 @@ main article {
 
 .home .main-menu li a {
     font-size: 2.5rem;
-    font-weight: 600;
 }
 
 .home .main-menu ul {
     position: relative;
     display: block;
+    height: auto;
     padding: 0;
     background: transparent;
     box-shadow: none;
+    opacity: 1;
+}
+
+.home .main-menu li:hover ul {
+    height: auto;
+    padding: 0;
 }
 
 .home .main-menu li li {
@@ -55,5 +69,5 @@ main article {
 }
 
 .home .main-menu li li a:hover {
-    color: #1b6d85;
+    color: #ff6f61;
 }

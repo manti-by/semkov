@@ -1,9 +1,8 @@
-{% load static wagtailuserbar %}
+{% load static wagtailuserbar compress %}
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
     <head>
-        <meta charset="utf-8" />
         <title>
             {% block title %}
                 {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
@@ -14,22 +13,41 @@
                 {% endwith %}
             {% endblock %}
         </title>
-        <meta name="description" content="" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="">
 
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+        <meta name="theme-color" content="#ff6f61">
+        <meta name="application-name" content="Semkov Gorodok">
+
+        <meta name="mobile-web-app-capable" content="yes">
+        <link rel="manifest" href="{% static "manifest.json" %}">
+
+        <link rel="icon" type="image/x-icon" href="{% static "img/appicon/favicon.ico" %}">
+        <link rel="icon" type="image/png" sizes="18x18" href="{% static "img/appicon/18x18.png" %}">
+        <link rel="icon" type="image/png" sizes="24x24" href="{% static "img/appicon/24x24.png" %}">
+        <link rel="icon" type="image/png" sizes="36x36" href="{% static "img/appicon/36x36.png" %}">
+        <link rel="icon" type="image/png" sizes="48x48" href="{% static "img/appicon/48x48.png" %}">
+        <link rel="icon" type="image/png" sizes="72x72" href="{% static "img/appicon/72x72.png" %}">
+        <link rel="icon" type="image/png" sizes="96x96" href="{% static "img/appicon/96x96.png" %}">
+        <link rel="icon" type="image/png" sizes="144x144" href="{% static "img/appicon/144x144.png" %}">
+        <link rel="icon" type="image/png" sizes="192x192" href="{% static "img/appicon/192x192.png" %}">
+
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Slab|Open+Sans:400,600" rel="stylesheet">
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
               integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
               crossorigin="anonymous">
 
-        <link rel="stylesheet" type="text/css" href="{% static 'css/layout/header.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/layout/main.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/layout/footer.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
-
-        {% block extra_css %}
-        {% endblock %}
+        {% compress css inline %}
+            <link rel="stylesheet" type="text/css" href="{% static 'css/layout/header.css' %}">
+            <link rel="stylesheet" type="text/css" href="{% static 'css/layout/main.css' %}">
+            <link rel="stylesheet" type="text/css" href="{% static 'css/layout/footer.css' %}">
+            <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+            {% block extra_css %}{% endblock %}
+        {% endcompress %}
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
@@ -47,10 +65,10 @@
                 integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
                 crossorigin="anonymous"></script>
 
-        <script type="text/javascript" src="{% static 'js/widgets/header.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
-
-        {% block extra_js %}
-        {% endblock %}
+        {% compress js %}
+            <script type="text/javascript" src="{% static 'js/widgets/header.js' %}"></script>
+            <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+            {% block extra_js %}{% endblock %}
+        {% endcompress %}
     </body>
 </html>

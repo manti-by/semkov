@@ -4,13 +4,12 @@
 
 {% block content %}
 
-{% image page.background width-165 as page_background %}
-<main class="row home justify-content-md-center" style="background-image: url({{ page_background.url }})">
-    <div class="col-4">
+<main class="row home justify-content-md-center">
+    <div class="col-5 left">
         <h1>{{ page.title }}</h1>
         {% main_menu %}
     </div>
-    <div class="col-4">
+    <div class="col-7 right">
         {% image page.image width-600 as page_image %}
         <img src="{{ page_image.url }}" alt="Image">
     </div>
