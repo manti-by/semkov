@@ -26,7 +26,7 @@ def get_ordered(page):
 def main_menu(show_index=False):
     return {
         "show_index": show_index,
-        "menu_items": get_ordered(Page.objects.get(slug="index"))
+        "menu_items": get_ordered(Page.objects.get(slug="index")),
     }
 
 

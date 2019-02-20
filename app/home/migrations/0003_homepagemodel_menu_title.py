@@ -5,14 +5,12 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('home', '0002_categorymodel_menu_title'),
-    ]
+    dependencies = [("home", "0002_categorymodel_menu_title")]
 
     operations = [
         migrations.AddField(
-            model_name='homepagemodel',
-            name='menu_title',
+            model_name="homepagemodel",
+            name="menu_title",
             field=models.CharField(blank=True, max_length=32),
-        ),
+        )
     ]

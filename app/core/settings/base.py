@@ -148,6 +148,6 @@ MEDIA_URL = "/media/"
 
 WAGTAIL_SITE_NAME = "core"
 
-WAGTAIL_FRONTEND_LOGIN_URL = '/user/login/'
+WAGTAIL_FRONTEND_LOGIN_URL = "/user/login/"
 
 BASE_URL = "http://example.com"
