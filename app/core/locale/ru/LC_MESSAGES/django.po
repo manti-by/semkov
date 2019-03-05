@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-28 11:58+0000\n"
+"POT-Creation-Date: 2019-03-05 09:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,11 +20,11 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: app/core/settings/base.py:126
+#: app/core/settings/base.py:127
 msgid "Russian"
 msgstr "Русский"
 
-#: app/core/settings/base.py:126
+#: app/core/settings/base.py:127
 msgid "English"
 msgstr "Английский"
 
@@ -37,10 +37,12 @@ msgid "Home"
 msgstr "Домашняя"
 
 #: app/home/templates/home/category_model.html:18
-msgid "Read More"
-msgstr "Подробнее"
-
-#: app/news/templates/news/news_model.html:9
-#: app/pages/templates/pages/page_model.html:9
+#: app/news/templates/news/news_model.html:15
+#: app/pages/templates/pages/page_model.html:15
+#: app/pages/templates/pages/route_page_model.html:18
 msgid "Updated"
 msgstr "Обновлено"
+
+#: app/home/templates/home/category_model.html:24
+msgid "Read More"
+msgstr "Подробнее"

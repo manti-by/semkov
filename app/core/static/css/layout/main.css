@@ -75,3 +75,43 @@ main article .excerpt {
 .home .main-menu li li a:hover {
     color: #ff6f61;
 }
+
+.route-list {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.route-list td {
+    padding-bottom: .25rem;
+}
+
+.route-list .days {
+    max-width: 5rem;
+    text-align: right;
+}
+
+.route-list .day {
+    position: relative;
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background: #ff6f61;
+    border-radius: .125rem;
+    cursor: pointer;
+}
+
+.route-list .day.active {
+    background: forestgreen;
+}
+
+.route-list .day label {
+    position: absolute;
+    display: none;
+    padding: .25rem;
+    background: #fff;
+    z-index: 10;
+}
+
+.route-list .day:hover label {
+    display: block;
+}

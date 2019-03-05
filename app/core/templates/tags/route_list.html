@@ -1,0 +1,18 @@
+{% load i18n %}
+
+<table class="route-list">
+{% for item in items %}
+    <tr>
+        <td class="number">{{ item.number }}</td>
+        <td class="route">{{ item.route }}</td>
+        <td class="time">{{ item.time }}</td>
+        <td class="days">
+            {% for key, value in item.days.items %}
+                <span class="day {% if value %}active{% endif %}">
+                    <label>{% trans key %}</label>
+                </span>
+            {% endfor %}
+        </td>
+    </tr>
+{% endfor %}
+</table>
