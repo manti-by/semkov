@@ -81,8 +81,16 @@ main article .excerpt {
     margin-bottom: 1rem;
 }
 
+.route-list tr {
+    cursor: pointer;
+}
+
+.route-list tr:hover {
+    background: #eeeeee;
+}
+
 .route-list td {
-    padding-bottom: .25rem;
+    padding: .25rem;
 }
 
 .route-list .days {
@@ -97,7 +105,6 @@ main article .excerpt {
     height: 1rem;
     background: #ff6f61;
     border-radius: .125rem;
-    cursor: pointer;
 }
 
 .route-list .day.active {

@@ -25,6 +25,7 @@ header.active {
     margin-right: 2rem;
     overflow: visible;
 }
+
 .main-menu li ul {
     position: absolute;
     left: 0;
@@ -37,8 +38,14 @@ header.active {
     transition: all .4s;
 }
 
+.main-menu li ul li {
+    display: block;
+    margin-bottom: .25rem;
+}
+
 .main-menu li:hover ul {
     height: auto;
+    min-width: 25rem;
     padding: 1rem 2rem;
     opacity: 1;
 }

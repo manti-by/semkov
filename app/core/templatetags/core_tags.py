@@ -6,16 +6,19 @@ from wagtail.core.models import Page
 register = template.Library()
 
 
-def get_ordered(page):
+def get_ordered(page, is_homepage):
     result = []
     for current_page in page.get_children().live().in_menu():
-        children = get_ordered(current_page)
+        children = get_ordered(current_page, is_homepage)
         if hasattr(current_page.specific, "menu_title"):
+            title = current_page.specific.menu_title
+            if is_homepage:
+                title = current_page.specific.seo_title
             result.append(
                 {
                     "url": current_page.url,
                     "path": current_page.path,
-                    "title": current_page.specific.menu_title,
+                    "title": title,
                     "children": children,
                 }
             )
@@ -23,10 +26,10 @@ def get_ordered(page):
 
 
 @register.inclusion_tag("tags/main_menu.html")
-def main_menu(show_index=False):
+def main_menu(show_index=False, is_homepage=False):
     return {
         "show_index": show_index,
-        "menu_items": get_ordered(Page.objects.get(slug="index")),
+        "menu_items": get_ordered(Page.objects.get(slug="index"), is_homepage),
     }
 
 
