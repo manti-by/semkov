@@ -17,13 +17,16 @@ build:
 	docker build --no-cache -f deploy/Dockerfile -t mantiby/semkov:latest deploy/
 
 start:
-	docker run -d -p 8898:8898 --name semkov mantiby/semkov:latest
+	docker run -p 8898:8898 --name semkov -v $(pwd)/app/static:/var/static -v $(pwd)/app/media:/var/media mantiby/semkov:latest
 
 stop:
 	docker stop semkov
 
 destroy:
 	docker rm semkov
+
+static:
+	docker exec -it semkov python manage.py collectstatic --no-input
 
 bash:
 	docker exec -it semkov bash

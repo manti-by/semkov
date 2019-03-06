@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     "search",
     "wagtail.api.v2",
     "wagtail.contrib.forms",
-    "wagtail.contrib.table_block",
     "wagtail.contrib.redirects",
     "wagtail.embeds",
     "wagtail.sites",
@@ -143,6 +142,7 @@ USE_TZ = True
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "compressor.finders.CompressorFinder",
 ]
 
 STATICFILES_DIRS = [os.path.join(PROJECT_DIR, "static")]
@@ -152,10 +152,10 @@ STATICFILES_DIRS = [os.path.join(PROJECT_DIR, "static")]
 # See https://docs.djangoproject.com/en/2.1/ref/contrib/staticfiles/#manifeststaticfilesstorage
 STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = "/var/static"
 STATIC_URL = "/static/"
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_ROOT = "/var/media"
 MEDIA_URL = "/media/"
 
 
@@ -165,7 +165,7 @@ WAGTAIL_SITE_NAME = "core"
 
 WAGTAIL_FRONTEND_LOGIN_URL = "/user/login/"
 
-BASE_URL = "http://example.com"
+BASE_URL = "https://sg.manti.by"
 
 # Email settings
 
