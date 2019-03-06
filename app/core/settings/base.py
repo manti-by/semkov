@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     "news",
     "pages",
     "search",
+    "wagtail.api.v2",
     "wagtail.contrib.forms",
     "wagtail.contrib.table_block",
     "wagtail.contrib.redirects",

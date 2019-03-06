@@ -14,13 +14,16 @@ compile-messages:
 	../venv/bin/python ./app/manage.py compilemessages
 
 build:
-	docker build -f deploy/Dockerfile -t mantiby/semkov:latest deploy/
+	docker build --no-cache -f deploy/Dockerfile -t mantiby/semkov:latest deploy/
 
 start:
 	docker run -d -p 8000:8000 --name semkov mantiby/semkov:latest
 
 stop:
 	docker stop semkov
+
+destroy:
+	docker rm semkov
 
 bash:
 	docker exec -it semkov bash

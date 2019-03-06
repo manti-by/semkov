@@ -14,8 +14,13 @@
         <div>
             {%  route_list page.file %}
         </div>
-        <div class="small text-right">
-            {% trans 'Updated' %}: {{ page.last_published_at }}
+        <div class="row small">
+            <div class="col-6">
+                {% trans 'Source' %}: <a href="{{ page.source }}">{{ page.source }}</a>
+            </div>
+            <div class="col-6 text-right">
+                {% trans 'Updated' %}: {{ page.last_published_at }}
+            </div>
         </div>
     </article>
 </main>

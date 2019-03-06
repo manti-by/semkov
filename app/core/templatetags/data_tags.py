@@ -23,11 +23,15 @@ def route_list(document):
     with open(document.file.path, mode='r') as csv_file:
         csv_reader = csv.reader(csv_file)
         for row in csv_reader:
+            # TODO: Replace with page type
+            days = row[3]
+            if len(row) > 4:
+                days = compile_days(row)
             items.append({
                 'number': row[0],
                 'route': row[1],
                 'time': row[2],
-                'days': compile_days(row),
+                'days': days,
             })
     return {
         "items": items,

@@ -1,9 +1,11 @@
 from django.db import models
 
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.api import APIField
 from wagtail.core.blocks import ListBlock
 from wagtail.core.fields import StreamField, RichTextField
 from wagtail.core.models import Page
+from wagtail.core.templatetags import wagtailcore_tags
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.documents.blocks import DocumentChooserBlock
 
@@ -39,6 +41,13 @@ class ArticleMixin(Page):
     source = models.URLField()
 
     content_panels = [FieldPanel("excerpt"), FieldPanel("text"), FieldPanel("source")]
+
+    def rendered_text(self):
+        return wagtailcore_tags.richtext(self.text)
+
+    api_fields = [
+        APIField('rendered_text'),
+    ]
 
     class Meta:
         abstract = True

@@ -3,6 +3,7 @@ header {
     top: 0;
     width: 100%;
     padding: 1.5rem 0;
+    font-size: calc(15rem / 16);
     z-index: 1000;
     transition: all .4s;
     background: #fefefe;
