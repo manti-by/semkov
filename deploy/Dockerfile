@@ -28,6 +28,6 @@ RUN chown -R wagtail /code
 USER wagtail
 
 # Run gunicorn
-EXPOSE 8000
+EXPOSE 8898
 WORKDIR /code/app/
-CMD exec gunicorn core.wsgi:application --bind 0.0.0.0:8000 --workers 2
+CMD exec gunicorn core.wsgi:application --bind 0.0.0.0:8898 --workers 2

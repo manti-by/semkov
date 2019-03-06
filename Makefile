@@ -17,7 +17,7 @@ build:
 	docker build --no-cache -f deploy/Dockerfile -t mantiby/semkov:latest deploy/
 
 start:
-	docker run -d -p 8000:8000 --name semkov mantiby/semkov:latest
+	docker run -d -p 8898:8898 --name semkov mantiby/semkov:latest
 
 stop:
 	docker stop semkov
