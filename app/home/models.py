@@ -32,6 +32,10 @@ class HomepageModel(MenuMixin, Page):
 
     promote_panels = Page.promote_panels + MenuMixin.promote_panels
 
+    class Meta:
+        verbose_name = "Homepage"
+        verbose_name_plural = "Homepages"
+
 
 class CategoryModel(MenuMixin, Page):
 
@@ -40,3 +44,7 @@ class CategoryModel(MenuMixin, Page):
     content_panels = Page.content_panels + [FieldPanel("text")]
 
     promote_panels = Page.promote_panels + MenuMixin.promote_panels
+
+    class Meta:
+        verbose_name = "Category"
+        verbose_name_plural = "Categories"

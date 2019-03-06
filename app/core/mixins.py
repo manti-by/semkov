@@ -38,16 +38,14 @@ class ArticleMixin(Page):
 
     excerpt = RichTextField()
     text = RichTextField()
-    source = models.URLField()
+    source = models.URLField(blank=True)
 
     content_panels = [FieldPanel("excerpt"), FieldPanel("text"), FieldPanel("source")]
 
     def rendered_text(self):
         return wagtailcore_tags.richtext(self.text)
 
-    api_fields = [
-        APIField('rendered_text'),
-    ]
+    api_fields = [APIField("rendered_text")]
 
     class Meta:
         abstract = True
@@ -55,9 +53,15 @@ class ArticleMixin(Page):
 
 class MenuMixin(Page):
 
+    is_homepage = models.BooleanField(default=False)
+    homepage_title = models.CharField(max_length=32, blank=True)
     menu_title = models.CharField(max_length=32, blank=True)
 
-    promote_panels = [FieldPanel("menu_title")]
+    promote_panels = [
+        FieldPanel("is_homepage"),
+        FieldPanel("homepage_title"),
+        FieldPanel("menu_title"),
+    ]
 
     class Meta:
         abstract = True

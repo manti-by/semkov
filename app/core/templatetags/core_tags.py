@@ -9,11 +9,17 @@ register = template.Library()
 def get_ordered(page, is_homepage):
     result = []
     for current_page in page.get_children().live().in_menu():
+
+        if is_homepage and not current_page.specific.is_homepage:
+            continue
+
         children = get_ordered(current_page, is_homepage)
         if hasattr(current_page.specific, "menu_title"):
             title = current_page.specific.menu_title
+
             if is_homepage:
-                title = current_page.specific.seo_title
+                title = current_page.specific.homepage_title
+
             result.append(
                 {
                     "url": current_page.url,

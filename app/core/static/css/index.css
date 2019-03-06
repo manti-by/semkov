@@ -43,3 +43,21 @@ p {
     font-size: calc(18rem / 16);
     line-height: 1.625;
 }
+
+table {
+    width: 100%;
+    margin-bottom: 3rem;
+}
+
+table tr {
+    cursor: pointer;
+}
+
+table tr:hover {
+    background: #eeeeee;
+}
+
+table th,
+table td {
+    padding: .25rem;
+}

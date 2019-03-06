@@ -1,0 +1,31 @@
+{% load i18n %}
+
+<table class="document {{ classes|join:' ' }}">
+{% for item in items %}
+    {% if forloop.counter == 1 %}
+        <tr>
+            {% for row in item.data %}
+                <th>{{ row }}</th>
+            {% endfor %}
+            {% if item.days %}
+                <th class="days">{% trans 'Days' %}</th>
+            {% endif %}
+        </tr>
+    {% else %}
+        <tr>
+            {% for row in item.data %}
+                <td>{{ row }}</td>
+            {% endfor %}
+            {% if item.days %}
+                <td class="days">
+                    {% for key, value in item.days.items %}
+                        <span class="day {% if value %}active{% endif %}">
+                            <label>{% trans key %}</label>
+                        </span>
+                    {% endfor %}
+                </td>
+            {% endif %}
+        </tr>
+    {% endif %}
+{% endfor %}
+</table>

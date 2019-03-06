@@ -84,29 +84,13 @@ main article hr {
     color: #ff6f61;
 }
 
-.route-list {
-    width: 100%;
-    margin-bottom: 1rem;
-}
-
-.route-list tr {
-    cursor: pointer;
-}
-
-.route-list tr:hover {
-    background: #eeeeee;
-}
-
-.route-list td {
-    padding: .25rem;
-}
-
-.route-list .days {
+.route .days {
     max-width: 5rem;
     text-align: right;
+
 }
 
-.route-list .day {
+.route .day {
     position: relative;
     display: inline-block;
     width: 1rem;
@@ -115,11 +99,11 @@ main article hr {
     border-radius: .125rem;
 }
 
-.route-list .day.active {
+.route .day.active {
     background: forestgreen;
 }
 
-.route-list .day label {
+.route .day label {
     position: absolute;
     display: none;
     padding: .25rem;
@@ -127,6 +111,10 @@ main article hr {
     z-index: 10;
 }
 
-.route-list .day:hover label {
+.route .day:hover label {
     display: block;
+}
+
+.ispolkom td {
+    white-space: pre-line;
 }

@@ -14,3 +14,7 @@ class AdsModel(MenuMixin, ImagesMixin, Page):
     )
 
     promote_panels = Page.promote_panels + MenuMixin.promote_panels
+
+    class Meta:
+        verbose_name = "Advert"
+        verbose_name_plural = "Adverts"

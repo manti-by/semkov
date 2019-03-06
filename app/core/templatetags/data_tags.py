@@ -5,34 +5,30 @@ from django import template
 register = template.Library()
 
 
-def compile_days(row):
-    return {
-        'Monday': row[3] == '1',
-        'Tuesday': row[4] == '1',
-        'Wednesday': row[5] == '1',
-        'Thursday': row[6] == '1',
-        'Friday': row[7] == '1',
-        'Saturday': row[8] == '1',
-        'Sunday': row[9] == '1',
-    }
+def get_route_data(row):
+    return (
+        row[:3],
+        {
+            "Monday": row[3] == "1",
+            "Tuesday": row[4] == "1",
+            "Wednesday": row[5] == "1",
+            "Thursday": row[6] == "1",
+            "Friday": row[7] == "1",
+            "Saturday": row[8] == "1",
+            "Sunday": row[9] == "1",
+        },
+    )
 
 
-@register.inclusion_tag("tags/route_list.html")
-def route_list(document):
+@register.inclusion_tag("tags/document_table.html")
+def document_table(document, classes=None):
     items = []
-    with open(document.file.path, mode='r') as csv_file:
+    with open(document.file.path, mode="r") as csv_file:
         csv_reader = csv.reader(csv_file)
         for row in csv_reader:
-            # TODO: Replace with page type
-            days = row[3]
-            if len(row) > 4:
-                days = compile_days(row)
-            items.append({
-                'number': row[0],
-                'route': row[1],
-                'time': row[2],
-                'days': days,
-            })
-    return {
-        "items": items,
-    }
+            data = row
+            days = None
+            if "route" in classes:
+                data, days = get_route_data(row)
+            items.append({"data": data, "days": days})
+    return {"items": items, "classes": classes}

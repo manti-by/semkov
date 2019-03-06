@@ -13,6 +13,10 @@ class ForumModel(MenuMixin, Page):
 
     promote_panels = Page.promote_panels + MenuMixin.promote_panels
 
+    class Meta:
+        verbose_name = "Forum"
+        verbose_name_plural = "Forums"
+
 
 class ThreadModel(MenuMixin, AttachmentsMixin, Page):
 
@@ -24,6 +28,10 @@ class ThreadModel(MenuMixin, AttachmentsMixin, Page):
 
     promote_panels = Page.promote_panels + MenuMixin.promote_panels
 
+    class Meta:
+        verbose_name = "Thread"
+        verbose_name_plural = "Threads"
+
 
 class MessageModel(MenuMixin, AttachmentsMixin, Page):
 
@@ -34,3 +42,7 @@ class MessageModel(MenuMixin, AttachmentsMixin, Page):
     )
 
     promote_panels = Page.promote_panels + MenuMixin.promote_panels
+
+    class Meta:
+        verbose_name = "Message"
+        verbose_name_plural = "Messages"

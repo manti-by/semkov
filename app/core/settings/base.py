@@ -31,7 +31,6 @@ INSTALLED_APPS = [
     "core",
     "forum",
     "home",
-    "news",
     "pages",
     "search",
     "wagtail.api.v2",

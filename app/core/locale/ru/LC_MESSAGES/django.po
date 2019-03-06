@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-06 10:06+0000\n"
+"POT-Creation-Date: 2019-03-06 13:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,6 +28,10 @@ msgstr "Русский"
 msgid "English"
 msgstr "Английский"
 
+#: app/core/templates/tags/document_table.html:11
+msgid "Days"
+msgstr "Дни недели"
+
 #: app/core/templates/tags/header.html:10
 msgid "Login"
 msgstr "Войти"
@@ -37,9 +41,7 @@ msgid "Home"
 msgstr "Домашняя"
 
 #: app/home/templates/home/category_model.html:18
-#: app/news/templates/news/news_model.html:20
-#: app/pages/templates/pages/page_model.html:20
-#: app/pages/templates/pages/route_page_model.html:23
+#: app/pages/templates/pages/page_model.html:26
 msgid "Updated"
 msgstr "Обновлено"
 
@@ -47,8 +49,6 @@ msgstr "Обновлено"
 msgid "Read More"
 msgstr "Подробнее"
 
-#: app/news/templates/news/news_model.html:17
-#: app/pages/templates/pages/page_model.html:17
-#: app/pages/templates/pages/route_page_model.html:20
+#: app/pages/templates/pages/page_model.html:23
 msgid "Source"
 msgstr "Источник"
