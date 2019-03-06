@@ -51,6 +51,7 @@ table {
 
 table tr {
     cursor: pointer;
+    border-bottom: 1px solid #efefef;
 }
 
 table tr:hover {
@@ -59,5 +60,6 @@ table tr:hover {
 
 table th,
 table td {
-    padding: .25rem;
+    padding: .5rem;
+    vertical-align: sub;
 }

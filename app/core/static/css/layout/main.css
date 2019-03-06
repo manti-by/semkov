@@ -85,9 +85,8 @@ main article hr {
 }
 
 .route .days {
-    max-width: 5rem;
-    text-align: right;
-
+    max-width: 7rem;
+    text-align: center;
 }
 
 .route .day {
@@ -116,5 +115,6 @@ main article hr {
 }
 
 .ispolkom td {
+    padding: .75rem .5rem;
     white-space: pre-line;
 }
