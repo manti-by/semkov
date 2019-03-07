@@ -177,7 +177,7 @@ BASE_URL = "https://sg.manti.by"
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "localhost"
-EMAIL_PORT = 2525
+EMAIL_PORT = 25
 
 CONTACT_EMAIL = "manti.by@gmail.com"
 
