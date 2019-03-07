@@ -50,3 +50,7 @@ header.active {
     padding: 1rem 2rem;
     opacity: 1;
 }
+
+header .login {
+    margin-right: 1rem;
+}

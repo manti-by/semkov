@@ -2,14 +2,57 @@
 <header>
     <div class="container">
         <div class="row">
-            <div class="col-10">
+            <div class="col-9">
                 {% main_menu True %}
             </div>
-            <div class="contact col-2 text-right">
-                <a href="/admin/login/">
+            <div class="contact col-3 text-right">
+                <a href="/user/login/" class="login">
                     {% trans 'Login' %}
                 </a>
+                <button type="button" class="btn btn-sm btn-outline-primary"
+                        data-toggle="modal" data-target="#contactModal">
+                    {% trans 'Contact Us' %}
+                </button>
             </div>
         </div>
     </div>
 </header>
+
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{% trans 'Contact' %}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="name">{% trans 'Name' %}</label>
+                        <input id="name" name="name" type="text" class="form-control"
+                               placeholder="{% trans 'Enter your name' %}">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact">{% trans 'Contact' %}</label>
+                        <input id="contact" name="contact" type="text" class="form-control"
+                               aria-describedby="contactHelp"
+                               placeholder="{% trans 'Enter your email or phone' %}">
+                        <small id="contactHelp" class="form-text text-muted">
+                            {% trans "We'll never share your email or phone with anyone else." %}
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">{% trans 'Message' %}</label>
+                        <textarea class="form-control" id="message" name="message" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="send" type="button" class="btn btn-primary">{% trans 'Send' %}</button>
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">{% trans 'Close' %}</button>
+            </div>
+        </div>
+    </div>
+</div>

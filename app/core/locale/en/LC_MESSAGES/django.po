@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-06 13:19+0000\n"
+"POT-Creation-Date: 2019-03-07 11:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,12 +18,41 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: app/core/settings/base.py:127
+#: app/api/resources.py:24
+msgid "Submission request from Semkov app"
+msgstr ""
+
+#: app/api/resources.py:29
+msgid "Thanks for submission, we'll get in touch soon"
+msgstr ""
+
+#: app/core/settings/base.py:132
 msgid "Russian"
 msgstr ""
 
-#: app/core/settings/base.py:127
+#: app/core/settings/base.py:132
 msgid "English"
+msgstr ""
+
+#: app/core/templates/emails/email.html:52
+msgid "From"
+msgstr ""
+
+#: app/core/templates/emails/email.html:59
+#: app/core/templates/tags/header.html:47
+msgid "Message"
+msgstr ""
+
+#: app/core/templates/emails/email.html:63
+msgid "View this message in"
+msgstr ""
+
+#: app/core/templates/emails/email.html:64
+msgid "browser"
+msgstr ""
+
+#: app/core/templates/emails/email.html:65
+msgid "Created"
 msgstr ""
 
 #: app/core/templates/tags/document_table.html:11
@@ -32,6 +61,39 @@ msgstr ""
 
 #: app/core/templates/tags/header.html:10
 msgid "Login"
+msgstr ""
+
+#: app/core/templates/tags/header.html:14
+msgid "Contact Us"
+msgstr ""
+
+#: app/core/templates/tags/header.html:25
+#: app/core/templates/tags/header.html:38
+msgid "Contact"
+msgstr ""
+
+#: app/core/templates/tags/header.html:33
+msgid "Name"
+msgstr ""
+
+#: app/core/templates/tags/header.html:35
+msgid "Enter your name"
+msgstr ""
+
+#: app/core/templates/tags/header.html:41
+msgid "Enter your email or phone"
+msgstr ""
+
+#: app/core/templates/tags/header.html:43
+msgid "We'll never share your email or phone with anyone else."
+msgstr ""
+
+#: app/core/templates/tags/header.html:53
+msgid "Send"
+msgstr ""
+
+#: app/core/templates/tags/header.html:54
+msgid "Close"
 msgstr ""
 
 #: app/core/templates/tags/main_menu.html:7

@@ -28,6 +28,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 INSTALLED_APPS = [
     "ads",
+    "api",
     "core",
     "forum",
     "home",
@@ -177,6 +178,8 @@ BASE_URL = "https://sg.manti.by"
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "localhost"
 EMAIL_PORT = 2525
+
+CONTACT_EMAIL = "manti.by@gmail.com"
 
 # Static compressor settings
 

@@ -4,6 +4,7 @@
 
     $(document).ready(() => {
         $.initHeader();
+        $.initContact();
     });
 
 })(jQuery);
