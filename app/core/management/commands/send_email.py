@@ -20,7 +20,7 @@ class Command(BaseCommand):
                 send_mail(
                     email.subject,
                     text_content,
-                    email.email,
+                    email.contact,
                     (settings.CONTACT_EMAIL,),
                     html_message=html_content,
                 )

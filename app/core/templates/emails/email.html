@@ -60,11 +60,6 @@
             <div class="row"><strong>{% trans 'Message' %}</strong>:</div>
             <div class="row">{{ email.message|safe }}</div>
         </div>
-        <div class="row footer">
-            {% trans 'View this message in' %}
-            <a href="{{ BASE_URL }}/{% url 'email' email.id %}">{% trans 'browser' %}</a>.
-            {% trans 'Created' %} {{ email.created }}.
-        </div>
     </div>
 </body>
 </html>
