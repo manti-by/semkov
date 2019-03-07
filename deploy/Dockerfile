@@ -17,25 +17,25 @@ RUN pip install --trusted-host pypi.org --no-cache-dir --upgrade pip
 RUN pip install --trusted-host pypi.org --no-cache-dir -r /tmp/requirements/prod.txt
 
 # Add directories
-RUN mkdir -p /var/media
-RUN mkdir -p /var/static
+RUN mkdir -p /srv/semkov/src/
+RUN mkdir -p /srv/semkov/static/
+RUN mkdir -p /var/log/semkov/
 
 # Get app from repo
-WORKDIR /code/
+WORKDIR /srv/semkov/src/
 RUN git init
 RUN git remote add origin https://manti_by@bitbucket.org/manti_by/semkov.git
 RUN git pull origin master
 
 # Add wagtail system user
 RUN useradd wagtail
-RUN chown -R wagtail /code
-RUN chown -R wagtail /var/media
-RUN chown -R wagtail /var/static
+RUN chown -R wagtail /srv/semkov/
+RUN chown -R wagtail /var/log/semkov/
 USER wagtail
 
 # Run gunicorn
 EXPOSE 8898
-WORKDIR /code/app/
+WORKDIR /srv/semkov/src/app/
 
 # Run
 CMD exec gunicorn core.wsgi:application --bind 0.0.0.0:8898 --workers 2

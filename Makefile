@@ -14,22 +14,22 @@ compile-messages:
 	../venv/bin/python ./app/manage.py compilemessages
 
 build:
-	docker build --no-cache -f deploy/Dockerfile -t mantiby/semkov:latest deploy/
+	docker build -f deploy/Dockerfile -t mantiby/semkov:latest deploy/
 
 start:
-	docker run -p 8898:8898 --name semkov -v $(pwd)/app/static:/var/static -v $(pwd)/app/media:/var/media mantiby/semkov:latest
+	docker-compose -f deploy/docker-compose.yml up -d
 
 stop:
-	docker stop semkov
+	docker-compose -f deploy/docker-compose.yml stop
 
 destroy:
-	docker rm semkov
+	docker-compose -f deploy/docker-compose.yml down
 
 static:
-	docker exec -it semkov python manage.py collectstatic --no-input
+	docker exec -it semkov-app python manage.py collectstatic --no-input
 
 bash:
-	docker exec -it semkov bash
+	docker exec -it semkov-app bash
 
 check:
 	black --py36 app/
