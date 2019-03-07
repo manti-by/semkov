@@ -14,48 +14,39 @@ STATIC_ROOT = "/srv/semkov/static"
 MEDIA_ROOT = "/srv/semkov/src/app/media"
 
 CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': 'semkov-memcache:11211',
+    "default": {
+        "BACKEND": "django.core.cache.backends.memcached.MemcachedCache",
+        "LOCATION": "semkov-memcache:11211",
     }
 }
 
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': '/var/log/semkov/app.log',
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "file": {
+            "level": "DEBUG",
+            "class": "logging.FileHandler",
+            "filename": "/var/log/semkov/app.log",
         },
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-        },
-        'null': {
-            'class': 'logging.NullHandler',
-        },
+        "console": {"level": "DEBUG", "class": "logging.StreamHandler"},
+        "null": {"class": "logging.NullHandler"},
     },
-    'loggers': {
-        '': {
-            'handlers': ['console', 'file'],
-            'level': 'WARNING',
-            'propagate': True,
-            'formatter': 'verbose',
+    "loggers": {
+        "": {
+            "handlers": ["file"],
+            "level": "WARNING",
+            "propagate": True,
+            "formatter": "verbose",
         },
-        'django': {
-            'handlers': ['file'],
-            'level': 'WARNING',
-            'propagate': True,
-            'formatter': 'simple',
+        "django": {
+            "handlers": ["file"],
+            "level": "WARNING",
+            "propagate": True,
+            "formatter": "simple",
         },
-        'django.template': {
-            'handlers': ['null'],
-        },
-        'django.db.backends': {
-            'handlers': ['null'],
-        },
+        "django.template": {"handlers": ["null"]},
+        "django.db.backends": {"handlers": ["null"]},
     },
 }
 

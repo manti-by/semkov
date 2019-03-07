@@ -86,6 +86,10 @@ main article hr {
 
 .route .days {
     max-width: 7rem;
+    text-align: right;
+}
+
+.route th.days {
     text-align: center;
 }
 
