@@ -12,18 +12,24 @@ logger = logging.getLogger()
 
 
 class ContactResource(Resource):
-
     @resource_wrapper
     def post(self, request):
         meta = {}
-        for item in ['HTTP_ACCEPT_LANGUAGE', 'HTTP_REFERER', 'HTTP_USER_AGENT']:
+        for item in ["HTTP_ACCEPT_LANGUAGE", "HTTP_REFERER", "HTTP_USER_AGENT"]:
             meta[item] = request.META.get(item)
 
-        e = Email(name=request.POST.get('name'),
-                  contact=request.POST.get('contact'),
-                  subject=_('Submission request from Semkov app'),
-                  message=request.POST.get('message'),
-                  meta=json.dumps({'cookies': request.COOKIES, 'meta': meta}))
+        e = Email(
+            name=request.POST.get("name"),
+            contact=request.POST.get("contact"),
+            subject=_("Submission request from Semkov app"),
+            message=request.POST.get("message"),
+            meta=json.dumps({"cookies": request.COOKIES, "meta": meta}),
+        )
         e.save()
-        return JsonResponse({'status': 200,
-                             'message': _('Thanks for submission, we\'ll get in touch soon')}, status=200)
+        return JsonResponse(
+            {
+                "status": 200,
+                "message": _("Thanks for submission, we'll get in touch soon"),
+            },
+            status=200,
+        )

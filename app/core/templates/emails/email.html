@@ -20,21 +20,21 @@
             width: 60%;
             max-width: 800px;
             margin: 0 auto;
-            padding: 0 0 10px 0;
+            padding: 0 0 30px 0;
             background: #FFF;
         }
 
         h1 {
-            padding: 20px;
-            margin-bottom: 8px;
+            padding: 20px 30px;
+            margin-bottom: 20px;
             font-size: 24px;
             font-weight: normal;
             color: #FFF;
-            background: #3498db;
+            background: #ff6f61;
         }
 
         .row {
-            padding: 5px 20px;
+            padding: 10px 30px;
         }
 
         .footer {
@@ -49,11 +49,12 @@
     <div class="email">
         <div class="container">
             <h1>{{ email.subject }} </h1>
-            <div class="row"><strong>{% trans 'From' %}</strong>:
+            <div class="row">
+                <strong>{% trans 'From' %}</strong>:
                 {% if email.name %}
-                    {{ email.name }} &lt;{{ email.email }}&gt;
+                    {{ email.name }} &lt;{{ email.contact }}&gt;
                 {% else %}
-                    {{ email.email }}
+                    {{ email.contact }}
                 {% endif %}
             </div>
             <div class="row"><strong>{% trans 'Message' %}</strong>:</div>
