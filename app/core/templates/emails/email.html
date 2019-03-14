@@ -11,37 +11,55 @@
             width: 100%;
             padding: 10px 0;
             margin: 0;
-            font-family: Arial, Tahoma, Verdana;
+            font-family: Arial, Tahoma, Verdana, sans-serif;
             font-size: 18px;
             background: #EEE;
         }
 
         .container {
-            width: 60%;
-            max-width: 800px;
+            width: 90%;
+            max-width: 600px;
             margin: 0 auto;
-            padding: 0 0 30px 0;
-            background: #FFF;
+            padding: 15px 0;
         }
 
         h1 {
-            padding: 20px 30px;
-            margin-bottom: 20px;
+            margin: 0;
+            padding: 30px;
             font-size: 24px;
             font-weight: normal;
             color: #FFF;
             background: #ff6f61;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+        }
+
+        .body {
+            padding: 20px 0 10px 0;
+            background: #FFF;
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+
+        .image {
+            width: 90%;
+            margin: 0 30px 10px 30px;
+            padding-bottom: 20px;
+            text-align: center;
+            border-bottom: 1px solid #EEE;
         }
 
         .row {
-            padding: 10px 30px;
+            padding: 15px 30px;
         }
 
         .footer {
-            padding: 10px 0;
+            margin: 10px 30px 0 30px;
+            padding: 15px 0 10px;
             color: #999;
             text-align: center;
             font-size: 12px;
+            border-top: 1px solid #EEE;
         }
     </style>
 </head>
@@ -49,16 +67,103 @@
     <div class="email">
         <div class="container">
             <h1>{{ email.subject }} </h1>
-            <div class="row">
-                <strong>{% trans 'From' %}</strong>:
-                {% if email.name %}
-                    {{ email.name }} &lt;{{ email.contact }}&gt;
-                {% else %}
-                    {{ email.contact }}
-                {% endif %}
+            <div class="body">
+                <div class="image">
+                    <img src="data:image/png;base64,
+                        iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAACXBIWXMAAA3XAAAN1wFCKJt4AAAA
+                        B3RJTUUH4wMOCSk7AeeDLwAAECNJREFUeNrtnXl01NUVxz8zmQSSIKsBIYCo4AYqdFFrbVVQFKyi
+                        tVpREU+1uz2VLnpc2tPauqBWbatdbK1LtZtgRRQraiuKgCAoq4pACFVBCFERQpq1f9z7/L35ZZLM
+                        JLP8fjPve87vEJJMfu/d9959d78R8g+lQCUwCjgAGAEMByqAffUpBXroA/A/ffYCNfrsALYAm4Eq
+                        YAPwLrAnn4gVCfn4Y8Bg4BjgOP33QGAAUJzmdzUBtcBbwHJgsT7v6M/cBsgSeulCT9LnUCCa5ALu
+                        0qceaLQWLqYbpifQW59YEn+zBXgDmA88BSwCdrsNkH6UAycA5wKTlZ0nGnsd8B6wFlgDbFT2Xa2n
+                        t0EXvhlo1QVEN1AEKNKNUAL01+tjBHAQMAYYDQwCyhK8u1WvjXnAI8CCfLsucoGDgZt1AVsTPI3A
+                        QuAG4Ay9+6MZHE9U3zFJ3/mCyg6JxlYNzFQO5ZDivX4S8LieWD9hdwB/Ac4HBmZ4wZPhoAOBqcBD
+                        yn38423QuUzIgFySdws/BVhisWjz1AGzgLOAfgGeQx8d4yPK/u05NOvczkpSvigYRIFTgZcSnJ5N
+                        wHXA0BDOawhwtaqP/nktAU7LMfcKBEYDj6k0bp+UZcBFKvyFHWV6XS31cbYmYK7SoODQSwWkOt/J
+                        eC2PWaS54pb75rwXuEVpkveIACcD63xEqAIuVvUr31ECTNPrzabB68AphN841y5Kgdt9kn0d8FOg
+                        bwFywb469z0+jeHOPLn64nAUsMK34xcARzgZmDHA84hRytDmVaVZXrD8qYgVzkxuNzADzxHjINfC
+                        d4GPLDrVAheEWVMoAW71Sb6vAePcenfIKV/zaUS3hVE26q2GmxZrIg/o9x06p919xPsrHkWMTKEx
+                        gCyxdnE9cLkzeqSEKPBtpZ2h48uI6zvQGA6ssgZdg3jvHLqGSUpDQ8/VwP5BHewoYD3xZlx333cf
+                        49ROYuj6ltI6cCf/Td8gR7q1SxsO8h2u9UHiBEN8bH9VkNlUiOG/XlcHQSboo8JJIHdmnm4CmxMs
+                        yaV2UKKqnm3Pd2w/O9eBLRPMzoWdIIIYeYyev9MJfFkXDGssO8FtZNmJNNUyVNQ7VS9nKqKxEzTr
+                        mmQFR+HZ9psRI49DbnC5dRBrgSMz/cIy4r169+MsfLlEFDEbm/VYQeKQ9bTd+3cS79hxtv3cozfx
+                        DqQ7MiUPnIIXzLEbGOtoHxiMxXMlNyBRV2lFLyRkyUidVziaBw5XWFxgHWmOMbyF+EgeF8wRPPTQ
+                        tTHrNDNdf3gMErnaisSvjXG0DiyOwIu0riOJkPPOwq+jwI1I1ixqcFjj6JxTlKrgV4mY3SuB/ZBk
+                        1j7Ah/o7pcBNSJh9S1dfdipe0sYmCjN6N5coR1LhvwL8GgkerSY+UKSjpwmY2NWXx5B8d/PHLi4g
+                        wsf0RFWQvRDtYsSXciHwK8TRs5u2eZLJLLqdabWoI07fkb54FvBP/fpV4FhVMfJZiPoCcB7wKSQJ
+                        tUjv0reAJ5G4xm1pel8UqTUwAcmGPh6pRdCeY8ekw9cgHsENyg3+C2xF/DG79HeiiJNorLWWc1I9
+                        ASaur1n/QD7jeGBlEqfrfSRWr6gbiz4GuBKpLdDQwbv2qrz1IPB91e2HpGDkOdviHktIMd1uvPXh
+                        peRvOnMEuIT4HMUWpAbBUuBFpMqIXQSiGbg7RZoM0EVc0c6itwAf6B3/E5W99usm3WNIkq0Z8/hU
+                        Pvy4NbgL8vjkT/QJVIuRtO1S3yY5DLjHd7fOSOHUP9vOoq9VfX18hgTsC633JX0FHGLt0o3kYZ6a
+                        ogwvd78FuKsTA1cEmG5xg/dVBesMRUgZm1b97GLgB0rnTHPWcl1DYyI+OJkPzbR2zdV5fPq/Zs3z
+                        GZKLqoko+0+VPkOBS/X+z7b39BprvDcns2OqLUtSZZ4ufkQX3dyPn0nhsyMt+WghwXeHV1oyTnVn
+                        HH2ytVtm5dmiR3XylcCnge06z82k5j4tVrXQFKzqGYK527Gbkzr6xfutX8wH1a8cOF3v9+UqafuF
+                        sfld4B4LLb08DDLS2dZ8/9TeL/XCK3P2HuE2+45CAiO2EZ93n+i5twt//0cqVP0nJCpyX4vjbWtv
+                        055iEeuhkC58hQppe0hcVHKtqkN/RGzrN9O1CmRRlQXKQkSbhy2NJ2HAyO0Wsc4PoVB3BvC2b9E/
+                        0Il/UY0xRRQuplp0+UUiq9FaS1cdGKKJFavq2uBb+OsR06mDYKBFozX+q2u4pdq8SHgqVZUBfyfe
+                        uvY4Lj2tvWtroaX6DrN/eJ5FxBtCJOE/Snwhihm4erwd4UaLXufaP7DDvSeHZDc/YI35Q1X3HDrG
+                        6cSHj38MU6d3D8G3/kWAay2NZRfdiHopMAy1NKSF9j26DS/sK+imzZPwglQb/KzMoVPOucmyB5QZ
+                        o4mRDucGfAJ2fkIr4jt3SA1PWIdnZEwNGkZwWh3wwV+F14FjAUl4tyw19wAkbLo34sp9BnGSFBpW
+                        qyxgYhD5lnWiLg3wwEfgpT/tJfn8hNNoW6q9FQm8LERcZtHgmzElrMHmAA/8e3jpTnfReX5CFPGF
+                        /7gd1bC8QDeAvcYjYogRyKA6oIOuQBpIgFj57kjiMxch1biNULtM77/tSGjX7ALdAPYaDwd4zhIK
+                        +gdssDEkdPoqi23dncTn+iMNHU2c/NUUth/AT5tGpc2z4IVD7yS3XSuKdLHPRCxWTyLFkHZZOn8L
+                        ErPfGb5ubZi/4YpY+DWpnXg1Hj4+KVVkP+u3BInJn6mDaaRj3/1qkovdm2ttmE+6NY9DD7wqY2/H
+                        8Hza9SopZ8MYMRqJsP0S4pRIdEIbVV3bgES2bkL6BXaWnRTDq1i2FfFyOnho1rUGKItZJ6qRbmSR
+                        JoEIkgb1Q8Sa55fMm5AUtIX6rEG6d9d3YYNV6NdvI+5tBw9GLjLc4ONkhxVkzg08DvhXAl18F+K+
+                        vQQpexpN00b7nZ7+y9x6J6SPKfTVmOkNUKJ6+G7iffZvIq7bTDmeohRIG7Z0bADjHVqVZmm5H57d
+                        2a4iPh3ns88lilSYNt5f3sfrW5fOCNdfEp/p+nNgH0f/QNhWjEOtNqa7oC+S4FBkCQjdxSGW1HkO
+                        MM/RPjAcwCSz1EXVKADiJUsna26xpM4Vju6BQTFegc+aKFJxwmyAdJYd326xnEGO7oFBiX8D7LAW
+                        Kp2+gHXW159wdA8MBliy3o4oYmwxSGc49cvW1yc4ugcG9hpvieLzD6fxRSut62Ui4ciiLQQcYH29
+                        OYo4BgzS2fLlAyRsC6TezXhH+0DgIOvrqihinGnUb6S7DOzD+m8EqcgRcfTPOcwaNyKOtoyGhfdU
+                        GcMEnBzm6J9zG4BxBW/Fym42OWOZSAyxo3nuc2uQU7RJDDGn/RX9t4z0N4K417IJTEV6DjnkBmOt
+                        U7/M3gCLrF86Ls0vrcEL4uxBciFdDpmBvbb2mjOM+PTwdMfQlQG/RRI6+7t1yAk6TA+3C0Q0EK4C
+                        EQ7JYRAJCkSYk94EPK1fFyOhWw75hQl4zr6ndc3jWP1TujtAyqY75BfMmrbqWrdBOV6ZuO247iD5
+                        hH60UybO5gB78II2KoATHd3yBifiRUrP07VOiHwuFVvImE07pWIjCa6BdUjS4F6keMQ7AZnEMOAb
+                        Ksg0ILbsesTpZJ4a4F0kxqHZkmkKGZWIv6cUMcsf3hEHgPhy8dcEaCL/oPOWLi0q3e5Bson+DfwB
+                        MUefg3TX7k9hOaWuJYVy8RDchhE3kXoHrUQbpBbJQ/wz0sbleKTfXj4mkJbj1QRK2DCivZMwB8nS
+                        BcmzfzgAkylC/Aj7ICblYsTC2F+l3H5q7BiCxB8MUMEnmUBX06BpMdK3Z2mArr7u4CLd6CAZWFOS
+                        /aDdNGoZ4WsaFdXNUYGkpX0ZuA5JLl2l8kJH3KQOiWi6FSmi3TuEi9+tplExPQ352jauPxKo+lWV
+                        EdbQcWr6dtWKphEeX4bdNm5xVw7xFIsAr5LekPGgoUi5xZlIf+RXSFxyvhUpVPUY4toeEND5lKic
+                        Y8Y8passpFBbx0aR4ImpeN1CEzWe2Kk/Pylg1+R0a4wvdWdsE/Gyh6soXPNwCeJMuQsvpMr/vI5k
+                        PO+X47H2RSK9u9082pyEOdYkr3d2Fcr0xN+D5zvxt5e9RzWWXKiWPyO+WWS3xzAar+1YHVJt00HQ
+                        C+mu8hzxXUVN7v0TwOeyOJ4jfGt1eLr+sG0dXED2i0mFQWY4DKk+uoO27dznI9lRmeQIPZCG1ClZ
+                        /VLZ6etIvW9uIWJfpc/mBBxhLpnLk5xhvWstGbDgnoxnIt5N+qOH8w09kRpFr/s2QoPaHoal8V1j
+                        8crwNNBOV7DuIoJE95qJrCScFrJcCI2X4jVxNk+Nntru5kz2wSv2aTqBRDI5meXWy+7HlWBNFuXA
+                        lXhVOs3zCnB0F/9mEfGtc1aQhV6GRyIeNWMm/o5b25RQCfwerw29kdhv6MLiXY5n7q3NpoY21Xpx
+                        PeFoNBU0fBavXJt5lqWwiJOU9uYgZrXZZwTxlBnz6E688qwOyaMUaXtj11H8ECmc2ZHKOM66Slp0
+                        LbIe5FJCfFvyKtJbX6CQcDTipm61TvRv2rkSRhJvjp5FDh11vYElxBeCdF07u4Z9VD204xSeJ963
+                        sL/S2Px8cRA0scG+3bvabYIuI6oq40cWPd9ATLr741X4NJVdBwdl4MOR+r82J3DXQfeuhC0WPbci
+                        1TzM/9cH8ZCN9G2CKlyzhu7gQCQQx+9tXI+E6wcSw33XwU5cT9/uYBrxgSirwnC9DvYJhvWIschZ
+                        DJNHkdKs3qLjy0G685PRDmZZu7cZeBDnO0gGfRATe7Ol58/W74cKJWqgsNWalTiDUUcYS7xjp1lp
+                        GNqA3AgSk19rTWo30gXUBZV46AFcQbxFsBYxuedFGtuRtLV7v6DfL3SMQaKsbGFvBXkYelcK3I4X
+                        VGK8YNdTmNHGfXXudcQHi9xJFly6ubwSJhAfXtaKhE9NJ7+TT2zZ6GLahpevRSJ5CiJzuRwJWvRn
+                        36xEUprysalUTOfmvwrrkKDbguxmfjiSZmXn5bUgfvFpeUKUMhXmlvk0oiYkY3d0oQtBUSQDdyFt
+                        zZ6bkKzeYSGc1xCka/nGBPNahGTsuKbWPhZ5JuLibErAJmcrC+0XcMHubOCRBNdbs85tCuFLt88q
+                        ipCqVnN8GoN5dgB/VbY6MMenKKJjmAo8ROJUsQadywS38KnjYKQ0zGYSJ2Q2ItmvNyr3GJrhDWGy
+                        hifrO19sZ5O2AtUq6B4adLUsLFrD54FzlfgD2xl7nZ7CdUjwxEbdPNWIZ9JUF7Pt7GZhI8p9ilVV
+                        G4B43kYgru4xKrQOakdPN4Uk5ukV8AKdVONyG6Drm+EYJCp2EpKTl8ypb0K6le9CvGxNeK1yipU9
+                        90QcVr2TZNctSObPfKT86qIwLHrYN4BfcBwEHIuEWR+NNEUakAFbQpNykQ1IcswifbaSvna7bgOk
+                        AaWqgo1CWqSNQAJVKpDEzX2VhffAc0j9T586JGWrRoXNLXqFVOl18m7YTnhn+D9wIKE1NMoFuQAA
+                        AABJRU5ErkJggg==" alt="logo"/>
+                </div>
+                <div class="row">
+                    <strong>{% trans 'From' %}</strong>:
+                    {% if email.name %}
+                        {{ email.name }}, {{ email.contact }}
+                    {% else %}
+                        {{ email.contact }}
+                    {% endif %}
+                </div>
+                <div class="row">
+                    <strong>{% trans 'Message' %}</strong>:
+                </div>
+                <div class="row">
+                    {{ email.message|safe }}
+                </div>
+                <div class="footer">
+                    {% trans 'Created' %}: {{ email.created }}
+                </div>
             </div>
-            <div class="row"><strong>{% trans 'Message' %}</strong>:</div>
-            <div class="row">{{ email.message|safe }}</div>
         </div>
     </div>
 </body>

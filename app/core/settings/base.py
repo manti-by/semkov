@@ -179,6 +179,7 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "localhost"
 EMAIL_PORT = 25
 
+FROM_EMAIL = "no-reply@main.by"
 CONTACT_EMAIL = "manti.by@gmail.com"
 
 # Static compressor settings
