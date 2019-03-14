@@ -15,8 +15,8 @@ MEDIA_ROOT = "/srv/semkov/src/app/media"
 
 CACHES = {
     "default": {
-        "BACKEND": "django.core.cache.backends.memcached.MemcachedCache",
-        "LOCATION": "semkov-memcache:11211",
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake',
     }
 }
 

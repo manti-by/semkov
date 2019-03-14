@@ -1,17 +1,11 @@
 version: '3.3'
 services:
-  semkov-memcache:
-    image: memcached:latest
-    container_name: semkov-memcache
-    logging:
-      driver: "none"
   semkov-app:
+    network_mode: host
     image: mantiby/semkov:latest
     container_name: semkov-app
     ports:
       - "8898:8898"
-    links:
-      - semkov-memcache
     volumes:
       - /home/manti/www/sg.manti.by/src/:/srv/semkov/src/
       - /home/manti/www/sg.manti.by/log/:/var/log/semkov/
