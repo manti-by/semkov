@@ -1,0 +1,25 @@
+version: 2
+jobs:
+  build:
+    working_directory: /srv/semkov/src
+
+    docker:
+      - image: mantiby/semkov:latest
+
+    steps:
+      - checkout
+
+      - run:
+          name: Install base dependencies
+          command: pip install -r prod.txt
+          working_directory: /srv/semkov/src/deploy/requirements
+
+      - run:
+          name: Run flake8
+          command: flake8
+          working_directory: /srv/semkov/src/app
+
+      - run:
+          name: Run migrations
+          command: python manage.py migrate --settings=core.settings.test
+          working_directory: /srv/semkov/src/app

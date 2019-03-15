@@ -31,6 +31,12 @@ static:
 bash:
 	docker exec -it semkov-app bash
 
+send_email:
+	docker exec -it semkov-app python manage.py send_email
+
+ci:
+	circleci build
+
 check:
 	black --py36 app/
 	isort app/*.py

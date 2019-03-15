@@ -2,5 +2,8 @@
 
 app/static/
 
+app/db.sqlite3
+app/db-test.sqlite3
+
 *.pyc
 *~
