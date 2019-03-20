@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-14 09:53+0000\n"
+"POT-Creation-Date: 2019-03-20 09:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,11 +20,27 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: app/api/resources.py:24
+#: app/ads/templates/ads/ads_form.html:5
+msgid "Add new advertisement"
+msgstr "Добавить новое объявление"
+
+#: app/ads/templates/ads/ads_form.html:10
+msgid "Title"
+msgstr "Заголовок"
+
+#: app/ads/templates/ads/ads_form.html:14
+msgid "Advertisement"
+msgstr "Объявление"
+
+#: app/ads/templates/ads/ads_form.html:17
+msgid "Submit"
+msgstr "Отправить"
+
+#: app/api/resources.py:25
 msgid "Submission request from Semkov app"
 msgstr "Сообщение из Семкова Городка"
 
-#: app/api/resources.py:32
+#: app/api/resources.py:33 app/api/resources.py:46
 msgid "Thanks for submission, we'll get in touch soon"
 msgstr "Спасибо за сообщение, мы скоро свяжемся с вами"
 
@@ -36,16 +52,16 @@ msgstr "Русский"
 msgid "English"
 msgstr "Английский"
 
-#: app/core/templates/emails/email.html:150
+#: app/core/templates/emails/email.html:75
 msgid "From"
 msgstr "От"
 
-#: app/core/templates/emails/email.html:158
+#: app/core/templates/emails/email.html:83
 #: app/core/templates/tags/header.html:47
 msgid "Message"
 msgstr "Сообщение"
 
-#: app/core/templates/emails/email.html:164
+#: app/core/templates/emails/email.html:89
 msgid "Created"
 msgstr "Создано"
 
@@ -94,12 +110,12 @@ msgstr "Закрыть"
 msgid "Home"
 msgstr "Домашняя"
 
-#: app/home/templates/home/category_model.html:18
+#: app/home/templates/home/category_model.html:21
 #: app/pages/templates/pages/page_model.html:26
 msgid "Updated"
 msgstr "Обновлено"
 
-#: app/home/templates/home/category_model.html:24
+#: app/home/templates/home/category_model.html:27
 msgid "Read More"
 msgstr "Подробнее"
 

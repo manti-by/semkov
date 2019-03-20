@@ -12,6 +12,7 @@ logger = logging.getLogger()
 
 
 class ContactResource(Resource):
+
     @resource_wrapper
     def post(self, request):
         meta = {}
@@ -26,6 +27,19 @@ class ContactResource(Resource):
             meta=json.dumps({"cookies": request.COOKIES, "meta": meta}),
         )
         e.save()
+        return JsonResponse(
+            {
+                "status": 200,
+                "message": _("Thanks for submission, we'll get in touch soon"),
+            },
+            status=200,
+        )
+
+
+class AdsResource(Resource):
+
+    @resource_wrapper
+    def post(self, request):
         return JsonResponse(
             {
                 "status": 200,

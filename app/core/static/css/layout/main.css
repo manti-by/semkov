@@ -122,3 +122,15 @@ main article hr {
     padding: .75rem .5rem;
     white-space: pre-line;
 }
+
+.card.form {
+    max-width: 600px;
+}
+
+.card.form h3 {
+    margin-bottom: 1.5rem;
+}
+
+.card.form .card-body {
+    padding: 1rem 2rem 2rem;
+}

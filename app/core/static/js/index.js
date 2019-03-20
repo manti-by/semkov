@@ -5,6 +5,7 @@
     $(document).ready(() => {
         $.initHeader();
         $.initContact();
+        $.initAjaxForms();
     });
 
 })(jQuery);

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-14 09:53+0000\n"
+"POT-Creation-Date: 2019-03-20 09:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: app/api/resources.py:24
+#: app/ads/templates/ads/ads_form.html:5
+msgid "Add new advertisement"
+msgstr ""
+
+#: app/ads/templates/ads/ads_form.html:10
+msgid "Title"
+msgstr ""
+
+#: app/ads/templates/ads/ads_form.html:14
+msgid "Advertisement"
+msgstr ""
+
+#: app/ads/templates/ads/ads_form.html:17
+msgid "Submit"
+msgstr ""
+
+#: app/api/resources.py:25
 msgid "Submission request from Semkov app"
 msgstr ""
 
-#: app/api/resources.py:32
+#: app/api/resources.py:33 app/api/resources.py:46
 msgid "Thanks for submission, we'll get in touch soon"
 msgstr ""
 
@@ -34,16 +50,16 @@ msgstr ""
 msgid "English"
 msgstr ""
 
-#: app/core/templates/emails/email.html:150
+#: app/core/templates/emails/email.html:75
 msgid "From"
 msgstr ""
 
-#: app/core/templates/emails/email.html:158
+#: app/core/templates/emails/email.html:83
 #: app/core/templates/tags/header.html:47
 msgid "Message"
 msgstr ""
 
-#: app/core/templates/emails/email.html:164
+#: app/core/templates/emails/email.html:89
 msgid "Created"
 msgstr ""
 
@@ -92,12 +108,12 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: app/home/templates/home/category_model.html:18
+#: app/home/templates/home/category_model.html:21
 #: app/pages/templates/pages/page_model.html:26
 msgid "Updated"
 msgstr ""
 
-#: app/home/templates/home/category_model.html:24
+#: app/home/templates/home/category_model.html:27
 msgid "Read More"
 msgstr ""
 

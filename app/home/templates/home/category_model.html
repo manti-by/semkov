@@ -9,6 +9,9 @@
         {% if page.text %}
             <div>{{ page.text|safe }}</div>
         {% endif %}
+        {% if 'ads' in page.url %}
+            {% include 'ads/ads_form.html' %}
+        {% endif %}
         {% for child in page.get_children.specific %}
             <article>
                 <h2>
