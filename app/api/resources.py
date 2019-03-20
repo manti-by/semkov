@@ -14,7 +14,6 @@ logger = logging.getLogger()
 
 
 class ContactResource(Resource):
-
     @resource_wrapper
     def post(self, request):
         meta = {}
@@ -39,11 +38,9 @@ class ContactResource(Resource):
 
 
 class AdsResource(Resource):
-
     @resource_wrapper
     def post(self, request):
-        a = AdsModel(title=request.POST.get("title"),
-                     text=request.POST.get("text"))
+        a = AdsModel(title=request.POST.get("title"), text=request.POST.get("text"))
         a.save()
         return JsonResponse(
             {
@@ -55,11 +52,11 @@ class AdsResource(Resource):
 
 
 class LoginResource(Resource):
-
     @resource_wrapper
     def post(self, request):
-        user = authenticate(username=request.POST.get("email"),
-                            password=request.POST.get("password"))
+        user = authenticate(
+            username=request.POST.get("email"), password=request.POST.get("password")
+        )
         if user is None:
             return JsonResponse(
                 {

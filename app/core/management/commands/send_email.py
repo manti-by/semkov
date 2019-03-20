@@ -14,13 +14,12 @@ logger = logging.getLogger()
 
 
 class Command(BaseCommand):
-
     @staticmethod
     def logo_data():
-        with open(finders.find('img/appicon/128x128.png'), 'rb') as f:
+        with open(finders.find("img/appicon/128x128.png"), "rb") as f:
             logo_data = f.read()
         logo = MIMEImage(logo_data)
-        logo.add_header('Content-ID', '<logo>')
+        logo.add_header("Content-ID", "<logo>")
         return logo
 
     def handle(self, *args, **options):
@@ -33,9 +32,9 @@ class Command(BaseCommand):
                     email.subject,
                     body=text_content,
                     from_email=settings.DEFAULT_FROM_EMAIL,
-                    to=(settings.DEFAULT_TO_EMAIL,)
+                    to=(settings.DEFAULT_TO_EMAIL,),
                 )
-                message.mixed_subtype = 'related'
+                message.mixed_subtype = "related"
                 message.attach_alternative(html_content, "text/html")
                 message.attach(self.logo_data())
                 message.send(fail_silently=False)

@@ -94,7 +94,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "core.wsgi.application"
 
-AUTHENTICATION_BACKENDS = ['core.auth.EmailBackend']
+AUTHENTICATION_BACKENDS = ["core.auth.EmailBackend"]
 
 
 # Database
