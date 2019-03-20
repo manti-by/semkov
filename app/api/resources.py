@@ -43,16 +43,16 @@ class AdsResource(Resource):
     def post(self, request):
         if not request.user.is_authenticated:
             return JsonResponse(
-                {
-                    "status": 403,
-                    "message": _("Please login first"),
-                },
-                status=200,
+                {"status": 403, "message": _("Please login first")}, status=200
             )
 
-        ads_category = Page.objects.get(slug='ads')
-        ads_page = AdsModel(title=request.POST.get("title"), text=request.POST.get("text"),
-                            owner=request.user, live=False)
+        ads_category = Page.objects.get(slug="ads")
+        ads_page = AdsModel(
+            title=request.POST.get("title"),
+            text=request.POST.get("text"),
+            owner=request.user,
+            live=False,
+        )
         ads_category.add_child(instance=ads_page)
         ads_page.save()
         return JsonResponse(
@@ -69,11 +69,7 @@ class LoginResource(Resource):
     def post(self, request):
         if request.user.is_authenticated:
             return JsonResponse(
-                {
-                    "status": 400,
-                    "message": _("Already logged in"),
-                },
-                status=200,
+                {"status": 400, "message": _("Already logged in")}, status=200
             )
 
         user = authenticate(
@@ -90,9 +86,5 @@ class LoginResource(Resource):
 
         login(request, user)
         return JsonResponse(
-            {
-                "status": 200,
-                "message": _("Successfully logged in"),
-            },
-            status=200,
+            {"status": 200, "message": _("Successfully logged in")}, status=200
         )

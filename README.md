@@ -1,13 +1,13 @@
 # Semkov Gorodok blog  
 
-[![CircleCI](https://circleci.com/bb/manti_by/semkov.svg?style=svg)](https://circleci.com/bb/manti_by/semkov)
-[![Docker](https://img.shields.io/docker/automated/mantiby/semkov.svg)](https://hub.docker.com/r/mantiby/semkov/)
+[![CircleCI](https://img.shields.io/circleci/project/bitbucket/manti_by/semkov/master.svg)](https://circleci.com/bb/manti_by/semkov)
+[![Docker](https://img.shields.io/docker/cloud/build/mantiby/semkov.svg)](https://hub.docker.com/r/mantiby/semkov/)
 
 ## About  
 
 [![Code style: black](https://img.shields.io/badge/wagtail-2.4-green.svg)](https://pypi.org/project/wagtail/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
-[![License](https://img.shields.io/badge/license-BSD-blue.svg)](https://bitbucket.org/manti_by/semkov/raw/1b21fb9955126a4d43d5fe996ef9ed30a4b4eec6/LICENSE)  
+[![License](https://img.shields.io/badge/license-BSD-blue.svg)](https://bitbucket.org/manti_by/semkov/raw/c61190bd891b532908a64fdbdb1cd53a7f259c87/LICENSE)  
 
 Author: Alexander Chaika <manti.by@gmail.com>  
 
