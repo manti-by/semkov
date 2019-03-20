@@ -1,3 +1,7 @@
+.btn {
+    min-width: 7.5rem;
+}
+
 .btn-primary {
     background-color: #ff6f61;
     border-color: #ff6f61;
@@ -52,4 +56,62 @@
 .show>.btn-outline-primary.dropdown-toggle {
     background-color: #ff6f61;
     border-color: #ff6f61;
+}
+
+.modal-content {
+    padding: 1.5rem;
+}
+
+.modal-header,
+.modal-body,
+.modal-footer {
+    padding: 0;
+}
+
+.modal-header {
+    padding-bottom: .5rem;
+}
+
+.modal-body {
+    padding: .75rem 0;
+}
+
+.modal-footer {
+    padding-top: .75rem;
+}
+
+.modal-footer>:not(:first-child) {
+    margin-left: .5rem;
+}
+
+.modal-footer>:not(:last-child) {
+    margin-right: .5rem;
+}
+
+.modal-body .form-group:last-child {
+    margin-bottom: 0;
+}
+
+.modal.fade .modal-dialog {
+     transform: scale(1);
+     top: 400px;
+     opacity: 0;
+     transition: all .4s;
+}
+
+.modal.fade.show .modal-dialog {
+    transform: scale(1);
+    transform: translate3d(0, -300px, 0);
+    opacity: 1;
+}
+
+.modal-open {
+  overflow: inherit;
+  padding-right: 0 !important;
+}
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        max-width: 750px;
+    }
 }

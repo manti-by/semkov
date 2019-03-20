@@ -55,3 +55,7 @@ header.active {
 header .login {
     margin-right: 1rem;
 }
+
+.modal-dialog form {
+    max-width: 500px;
+}
