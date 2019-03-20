@@ -7,7 +7,7 @@
      */
 
     $.initAjaxForms = () => {
-        $('form.ajax').on('submit', (e) => {
+        $('form.ajax').on('submit', (e, callback) => {
             e.preventDefault();
 
             let form = $(e.currentTarget),
@@ -18,7 +18,11 @@
             });
 
             $.post(form.attr('action'), data, (response) => {
-                alert(response['message']);
+                if (callback !== undefined) {
+                    callback(response);
+                } else {
+                    alert(response['message']);
+                }
             });
         });
     };

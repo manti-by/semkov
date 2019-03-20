@@ -6,11 +6,12 @@
                 {% main_menu True %}
             </div>
             <div class="contact col-3 text-right">
-                <a href="/dashboard/login/" class="login">
+                <button type="button" class="btn btn-sm btn-light login-button {% if user.is_authenticated %}d-none{% endif %}"
+                        data-toggle="modal" data-target="#login-modal">
                     {% trans 'Login' %}
-                </a>
+                </button>
                 <button type="button" class="btn btn-sm btn-outline-primary"
-                        data-toggle="modal" data-target="#contactModal">
+                        data-toggle="modal" data-target="#contact-modal">
                     {% trans 'Contact Us' %}
                 </button>
             </div>
@@ -18,17 +19,47 @@
     </div>
 </header>
 
-<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModal" aria-hidden="true">
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="login-modal" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">{% trans 'Contact' %}</h5>
+                <h5 class="modal-title" id="login-modal-label">{% trans 'Login' %}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form id="login-form" action="{% url 'api-login' %}" class="ajax">
+                    <div class="form-group">
+                        <label for="ads-email">{% trans 'Email' %}</label>
+                        <input type="email" name="email" class="form-control" id="ads-email">
+                    </div>
+                    <div class="form-group">
+                        <label for="ads-password">{% trans 'Password' %}</label>
+                        <input type="password" name="password" class="form-control" id="ads-password">
+                    </div>
+                    <a href="#">{% trans "Don't have an account" %}?</a>
+                </form>
+            </div>
+            <div class="modal-footer justify-content-start">
+                <button id="login-button" type="button" class="btn btn-primary">{% trans 'Login' %}</button>
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">{% trans 'Close' %}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="contact-modal" tabindex="-1" role="dialog" aria-labelledby="contact-modal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="contact-modal-label">{% trans 'Contact' %}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="contact-form" action="{% url 'api-contact' %}" class="ajax">
                     <div class="form-group">
                         <label for="name">{% trans 'Name' %}</label>
                         <input id="name" name="name" type="text" class="form-control"
@@ -49,8 +80,8 @@
                     </div>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button id="send" type="button" class="btn btn-primary">{% trans 'Send' %}</button>
+            <div class="modal-footer justify-content-start">
+                <button id="contact-button" type="button" class="btn btn-primary">{% trans 'Send' %}</button>
                 <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">{% trans 'Close' %}</button>
             </div>
         </div>

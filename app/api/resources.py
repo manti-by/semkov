@@ -1,10 +1,12 @@
 import json
 import logging
 
+from django.contrib.auth import authenticate, login
 from django.http import JsonResponse
 from django.utils.translation import ugettext_lazy as _
 from djrest.resource import Resource
 
+from ads.models import AdsModel
 from api.utils import resource_wrapper
 from core.models import Email
 
@@ -40,6 +42,34 @@ class AdsResource(Resource):
 
     @resource_wrapper
     def post(self, request):
+        a = AdsModel(title=request.POST.get("title"),
+                     text=request.POST.get("text"))
+        a.save()
+        return JsonResponse(
+            {
+                "status": 200,
+                "message": _("Thanks for submission, we'll post it after moderation"),
+            },
+            status=200,
+        )
+
+
+class LoginResource(Resource):
+
+    @resource_wrapper
+    def post(self, request):
+        user = authenticate(username=request.POST.get("email"),
+                            password=request.POST.get("password"))
+        if user is None:
+            return JsonResponse(
+                {
+                    "status": 403,
+                    "message": _("Can't find user with provided credentials"),
+                },
+                status=200,
+            )
+
+        login(request, user)
         return JsonResponse(
             {
                 "status": 200,

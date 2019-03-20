@@ -39,6 +39,6 @@ def main_menu(show_index=False, is_homepage=False):
     }
 
 
-@register.inclusion_tag("tags/header.html")
-def header():
-    return {}
+@register.inclusion_tag("tags/header.html", takes_context=True)
+def header(context):
+    return context

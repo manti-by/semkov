@@ -94,6 +94,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "core.wsgi.application"
 
+AUTHENTICATION_BACKENDS = ['core.auth.EmailBackend']
+
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
