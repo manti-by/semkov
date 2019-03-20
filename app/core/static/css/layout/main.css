@@ -22,7 +22,6 @@ main article hr {
     width: 100%;
     height: 100vh;
     margin: 0;
-    font-family: 'Josefin Slab', serif;
     overflow: hidden;
     background-repeat: repeat;
 }
@@ -48,6 +47,32 @@ main article hr {
 }
 
 .home .main-menu li {
+    position: relative;
+    list-style: none;
+    padding: 0 0 .5rem .25rem;
+}
+
+.home .main-menu li:first-child {
+    padding-left: 0;
+}
+
+.home .main-menu li li:before {
+    content: ' ';
+    position: absolute;
+    display: block;
+    width: .375rem;
+    height: .375rem;
+    top: .375rem;
+    left: -1.125rem;
+    border-radius: 3px;
+    background-color:  #ff6f61;
+}
+
+.home .main-menu li li:first-child:before {
+    display: none;
+}
+
+.home .main-menu li {
     display: block;
     margin-bottom: 1rem;
 }
@@ -60,7 +85,7 @@ main article hr {
     position: relative;
     display: block;
     height: auto;
-    padding: 0;
+    padding: 1rem 0 0;
     background: transparent;
     box-shadow: none;
     opacity: 1;
@@ -68,7 +93,7 @@ main article hr {
 
 .home .main-menu li:hover ul {
     height: auto;
-    padding: 0;
+    padding: 1rem 0 0;
 }
 
 .home .main-menu li li {
@@ -76,7 +101,7 @@ main article hr {
 }
 
 .home .main-menu li li a {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: #5C5C5C;
 }
 

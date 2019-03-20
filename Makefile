@@ -22,6 +22,9 @@ start:
 stop:
 	docker-compose -f deploy/docker-compose.yml stop
 
+restart:
+	stop start
+
 destroy:
 	docker-compose -f deploy/docker-compose.yml down
 
