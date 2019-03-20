@@ -12,7 +12,7 @@
         {% if 'ads' in page.url %}
             {% include 'ads/ads_form.html' %}
         {% endif %}
-        {% for child in page.get_children.specific %}
+        {% for child in page.get_children.live.specific %}
             <article>
                 <h2>
                     <a href="{{ child.url }}">{{ child.title }}</a>

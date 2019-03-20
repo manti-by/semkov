@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-20 09:14+0000\n"
+"POT-Creation-Date: 2019-03-20 14:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,35 +20,59 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: app/ads/templates/ads/ads_form.html:5
+#: app/ads/templates/ads/ads_form.html:6
 msgid "Add new advertisement"
 msgstr "Добавить новое объявление"
 
 #: app/ads/templates/ads/ads_form.html:10
+msgid "Please login first to have ability to add advertisements"
+msgstr "Пожалуйста войдите на сайт, чтобы добавить объявление"
+
+#: app/ads/templates/ads/ads_form.html:15
 msgid "Title"
 msgstr "Заголовок"
 
-#: app/ads/templates/ads/ads_form.html:14
+#: app/ads/templates/ads/ads_form.html:19
 msgid "Advertisement"
 msgstr "Объявление"
 
-#: app/ads/templates/ads/ads_form.html:17
+#: app/ads/templates/ads/ads_form.html:22
 msgid "Submit"
 msgstr "Отправить"
 
-#: app/api/resources.py:25
+#: app/api/resources.py:27
 msgid "Submission request from Semkov app"
 msgstr "Сообщение из Семкова Городка"
 
-#: app/api/resources.py:33 app/api/resources.py:46
+#: app/api/resources.py:35
 msgid "Thanks for submission, we'll get in touch soon"
 msgstr "Спасибо за сообщение, мы скоро свяжемся с вами"
 
-#: app/core/settings/base.py:132
+#: app/api/resources.py:48
+msgid "Please login first"
+msgstr "Пожалуйста войдите на сайт"
+
+#: app/api/resources.py:61
+msgid "Thanks for submission, we'll post it after moderation"
+msgstr "Спасибо за ваше объявление, мы опубликуем его после модерации"
+
+#: app/api/resources.py:74
+msgid "Already logged in"
+msgstr "Вход уже выполнен"
+
+#: app/api/resources.py:86
+msgid "Can't find user with provided credentials"
+msgstr "Не могу найти пользователя с такими данными"
+
+#: app/api/resources.py:95
+msgid "Successfully logged in"
+msgstr "Вход произведен успешно"
+
+#: app/core/settings/base.py:134
 msgid "Russian"
 msgstr "Русский"
 
-#: app/core/settings/base.py:132
+#: app/core/settings/base.py:134
 msgid "English"
 msgstr "Английский"
 
@@ -57,7 +81,7 @@ msgid "From"
 msgstr "От"
 
 #: app/core/templates/emails/email.html:83
-#: app/core/templates/tags/header.html:47
+#: app/core/templates/tags/header.html:78
 msgid "Message"
 msgstr "Сообщение"
 
@@ -69,42 +93,57 @@ msgstr "Создано"
 msgid "Days"
 msgstr "Дни недели"
 
-#: app/core/templates/tags/header.html:10
+#: app/core/templates/tags/header.html:11
+#: app/core/templates/tags/header.html:26
+#: app/core/templates/tags/header.html:45
 msgid "Login"
 msgstr "Войти"
 
-#: app/core/templates/tags/header.html:14
+#: app/core/templates/tags/header.html:15
 msgid "Contact Us"
 msgstr "Связаться"
 
-#: app/core/templates/tags/header.html:25
+#: app/core/templates/tags/header.html:34
+msgid "Email"
+msgstr ""
+
 #: app/core/templates/tags/header.html:38
+msgid "Password"
+msgstr "Пароль"
+
+#: app/core/templates/tags/header.html:41
+msgid "Don't have an account"
+msgstr "Нет аккаунта"
+
+#: app/core/templates/tags/header.html:46
+#: app/core/templates/tags/header.html:85
+msgid "Close"
+msgstr "Закрыть"
+
+#: app/core/templates/tags/header.html:56
+#: app/core/templates/tags/header.html:69
 msgid "Contact"
 msgstr "Контакт"
 
-#: app/core/templates/tags/header.html:33
+#: app/core/templates/tags/header.html:64
 msgid "Name"
 msgstr "Имя"
 
-#: app/core/templates/tags/header.html:35
+#: app/core/templates/tags/header.html:66
 msgid "Enter your name"
 msgstr "Ваше имя"
 
-#: app/core/templates/tags/header.html:41
+#: app/core/templates/tags/header.html:72
 msgid "Enter your email or phone"
 msgstr "Как с Вами связаться"
 
-#: app/core/templates/tags/header.html:43
+#: app/core/templates/tags/header.html:74
 msgid "We'll never share your email or phone with anyone else."
 msgstr "Мы не раскрываем эту информацию третьим лицам"
 
-#: app/core/templates/tags/header.html:53
+#: app/core/templates/tags/header.html:84
 msgid "Send"
 msgstr "Отправить"
-
-#: app/core/templates/tags/header.html:54
-msgid "Close"
-msgstr "Закрыть"
 
 #: app/core/templates/tags/main_menu.html:7
 msgid "Home"

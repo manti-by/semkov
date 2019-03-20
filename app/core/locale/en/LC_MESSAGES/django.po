@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-20 09:14+0000\n"
+"POT-Creation-Date: 2019-03-20 14:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,35 +18,59 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: app/ads/templates/ads/ads_form.html:5
+#: app/ads/templates/ads/ads_form.html:6
 msgid "Add new advertisement"
 msgstr ""
 
 #: app/ads/templates/ads/ads_form.html:10
+msgid "Please login first to have ability to add advertisements"
+msgstr ""
+
+#: app/ads/templates/ads/ads_form.html:15
 msgid "Title"
 msgstr ""
 
-#: app/ads/templates/ads/ads_form.html:14
+#: app/ads/templates/ads/ads_form.html:19
 msgid "Advertisement"
 msgstr ""
 
-#: app/ads/templates/ads/ads_form.html:17
+#: app/ads/templates/ads/ads_form.html:22
 msgid "Submit"
 msgstr ""
 
-#: app/api/resources.py:25
+#: app/api/resources.py:27
 msgid "Submission request from Semkov app"
 msgstr ""
 
-#: app/api/resources.py:33 app/api/resources.py:46
+#: app/api/resources.py:35
 msgid "Thanks for submission, we'll get in touch soon"
 msgstr ""
 
-#: app/core/settings/base.py:132
+#: app/api/resources.py:48
+msgid "Please login first"
+msgstr ""
+
+#: app/api/resources.py:61
+msgid "Thanks for submission, we'll post it after moderation"
+msgstr ""
+
+#: app/api/resources.py:74
+msgid "Already logged in"
+msgstr ""
+
+#: app/api/resources.py:86
+msgid "Can't find user with provided credentials"
+msgstr ""
+
+#: app/api/resources.py:95
+msgid "Successfully logged in"
+msgstr ""
+
+#: app/core/settings/base.py:134
 msgid "Russian"
 msgstr ""
 
-#: app/core/settings/base.py:132
+#: app/core/settings/base.py:134
 msgid "English"
 msgstr ""
 
@@ -55,7 +79,7 @@ msgid "From"
 msgstr ""
 
 #: app/core/templates/emails/email.html:83
-#: app/core/templates/tags/header.html:47
+#: app/core/templates/tags/header.html:78
 msgid "Message"
 msgstr ""
 
@@ -67,41 +91,56 @@ msgstr ""
 msgid "Days"
 msgstr ""
 
-#: app/core/templates/tags/header.html:10
+#: app/core/templates/tags/header.html:11
+#: app/core/templates/tags/header.html:26
+#: app/core/templates/tags/header.html:45
 msgid "Login"
 msgstr ""
 
-#: app/core/templates/tags/header.html:14
+#: app/core/templates/tags/header.html:15
 msgid "Contact Us"
 msgstr ""
 
-#: app/core/templates/tags/header.html:25
+#: app/core/templates/tags/header.html:34
+msgid "Email"
+msgstr ""
+
 #: app/core/templates/tags/header.html:38
-msgid "Contact"
-msgstr ""
-
-#: app/core/templates/tags/header.html:33
-msgid "Name"
-msgstr ""
-
-#: app/core/templates/tags/header.html:35
-msgid "Enter your name"
+msgid "Password"
 msgstr ""
 
 #: app/core/templates/tags/header.html:41
+msgid "Don't have an account"
+msgstr ""
+
+#: app/core/templates/tags/header.html:46
+#: app/core/templates/tags/header.html:85
+msgid "Close"
+msgstr ""
+
+#: app/core/templates/tags/header.html:56
+#: app/core/templates/tags/header.html:69
+msgid "Contact"
+msgstr ""
+
+#: app/core/templates/tags/header.html:64
+msgid "Name"
+msgstr ""
+
+#: app/core/templates/tags/header.html:66
+msgid "Enter your name"
+msgstr ""
+
+#: app/core/templates/tags/header.html:72
 msgid "Enter your email or phone"
 msgstr ""
 
-#: app/core/templates/tags/header.html:43
+#: app/core/templates/tags/header.html:74
 msgid "We'll never share your email or phone with anyone else."
 msgstr ""
 
-#: app/core/templates/tags/header.html:53
+#: app/core/templates/tags/header.html:84
 msgid "Send"
-msgstr ""
-
-#: app/core/templates/tags/header.html:54
-msgid "Close"
 msgstr ""
 
 #: app/core/templates/tags/main_menu.html:7
