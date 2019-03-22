@@ -10,11 +10,6 @@ jobs:
       - checkout
 
       - run:
-          name: Install base dependencies
-          command: pip install -r prod.txt
-          working_directory: /srv/semkov/src/deploy/requirements
-
-      - run:
           name: Run flake8
           command: flake8
           working_directory: /srv/semkov/src/app
