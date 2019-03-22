@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     "home",
     "pages",
     "search",
+    "user",
     "wagtail.api.v2",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
@@ -94,7 +95,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "core.wsgi.application"
 
-AUTHENTICATION_BACKENDS = ["core.auth.EmailBackend"]
+AUTH_USER_MODEL = "user.User"
+
+# WAGTAIL_USER_EDIT_FORM = "user.forms.CustomUserEditForm"
+# WAGTAIL_USER_CREATION_FORM = "user.forms.CustomUserCreationForm"
+# WAGTAIL_USER_CUSTOM_FIELDS = ["identifier", "id_address"]
 
 
 # Database

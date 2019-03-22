@@ -23,3 +23,8 @@ jobs:
           name: Run migrations
           command: python manage.py migrate --settings=core.settings.test
           working_directory: /srv/semkov/src/app
+
+      - run:
+          name: Run tests
+          command: pytest
+          working_directory: /srv/semkov/src/app

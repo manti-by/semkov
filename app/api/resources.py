@@ -1,7 +1,7 @@
 import json
 import logging
 
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
 from django.utils.translation import ugettext_lazy as _
 from djrest.resource import Resource
@@ -10,6 +10,7 @@ from wagtail.core.models import Page
 from ads.models import AdsModel
 from api.utils import resource_wrapper
 from core.models import Email
+from user.models import User
 
 logger = logging.getLogger()
 
@@ -64,6 +65,47 @@ class AdsResource(Resource):
         )
 
 
+class RegisterResource(Resource):
+    @staticmethod
+    def ip_address(request):
+        x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
+        if x_forwarded_for:
+            return x_forwarded_for.split(",")[-1].strip()
+        else:
+            return request.META.get("REMOTE_ADDR")
+
+    @resource_wrapper
+    def post(self, request):
+        if request.user.is_authenticated:
+            return JsonResponse(
+                {"status": 400, "message": _("Already logged in")}, status=200
+            )
+
+        user = User.objects.create(
+            identifier=request.POST.get("identifier"),
+            password=request.POST.get("password"),
+            ip_address=self.ip_address(request),
+        )
+        if user is None:
+            return JsonResponse(
+                {
+                    "status": 403,
+                    "message": _("Can't create user with provided credentials"),
+                },
+                status=200,
+            )
+
+        return JsonResponse(
+            {
+                "status": 200,
+                "message": _(
+                    "Account successfully created, please wait for activation"
+                ),
+            },
+            status=200,
+        )
+
+
 class LoginResource(Resource):
     @resource_wrapper
     def post(self, request):
@@ -87,4 +129,13 @@ class LoginResource(Resource):
         login(request, user)
         return JsonResponse(
             {"status": 200, "message": _("Successfully logged in")}, status=200
+        )
+
+
+class LogoutResource(Resource):
+    @resource_wrapper
+    def get(self, request):
+        logout(request)
+        return JsonResponse(
+            {"status": 200, "message": _("Successfully logged out")}, status=200
         )
