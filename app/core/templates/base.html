@@ -48,7 +48,11 @@
             <link rel="stylesheet" type="text/css" href="{% static 'css/layout/main.css' %}">
             <link rel="stylesheet" type="text/css" href="{% static 'css/layout/footer.css' %}">
             <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+
             {% block extra_css %}{% endblock %}
+
+            <link rel="stylesheet" type="text/css" href="{% static 'css/responsive/375.css' %}">
+            <link rel="stylesheet" type="text/css" href="{% static 'css/responsive/992.css' %}">
         {% endcompress %}
     </head>
 

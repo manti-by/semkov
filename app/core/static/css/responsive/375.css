@@ -1,0 +1,13 @@
+@media (min-width: 375px) {
+
+    header .mobile-menu .opened,
+    header .mobile-menu .show .closed {
+        display: none;
+    }
+
+    header .mobile-menu .show .closed {
+        display: inline;
+    }
+
+
+}

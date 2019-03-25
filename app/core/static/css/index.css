@@ -63,3 +63,7 @@ table td {
     padding: .5rem;
     vertical-align: sub;
 }
+
+ul {
+    padding: 0;
+}

@@ -3,15 +3,18 @@
 {% load static wagtailimages_tags core_tags %}
 
 {% block content %}
-
 <main class="row home justify-content-md-center">
-    <div class="col-5 left">
+    <div class="col-12 col-md-5 left">
         <h1>{{ page.title }}</h1>
         {% main_menu False True %}
     </div>
-    <div class="col-7 right">
+    <div class="col-12 col-md-7 right">
         {% image page.image width-600 as page_image %}
         <img src="{{ page_image.url }}" alt="Image">
     </div>
 </main>
 {% endblock content %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/pages/home.css' %}">
+{% endblock %}

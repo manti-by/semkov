@@ -1,0 +1,38 @@
+.route .days {
+    max-width: 7rem;
+    text-align: right;
+}
+
+.route th.days {
+    text-align: center;
+}
+
+.route .day {
+    position: relative;
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background: #ff6f61;
+    border-radius: .125rem;
+}
+
+.route .day.active {
+    background: forestgreen;
+}
+
+.route .day label {
+    position: absolute;
+    display: none;
+    padding: .25rem;
+    background: #fff;
+    z-index: 10;
+}
+
+.route .day:hover label {
+    display: block;
+}
+
+.ispolkom td {
+    padding: .75rem .5rem;
+    white-space: pre-line;
+}
