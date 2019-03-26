@@ -1,0 +1,40 @@
+@media (min-width: 768px) {
+
+    h1 {
+        font-size: 2.75rem;
+    }
+
+    main {
+        margin-top: 5rem;
+    }
+
+    .home {
+        flex-direction: inherit;
+    }
+
+    .home .right {
+        background: #EEEEEE;
+    }
+
+    .home .main-menu li {
+        display: block;
+        margin-bottom: 1rem;
+    }
+
+    .home .main-menu li:first-child {
+        padding-left: 0;
+    }
+
+    .home .main-menu li li:before {
+        width: .375rem;
+        height: .375rem;
+        top: .375rem;
+        left: -1.125rem;
+        border-radius: 3px;
+    }
+
+    .home .main-menu li li:first-child:before {
+        display: none;
+    }
+
+}

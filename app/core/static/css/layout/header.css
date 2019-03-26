@@ -6,7 +6,6 @@ header {
     font-size: calc(15rem / 16);
     z-index: 1000;
     transition: all .4s;
-    background: #fefefe;
 }
 
 header.active {
@@ -19,18 +18,36 @@ header .login {
     margin-right: 1rem;
 }
 
-.modal-dialog form {
+header .modal-dialog form {
     max-width: 500px;
 }
 
-.mobile-menu .dropdown-menu {
+header .mobile-menu .dropdown-menu {
     min-width: 320px;
     margin-left: auto;
     margin-right: auto;
     padding: 1rem 1.5rem;
 }
 
-.mobile-menu .dropdown-menu li {
+header .mobile-menu .dropdown-menu li {
     display: block;
     margin-bottom: .5rem;
+}
+
+header .mobile-menu .opened,
+header .mobile-menu .show .closed {
+    display: none;
+}
+
+header .mobile-menu .show .closed {
+    display: inline;
+}
+
+header .mobile-menu .btn {
+    min-width: 0;
+    margin-right: 1rem;
+}
+
+header .mobile-menu .dropdown-toggle::after {
+    display: none;
 }
