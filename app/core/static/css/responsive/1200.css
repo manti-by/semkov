@@ -1,0 +1,13 @@
+@media (min-width: 1200px) {
+
+    .home h1 {
+        margin-bottom: 5rem;
+        font-size: 6rem;
+        line-height: .9;
+    }
+
+    .home .main-menu li a {
+        font-size: 2.5rem;
+    }
+
+}

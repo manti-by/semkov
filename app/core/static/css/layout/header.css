@@ -32,6 +32,8 @@ header .mobile-menu .dropdown-menu {
 header .mobile-menu .dropdown-menu li {
     display: block;
     margin-bottom: .5rem;
+    max-width: 100%;
+    flex: 0 0 100%;
 }
 
 header .mobile-menu .opened,

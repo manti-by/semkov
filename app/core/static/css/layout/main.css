@@ -6,10 +6,6 @@ main article .excerpt {
     padding: .5em 0;
 }
 
-main article .text {
-    max-width: 80%;
-}
-
 main article hr {
     margin: 2rem 0 1rem 0;
 }

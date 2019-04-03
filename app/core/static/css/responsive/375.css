@@ -1,3 +1,22 @@
 @media (min-width: 375px) {
+    .home h1 {
+        padding-top: 0;
+    }
+    
+    .home .main-menu li {
+        display: block;
+        margin-bottom: .5rem;
+    }
 
+    .home .main-menu li li {
+        padding-left: 1rem;
+    }
+
+    .home .main-menu li li:before {
+        width: .375rem;
+        height: .375rem;
+        top: .375rem;
+        left: .125rem;
+        border-radius: 3px;
+    }
 }
