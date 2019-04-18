@@ -4,49 +4,47 @@
         font-size: 2.75rem;
     }
 
-    main {
-        margin-top: 5rem;
-    }
-
-    main article .text {
-        max-width: 80%;
-    }
-
-    .main-menu {
+    header .main-menu {
         margin: 0;
         padding: .25rem 0;
         border:  1px solid transparent;
     }
 
-    .main-menu li {
+    header .main-menu li {
         position: relative;
         display: inline;
         margin-right: 2rem;
         overflow: visible;
     }
 
-    .main-menu li ul {
+    header .main-menu li ul {
         position: absolute;
         left: 0;
-        top: 100%;
-        height: 0;
         padding: 0;
+        min-width: 20rem;
         background: #ffffff;
         box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
         opacity: 0;
-        transition: all .8s;
+        transition: all .6s;
     }
 
-    .main-menu li ul li {
+    header .main-menu li ul li {
         display: block;
         margin-bottom: .25rem;
     }
 
-    .main-menu li:hover ul {
-        height: auto;
-        min-width: 25rem;
-        padding: 1rem 2rem;
+    header .main-menu li:hover ul {
+        display: block;
+        padding: 1rem 1.5rem;
         opacity: 1;
+    }
+
+    main {
+        margin-top: 5rem;
+    }
+
+    main article .text {
+        max-width: 80%;
     }
 
     .home h1 {
@@ -61,12 +59,8 @@
         margin-bottom: 1rem;
     }
 
-    .home .main-menu li li:first-child {
-        padding-left: 1rem;
-    }
-
-    .home .main-menu li li:first-child:before {
-        display: block;
+    .home .main-menu li li {
+        display: inline;
     }
 
 }

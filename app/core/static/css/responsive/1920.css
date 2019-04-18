@@ -1,0 +1,14 @@
+@media (min-width: 1920px) {
+
+    .home .main-menu li li {
+        width: auto;
+    }
+
+    .home .main-menu li li:first-child {
+        padding-left: 0;
+    }
+
+    .home .main-menu li li:first-child:before {
+        display: none;
+    }
+}

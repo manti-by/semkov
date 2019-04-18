@@ -13,3 +13,12 @@ class User(AbstractUser):
     )
     is_active = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
+
+    @classmethod
+    def authenticate(cls, identifier=None, password=None):
+        try:
+            user = cls.objects.get(identifier=identifier)
+            if user.check_password(password):
+                return user
+        except cls.DoesNotExist:
+            return None

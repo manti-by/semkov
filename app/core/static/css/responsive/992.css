@@ -15,6 +15,11 @@
     }
 
     .home .right {
+        padding-left: 0;
+    }
+
+
+    .home .right {
         background: #EEEEEE;
     }
 
@@ -28,17 +33,26 @@
         line-height: .9;
     }
 
+    .home .main-menu ul {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
     .home .main-menu li a {
         font-size: 2rem;
     }
 
+    .home .main-menu li li {
+        width: 50%;
+    }
+
     .home .main-menu li li a {
-        font-size: 1.25rem;
+        font-size: 1.125rem;
     }
 
     .home .main-menu li li:before {
-        left: .125rem;
-        top: .625rem;
+        left: -.25rem;
+        top: .5rem;
     }
 
 }

@@ -14,9 +14,9 @@
             {{ item.title }}
         </a>
         {% if item.children %}
-            <ul class="row">
+            <ul>
             {% for child in item.children %}
-                <li class="col-6 col-md-12">
+                <li>
                     <a href="{{ child.url }}">
                         {{ child.title }}
                     </a>

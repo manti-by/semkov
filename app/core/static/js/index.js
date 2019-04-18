@@ -19,6 +19,7 @@
                 $('#login-modal').modal('hide');
                 $('.login-alert').remove();
                 $('.login-button').addClass('d-none');
+                alert(response['message']);
             });
         });
     });

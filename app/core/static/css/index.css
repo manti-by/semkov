@@ -31,11 +31,12 @@ h3 {
 
 a {
     color: #3F3F3F;
+    text-decoration: none;
 }
 
 a:hover {
-    text-decoration: none;
     color: #ff6f61;
+    text-decoration: none;
 }
 
 p {

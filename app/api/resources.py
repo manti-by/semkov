@@ -1,7 +1,7 @@
 import json
 import logging
 
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import login, logout
 from django.http import JsonResponse
 from django.utils.translation import ugettext_lazy as _
 from djrest.resource import Resource
@@ -81,19 +81,12 @@ class RegisterResource(Resource):
                 {"status": 400, "message": _("Already logged in")}, status=200
             )
 
-        user = User.objects.create(
+        user = User(
             identifier=request.POST.get("identifier"),
-            password=request.POST.get("password"),
             ip_address=self.ip_address(request),
         )
-        if user is None:
-            return JsonResponse(
-                {
-                    "status": 403,
-                    "message": _("Can't create user with provided credentials"),
-                },
-                status=200,
-            )
+        user.set_password(request.POST.get("password"))
+        user.save()
 
         return JsonResponse(
             {
@@ -114,8 +107,9 @@ class LoginResource(Resource):
                 {"status": 400, "message": _("Already logged in")}, status=200
             )
 
-        user = authenticate(
-            username=request.POST.get("email"), password=request.POST.get("password")
+        user = User.authenticate(
+            identifier=request.POST.get("identifier"),
+            password=request.POST.get("password"),
         )
         if user is None:
             return JsonResponse(

@@ -53,3 +53,8 @@ header .mobile-menu .btn {
 header .mobile-menu .dropdown-toggle::after {
     display: none;
 }
+
+header .mobile-menu .main-menu ul {
+    padding-top: .5rem;
+    opacity: .75;
+}
