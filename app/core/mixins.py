@@ -38,9 +38,15 @@ class ArticleMixin(Page):
 
     excerpt = RichTextField()
     text = RichTextField()
+    source_title = models.TextField(blank=True)
     source = models.URLField(blank=True)
 
-    content_panels = [FieldPanel("excerpt"), FieldPanel("text"), FieldPanel("source")]
+    content_panels = [
+        FieldPanel("excerpt"),
+        FieldPanel("text"),
+        FieldPanel("source_title"),
+        FieldPanel("source"),
+    ]
 
     def rendered_text(self):
         return wagtailcore_tags.richtext(self.text)

@@ -11,7 +11,7 @@ main article hr {
 }
 
 main article .text {
-    margin-bottom: 5rem;
+    margin-bottom: 2.5rem;
 }
 
 main article .read-more {
@@ -32,4 +32,8 @@ main article .info .col-12 {
 
 .card.form .card-body {
     padding: 1rem 2rem 2rem;
+}
+
+.card.ads-form {
+    margin-bottom: 1rem;
 }
