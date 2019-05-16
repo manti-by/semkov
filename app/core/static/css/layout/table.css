@@ -1,5 +1,5 @@
 .route .days {
-    max-width: 7rem;
+    max-width: 8rem;
     text-align: right;
 }
 
@@ -33,6 +33,6 @@
 }
 
 .ispolkom td {
-    padding: .75rem .5rem;
+    padding: .5rem .25rem;
     white-space: pre-line;
 }

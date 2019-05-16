@@ -4,29 +4,31 @@
 {% block content %}
 {% header %}
 <main>
-    <article class="container">
-        <h1>
-            {{ page.title }}
-        </h1>
-        {% if page.text %}
-            <div class="text">
-                {{ page.rendered_text|safe }}
+    <div class="container">
+        <article>
+            <h1>
+                {{ page.title }}
+            </h1>
+            {% if page.text %}
+                <div class="text">
+                    {{ page.rendered_text|safe }}
+                    {% if page.document %}
+                        <div>
+                            {%  document_table page.document page.tag_slugs %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+            <div class="row small info">
+                <div class="col-12 col-md-6">
+                    {% trans 'Source' %}: <a href="{{ page.source }}">{{ page.source }}</a>
+                </div>
+                <div class="col-12 col-md-6 text-md-right">
+                    {% trans 'Updated' %}: {{ page.last_published_at }}
+                </div>
             </div>
-        {% endif %}
-        {% if page.document %}
-            <div>
-                {%  document_table page.document page.tag_slugs %}
-            </div>
-        {% endif %}
-        <div class="row small">
-            <div class="col-6">
-                {% trans 'Source' %}: <a href="{{ page.source }}">{{ page.source }}</a>
-            </div>
-            <div class="col-6 text-right">
-                {% trans 'Updated' %}: {{ page.last_published_at }}
-            </div>
-        </div>
-    </article>
+        </article>
+    </div>
 </main>
 {% endblock content %}
 

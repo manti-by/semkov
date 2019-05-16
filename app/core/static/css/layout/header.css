@@ -8,6 +8,10 @@ header {
     transition: all .4s;
 }
 
+header ul {
+    padding: 0;
+}
+
 header.active {
     padding: 1rem 0;
     background: #fefefe;
@@ -43,6 +47,17 @@ header .mobile-menu .show .closed {
 
 header .mobile-menu .show .closed {
     display: inline;
+}
+
+header .mobile-menu .home {
+    padding: .25rem 0 0 1rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    visibility: hidden;
+}
+
+header.active .mobile-menu .home {
+    visibility: visible;
 }
 
 header .mobile-menu .btn {

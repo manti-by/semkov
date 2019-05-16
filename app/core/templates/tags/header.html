@@ -16,7 +16,12 @@
                 </button>
             </div>
         </div>
-        <div class="mobile-menu row justify-content-end d-md-none">
+        <div class="mobile-menu row justify-content-between d-md-none">
+            <div class="home">
+                <a href="/">
+                    {% trans 'Home' %}
+                </a>
+            </div>
             <div class="dropdown">
                 <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false" id="mobile-menu-button">
@@ -24,7 +29,7 @@
                     <img src="{% static 'svg/close.svg' %}" class="opened" alt="Close">
                 </button>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="mobile-menu-button">
-                    {% main_menu True %}
+                    {% main_menu False %}
                     <button type="button" class="btn btn-sm btn-light login-button {% if user.is_authenticated %}d-none{% endif %}"
                             data-toggle="modal" data-target="#login-modal">
                         {% trans 'Login' %}

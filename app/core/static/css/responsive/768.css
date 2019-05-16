@@ -43,8 +43,14 @@
         margin-top: 5rem;
     }
 
-    main article .text {
+    main article {
         max-width: 80%;
+    }
+
+    main article h1 {
+        padding-top: 1rem;
+        max-width: initial;
+        font-size: 2.5rem;
     }
 
     .home h1 {
@@ -52,6 +58,7 @@
     }
 
     .home .right img {
+        width: 90%;
         max-width: 500px;
     }
 

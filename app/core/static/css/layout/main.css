@@ -10,6 +10,18 @@ main article hr {
     margin: 2rem 0 1rem 0;
 }
 
+main article .text {
+    margin-bottom: 5rem;
+}
+
+main article .read-more {
+    color: #ff6f61;
+}
+
+main article .info .col-12 {
+    margin-bottom: 1rem;
+}
+
 .card.form {
     max-width: 600px;
 }
