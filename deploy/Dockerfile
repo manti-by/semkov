@@ -6,28 +6,31 @@ ENV PYTHONUNBUFFERED 1
 ENV DJANGO_SETTINGS_MODULE core.settings.prod
 
 # Update base image and clean it
-RUN apt-get update && apt-get autoremove --purge && apt-get clean
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get autoremove --purge && \
+    apt-get clean
 
 # Add directories
-RUN mkdir -p /srv/semkov/src/
-RUN mkdir -p /srv/semkov/static/
-RUN mkdir -p /var/log/semkov/
+RUN mkdir -p /srv/semkov/src/ && \
+    mkdir -p /srv/semkov/static/ && \
+    mkdir -p /var/log/semkov/
 
 # Get app from repo
 WORKDIR /srv/semkov/src/
-RUN git init
-RUN git remote add origin https://manti_by@bitbucket.org/manti_by/semkov.git
-RUN git pull origin master
+RUN git init && \
+    git remote add origin https://manti_by@bitbucket.org/manti_by/semkov.git && \
+    git pull origin master
 
 # Install any needed packages specified in requirements
-RUN pip install --trusted-host pypi.org --no-cache-dir --upgrade pip
-RUN pip install --trusted-host pypi.org --no-cache-dir -r deploy/requirements/prod.txt
+RUN pip install --trusted-host pypi.org --no-cache-dir --upgrade pip && \
+    pip install --trusted-host pypi.org --no-cache-dir -r deploy/requirements/prod.txt
 
 # Add wagtail system user
 RUN useradd wagtail -d /home/wagtail -m
-RUN chown -R wagtail /home/wagtail/
-RUN chown -R wagtail /srv/semkov/
-RUN chown -R wagtail /var/log/semkov/
+RUN chown -R wagtail /home/wagtail/ && \
+    chown -R wagtail /srv/semkov/ && \
+    chown -R wagtail /var/log/semkov/
 USER wagtail
 
 # Run gunicorn
