@@ -1,7 +1,7 @@
 {% load static wagtailuserbar compress i18n %}
 
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="ru">
     <head>
         <title>
             {% block title %}
@@ -13,7 +13,6 @@
                 {% endwith %}
             {% endblock %}
         </title>
-        <meta name="description" content="">
 
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,11 +20,23 @@
 
         <meta name="theme-color" content="#ff6f61">
         <meta name="application-name" content="Semkov Gorodok">
+        <meta name="description"
+              content="{% trans 'Semkov Gorodok - a village in Papernyansky village council of Minsk region of the Republic of Belarus' %}">
 
         <meta name="mobile-web-app-capable" content="yes">
+
+        {% block open-graph %}
+            <meta property="og:type" content="website">
+            <meta property="og:title"
+                  content="{% trans 'Semkov Gorodok' %}">
+            <meta property="og:description"
+                  content="{% trans 'Semkov Gorodok - a village in Papernyansky village council of Minsk region of the Republic of Belarus' %}">
+            <meta property="og:image" content="{% static 'img/semkov-gorodok.jpg' %}">
+        {% endblock %}
+
         <link rel="manifest" href="{% static "manifest.json" %}">
 
-        <link rel="icon" type="image/x-icon" href="{% static "img/appicon/favicon.ico" %}">
+        <link rel="icon" type="image/x-icon" href="{% static "favicon.ico" %}">
         <link rel="icon" type="image/png" sizes="18x18" href="{% static "img/appicon/18x18.png" %}">
         <link rel="icon" type="image/png" sizes="24x24" href="{% static "img/appicon/24x24.png" %}">
         <link rel="icon" type="image/png" sizes="36x36" href="{% static "img/appicon/36x36.png" %}">

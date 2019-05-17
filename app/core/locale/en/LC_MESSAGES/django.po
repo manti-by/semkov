@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-20 14:17+0000\n"
+"POT-Creation-Date: 2019-05-17 15:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,40 +38,58 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: app/api/resources.py:27
+#: app/api/resources.py:28
 msgid "Submission request from Semkov app"
 msgstr ""
 
-#: app/api/resources.py:35
+#: app/api/resources.py:36
 msgid "Thanks for submission, we'll get in touch soon"
 msgstr ""
 
-#: app/api/resources.py:48
+#: app/api/resources.py:47
 msgid "Please login first"
 msgstr ""
 
-#: app/api/resources.py:61
+#: app/api/resources.py:62
 msgid "Thanks for submission, we'll post it after moderation"
 msgstr ""
 
-#: app/api/resources.py:74
+#: app/api/resources.py:81 app/api/resources.py:107
 msgid "Already logged in"
 msgstr ""
 
-#: app/api/resources.py:86
+#: app/api/resources.py:95
+msgid "Account successfully created, please wait for activation"
+msgstr ""
+
+#: app/api/resources.py:118
 msgid "Can't find user with provided credentials"
 msgstr ""
 
-#: app/api/resources.py:95
+#: app/api/resources.py:125
 msgid "Successfully logged in"
 msgstr ""
 
-#: app/core/settings/base.py:134
+#: app/api/resources.py:134
+msgid "Successfully logged out"
+msgstr ""
+
+#: app/core/settings/base.py:142
 msgid "Russian"
 msgstr ""
 
-#: app/core/settings/base.py:134
+#: app/core/settings/base.py:142
 msgid "English"
+msgstr ""
+
+#: app/core/templates/base.html:24 app/core/templates/base.html:33
+msgid ""
+"Semkov Gorodok - a village in Papernyansky village council of Minsk region "
+"of the Republic of Belarus"
+msgstr ""
+
+#: app/core/templates/base.html:31
+msgid "Semkov Gorodok"
 msgstr ""
 
 #: app/core/templates/emails/email.html:75
@@ -79,7 +97,7 @@ msgid "From"
 msgstr ""
 
 #: app/core/templates/emails/email.html:83
-#: app/core/templates/tags/header.html:78
+#: app/core/templates/tags/header.html:103
 msgid "Message"
 msgstr ""
 
@@ -92,70 +110,73 @@ msgid "Days"
 msgstr ""
 
 #: app/core/templates/tags/header.html:11
-#: app/core/templates/tags/header.html:26
-#: app/core/templates/tags/header.html:45
+#: app/core/templates/tags/header.html:35
+#: app/core/templates/tags/header.html:51
+#: app/core/templates/tags/header.html:70
 msgid "Login"
 msgstr ""
 
 #: app/core/templates/tags/header.html:15
+#: app/core/templates/tags/header.html:39
 msgid "Contact Us"
 msgstr ""
 
-#: app/core/templates/tags/header.html:34
-msgid "Email"
-msgstr ""
-
-#: app/core/templates/tags/header.html:38
-msgid "Password"
-msgstr ""
-
-#: app/core/templates/tags/header.html:41
-msgid "Don't have an account"
-msgstr ""
-
-#: app/core/templates/tags/header.html:46
-#: app/core/templates/tags/header.html:85
-msgid "Close"
-msgstr ""
-
-#: app/core/templates/tags/header.html:56
-#: app/core/templates/tags/header.html:69
-msgid "Contact"
-msgstr ""
-
-#: app/core/templates/tags/header.html:64
-msgid "Name"
-msgstr ""
-
-#: app/core/templates/tags/header.html:66
-msgid "Enter your name"
-msgstr ""
-
-#: app/core/templates/tags/header.html:72
-msgid "Enter your email or phone"
-msgstr ""
-
-#: app/core/templates/tags/header.html:74
-msgid "We'll never share your email or phone with anyone else."
-msgstr ""
-
-#: app/core/templates/tags/header.html:84
-msgid "Send"
-msgstr ""
-
+#: app/core/templates/tags/header.html:22
 #: app/core/templates/tags/main_menu.html:7
 msgid "Home"
 msgstr ""
 
-#: app/home/templates/home/category_model.html:21
-#: app/pages/templates/pages/page_model.html:26
+#: app/core/templates/tags/header.html:59
+msgid "Email"
+msgstr ""
+
+#: app/core/templates/tags/header.html:63
+msgid "Password"
+msgstr ""
+
+#: app/core/templates/tags/header.html:66
+msgid "Don't have an account"
+msgstr ""
+
+#: app/core/templates/tags/header.html:71
+#: app/core/templates/tags/header.html:110
+msgid "Close"
+msgstr ""
+
+#: app/core/templates/tags/header.html:81
+#: app/core/templates/tags/header.html:94
+msgid "Contact"
+msgstr ""
+
+#: app/core/templates/tags/header.html:89
+msgid "Name"
+msgstr ""
+
+#: app/core/templates/tags/header.html:91
+msgid "Enter your name"
+msgstr ""
+
+#: app/core/templates/tags/header.html:97
+msgid "Enter your email or phone"
+msgstr ""
+
+#: app/core/templates/tags/header.html:99
+msgid "We'll never share your email or phone with anyone else."
+msgstr ""
+
+#: app/core/templates/tags/header.html:109
+msgid "Send"
+msgstr ""
+
+#: app/home/templates/home/category_model.html:22
+#: app/pages/templates/pages/page_model.html:27
 msgid "Updated"
 msgstr ""
 
-#: app/home/templates/home/category_model.html:27
+#: app/home/templates/home/category_model.html:28
 msgid "Read More"
 msgstr ""
 
-#: app/pages/templates/pages/page_model.html:23
+#: app/pages/templates/pages/page_model.html:24
 msgid "Source"
 msgstr ""
