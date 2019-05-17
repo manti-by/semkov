@@ -18,3 +18,9 @@ class SMS(models.Model):
     message = models.TextField()
     is_sent = models.BooleanField(blank=True, default=False)
     created = models.DateTimeField(auto_now_add=True)
+
+
+class BaseTest:
+    @classmethod
+    def setup_class(cls):
+        cls.host = "127.0.0.1:8000"

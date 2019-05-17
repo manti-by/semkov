@@ -1,9 +1,9 @@
-wagtail>=2.4,<2.5
+wagtail>=2.5,<2.6
 django_compressor>=2.2,<2.3
-django-htmlmin>=0.10.0,<0.11.0
+django-htmlmin>=0.11.0,<0.12.0
 git+https://github.com/manti-by/djrest.git#egg=djrest
 twilio>=6.25.1,<6.26.0
 
 flake8>=3.7.5,<3.8.0
-pytest>=4.3.1,<4.4.0
+pytest>=4.5.0,<4.6.0
 pytest-django>=3.4.8,<3.5.0

@@ -1,12 +1,10 @@
 import pytest
 
+from core.models import BaseTest
+
 
 @pytest.mark.django_db
-class UserTest:
-    @classmethod
-    def setup_class(cls):
-        cls.host = "127.0.0.1:8000"
-
+class UserTest(BaseTest):
     def test_user(self, client):
         response = client.post(
             "/api/register",
