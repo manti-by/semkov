@@ -1,17 +1,32 @@
 local:
-	../venv/bin/python ./app/manage.py runserver
+	python ./app/manage.py runserver
 
 migrate:
-	../venv/bin/python ./app/manage.py migrate
+	python ./app/manage.py migrate
 
 migration:
-	../venv/bin/python ./app/manage.py makemigrations
+	python ./app/manage.py makemigrations
 
 messages:
-	../venv/bin/python ./app/manage.py makemessages
+	python ./app/manage.py makemessages
 
 compile-messages:
-	../venv/bin/python ./app/manage.py compilemessages
+	python ./app/manage.py compilemessages
+
+venv:
+	virtualenv -p $(shell which python3) --no-site-packages --prompt='smk-' ../venv
+
+pip:
+	pip install -Ur deploy/requirements/dev.txt
+
+ci:
+	circleci build
+
+check:
+	black -t py37 app/
+	isort app/*.py
+	flake8
+
 
 build:
 	docker build -f deploy/Dockerfile -t mantiby/semkov:latest deploy/
@@ -36,11 +51,3 @@ bash:
 
 send_email:
 	docker exec -it semkov-app python manage.py send_email
-
-ci:
-	circleci build
-
-check:
-	black --py36 app/
-	isort app/*.py
-	flake8
