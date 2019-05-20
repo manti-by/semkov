@@ -5,14 +5,10 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('pages', '0005_pagemodel_source_title'),
-    ]
+    dependencies = [("pages", "0005_pagemodel_source_title")]
 
     operations = [
         migrations.AddField(
-            model_name='pagemodel',
-            name='map',
-            field=models.TextField(blank=True),
-        ),
+            model_name="pagemodel", name="map", field=models.TextField(blank=True)
+        )
     ]
