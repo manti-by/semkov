@@ -11,19 +11,26 @@
             </h1>
             {% if page.text %}
                 <div class="text">
+                    {% if page.map %}
+                        <div class="map">
+                            {{ page.map|safe }}
+                        </div>
+                    {% endif %}
                     {{ page.rendered_text|safe }}
                     {% if page.document %}
-                        <div>
+                        <div class="document">
                             {%  document_table page.document page.tag_slugs %}
                         </div>
                     {% endif %}
                 </div>
             {% endif %}
             <div class="row small info">
-                <div class="col-12 col-md-6">
-                    {% trans 'Source' %}: <a href="{{ page.source }}">{{ page.source_title }}</a>
-                </div>
-                <div class="col-12 col-md-6 text-md-right">
+                {% if page.source %}
+                    <div class="col-12 col-md-6">
+                        {% trans 'Source' %}: <a href="{{ page.source }}">{{ page.source_title }}</a>
+                    </div>
+                {% endif %}
+                <div class="col-12 col-md-6 {% if page.source %}text-md-right{% endif %}">
                     {% trans 'Updated' %}: {{ page.last_published_at }}
                 </div>
             </div>

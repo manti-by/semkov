@@ -26,10 +26,12 @@ class PageModel(MenuMixin, ImagesMixin, ArticleMixin, Page):
         related_name="+",
     )
 
+    map = models.TextField(blank=True)
+
     tags = ClusterTaggableManager(through="pages.PageTag", blank=True)
 
     content_panels = (
-        [DocumentChooserPanel("document"), FieldPanel("tags")]
+        [DocumentChooserPanel("document"), FieldPanel("map"), FieldPanel("tags")]
         + Page.content_panels
         + ArticleMixin.content_panels
         + ImagesMixin.content_panels

@@ -28,6 +28,13 @@ check:
 	flake8
 
 
+get-db:
+	scp amon-ra:/home/manti/www/sg.manti.by/src/app/db.sqlite3 app/db.sqlite3
+
+upload-db:
+	scp app/db.sqlite3 amon-ra:/home/manti/www/sg.manti.by/src/app/db.sqlite3
+
+
 build:
 	docker build -f deploy/Dockerfile -t mantiby/semkov:latest deploy/
 
