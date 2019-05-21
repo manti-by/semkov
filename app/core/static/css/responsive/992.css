@@ -24,7 +24,7 @@
     }
 
     .home .right img {
-        max-width: 90%;
+        max-width: 600px;
     }
 
     .home h1 {
@@ -38,12 +38,17 @@
         flex-wrap: wrap;
     }
 
+    .home .main-menu li {
+        margin-bottom: 2rem;
+    }
+
     .home .main-menu li a {
         font-size: 2rem;
     }
 
     .home .main-menu li li {
         width: 50%;
+        margin-bottom: 1rem;
     }
 
     .home .main-menu li li a {
