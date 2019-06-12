@@ -2,10 +2,10 @@
 <header>
     <div class="container">
         <div class="row d-none d-md-flex">
-            <div class="col-9">
+            <div class="col-9 col-md-7">
                 {% main_menu True %}
             </div>
-            <div class="contact col-3 text-right">
+            <div class="contact col-3 col-md-5 text-right">
                 <button type="button" class="btn btn-sm btn-light login-button {% if user.is_authenticated %}d-none{% endif %}"
                         data-toggle="modal" data-target="#login-modal">
                     {% trans 'Login' %}

@@ -1,5 +1,6 @@
 .home {
-    margin-top: 2rem;
+    max-width: 1920px;
+    margin: 2rem auto 0 auto;
     flex-direction: column-reverse;
 }
 

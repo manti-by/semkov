@@ -1,9 +1,7 @@
 @media (min-width: 375px) {
     
     main article h1 {
-        padding-top: .5rem;
         max-width: 300px;
-        font-size: 2rem;
     }
 
     .home h1 {
