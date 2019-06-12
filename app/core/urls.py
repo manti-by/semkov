@@ -4,6 +4,7 @@ from django.contrib import admin
 
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.core import urls as wagtail_urls
+from wagtail.contrib.sitemaps.views import sitemap
 from wagtail.documents import urls as wagtaildocs_urls
 
 from api.resources import (
@@ -25,6 +26,7 @@ urlpatterns = [
     url(r"^api/register/?$", RegisterResource.as_view(), name="api-register"),
     url(r"^api/login/?$", LoginResource.as_view(), name="api-login"),
     url(r"^api/logout/?$", LogoutResource.as_view(), name="api-logout"),
+    url(r"^sitemap\.xml$", sitemap),
     # For anything not caught by a more specific rule above, hand over to
     # Wagtail's page serving mechanism. This should be the last pattern in
     # the list:
