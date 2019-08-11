@@ -1,6 +1,4 @@
 wagtail>=2.5,<2.6
-django_compressor>=2.2,<2.3
-django-htmlmin>=0.11.0,<0.12.0
 git+https://github.com/manti-by/djrest.git#egg=djrest
 twilio>=6.25.1,<6.26.0
 

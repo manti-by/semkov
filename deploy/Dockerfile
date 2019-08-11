@@ -1,30 +1,23 @@
 # Use an official Python runtime as a parent image
-FROM python:3.7
+FROM python:3.7-slim
 
-# Set environment varibles
-ENV PYTHONUNBUFFERED 1
-ENV DJANGO_SETTINGS_MODULE core.settings.prod
-
-# Update base image and clean it
+# Install necessary system packages
 RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get autoremove --purge && \
-    apt-get clean
+    apt-get install -y --no-install-recommends git gcc linux-headers-generic
 
 # Add directories
 RUN mkdir -p /srv/semkov/src/ && \
     mkdir -p /srv/semkov/static/ && \
     mkdir -p /var/log/semkov/
 
-# Get app from repo
-WORKDIR /srv/semkov/src/
-RUN git init && \
-    git remote add origin https://manti_by@bitbucket.org/manti_by/semkov.git && \
-    git pull origin master
-
 # Install any needed packages specified in requirements
+COPY requirements/base.txt /tmp/base.txt
+COPY requirements/prod.txt /tmp/prod.txt
 RUN pip install --trusted-host pypi.org --no-cache-dir --upgrade pip && \
-    pip install --trusted-host pypi.org --no-cache-dir -r deploy/requirements/prod.txt
+    pip install --trusted-host pypi.org --no-cache-dir -r /tmp/prod.txt
+
+# Remove system packages after use
+RUN apt-get purge -y --auto-remove git gcc linux-headers-generic
 
 # Add wagtail system user
 RUN useradd wagtail -d /home/wagtail -m
