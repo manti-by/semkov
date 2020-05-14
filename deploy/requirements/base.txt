@@ -1,4 +1,4 @@
-wagtail>=2.5,<2.6
+wagtail>=2.7.3,<2.8.0
 git+https://github.com/manti-by/djrest.git#egg=djrest
 twilio>=6.25.1,<6.26.0
 
