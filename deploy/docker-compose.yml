@@ -4,6 +4,7 @@ services:
     network_mode: host
     image: mantiby/semkov:latest
     container_name: semkov-app
+    restart: always
     ports:
       - "8898:8898"
     volumes:
