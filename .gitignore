@@ -1,7 +1,9 @@
 #.gitignore
 
-app/static/
-app/db-test.sqlite3
+semkov/settings/local.py
+semkov/settings/prod.py
+
+.pytest_cache/
 
 *.pyc
 *~

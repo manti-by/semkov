@@ -1,0 +1,65 @@
+from .base import *
+
+DEBUG = False
+
+TEMPLATE_DEBUG = False
+
+COMPRESS_ENABLED = True
+
+SECRET_KEY = ""
+
+ALLOWED_HOSTS = ["127.0.0.1", "semkov-gorodok.by"]
+
+STATIC_ROOT = "/var/lib/semkov/static"
+MEDIA_ROOT = "/var/lib/semkov/media"
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": os.path.join("/var/lib/semkov/data", "db.sqlite3"),
+    }
+}
+
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+        "LOCATION": "unique-snowflake",
+    }
+}
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "file": {
+            "level": "DEBUG",
+            "class": "logging.FileHandler",
+            "filename": "/var/log/semkov/app.log",
+        },
+        "console": {"level": "DEBUG", "class": "logging.StreamHandler"},
+    },
+    "loggers": {
+        "": {
+            "handlers": ["file"],
+            "level": "WARNING",
+            "propagate": True,
+            "formatter": "verbose",
+        },
+        "django": {
+            "handlers": ["file"],
+            "level": "WARNING",
+            "propagate": True,
+            "formatter": "simple",
+        },
+        "wagtail": {
+            "handlers": ["file"],
+            "level": "WARNING",
+            "propagate": True,
+            "formatter": "simple",
+        },
+    },
+}
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "localhost"
+EMAIL_PORT = 25

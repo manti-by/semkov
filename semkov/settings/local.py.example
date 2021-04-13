@@ -1,0 +1,48 @@
+from .base import *
+
+DEBUG = True
+
+TEMPLATE_DEBUG = False
+
+COMPRESS_ENABLED = False
+
+SECRET_KEY = ""
+
+ALLOWED_HOSTS = ["*"]
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+STATIC_URL = "/static/"
+STATIC_ROOT = "/home/manti/www/semkov-gorodok.by/static"
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = "/home/manti/www/semkov-gorodok.by/media"
+
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {"level": "DEBUG", "class": "logging.StreamHandler"},
+    },
+    "loggers": {
+        "": {
+            "handlers": ["console"],
+            "level": "DEBUG",
+            "propagate": True,
+            "formatter": "verbose",
+        },
+        "django": {
+            "handlers": ["console"],
+            "level": "DEBUG",
+            "propagate": True,
+            "formatter": "simple",
+        },
+        "wagtail": {
+            "handlers": ["console"],
+            "level": "DEBUG",
+            "propagate": True,
+            "formatter": "simple",
+        },
+    },
+}

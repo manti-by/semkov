@@ -2,6 +2,6 @@
 exclude =
     .git,
     __pycache__
-    app/core/settings/
-max-line-length = 90
+    semkov/settings/
+max-line-length = 120
 max-complexity = 14

@@ -1,0 +1,19 @@
+version: '3.3'
+services:
+  semkov-app:
+    restart: always
+    network_mode: host
+    image: mantiby/semkov:latest
+    container_name: semkov-wagtail
+    ports:
+      - 8898:8898
+    volumes:
+      - /home/manti/www/semkov-gorodok.by/semkov/:/srv/semkov/src/
+      - /mnt/nostromo/www/semkov/data/:/var/lib/semkov/data/
+      - /mnt/nostromo/www/semkov/static/:/var/lib/semkov/static/
+      - /mnt/nostromo/www/semkov/media/:/var/lib/semkov/media/
+      - /mnt/nostromo/www/semkov/log/:/var/log/semkov/
+    environment:
+      - DJANGO_SETTINGS_MODULE=semkov.settings.prod
+    command: |
+      gunicorn semkov.wsgi:application --bind 0.0.0.0:8898 --workers 2 --log-file /var/log/semkov/wsgi.log
