@@ -8,7 +8,7 @@ from wagtail.core.models import Page
 from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.documents.edit_handlers import DocumentChooserPanel
 
-from semkov.core.mixins import ImagesMixin, ArticleMixin, MenuMixin
+from semkov.apps.core.mixins import ImagesMixin, ArticleMixin, MenuMixin
 
 
 class PageTag(TaggedItemBase):

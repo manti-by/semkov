@@ -4,7 +4,7 @@ from django.conf import settings
 from django.core.management.base import BaseCommand
 from twilio.rest import Client
 
-from semkov.core.models import SMS
+from semkov.apps.core.models import SMS
 
 logger = logging.getLogger(__name__)
 

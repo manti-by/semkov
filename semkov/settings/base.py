@@ -28,14 +28,15 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Application definition
 
 INSTALLED_APPS = [
-    "semkov.ads",
     "semkov.api",
-    "semkov.core",
-    "semkov.forum",
-    "semkov.home",
-    "semkov.pages",
-    "semkov.search",
-    "semkov.user",
+    "semkov.apps.ads",
+    "semkov.apps.core",
+    "semkov.apps.forum",
+    "semkov.apps.home",
+    "semkov.apps.pages",
+    "semkov.apps.search",
+    "semkov.apps.user",
+
     "wagtail.api.v2",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
@@ -48,9 +49,11 @@ INSTALLED_APPS = [
     "wagtail.search",
     "wagtail.admin",
     "wagtail.core",
+
     "modelcluster",
     "taggit",
     "compressor",
+
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -74,7 +77,7 @@ MIDDLEWARE = [
     "semkov.core.middleware.language.LocaleMiddleware",
 ]
 
-ROOT_URLCONF = "semkov.core.urls"
+ROOT_URLCONF = "semkov.urls"
 
 TEMPLATES = [
     {
@@ -94,7 +97,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "semkov.wsgi.application"
 
-AUTH_USER_MODEL = "user.User"
+AUTH_USER_MODEL = "semkov.apps.user.User"
 
 # WAGTAIL_USER_EDIT_FORM = "user.forms.CustomUserEditForm"
 # WAGTAIL_USER_CREATION_FORM = "user.forms.CustomUserCreationForm"
@@ -164,16 +167,16 @@ STATICFILES_DIRS = [os.path.join(PROJECT_DIR, "static")]
 # See https://docs.djangoproject.com/en/2.1/ref/contrib/staticfiles/#manifeststaticfilesstorage
 STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
 
-STATIC_ROOT = os.path.join(PROJECT_DIR, "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = "/static/"
 
-MEDIA_ROOT = os.path.join(PROJECT_DIR, "media")
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 
 
 # Wagtail settings
 
-WAGTAIL_SITE_NAME = "core"
+WAGTAIL_SITE_NAME = "semkov"
 
 WAGTAIL_FRONTEND_LOGIN_URL = "/user/login/"
 

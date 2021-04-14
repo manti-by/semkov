@@ -5,5 +5,8 @@ semkov/settings/prod.py
 
 .pytest_cache/
 
+static/
+media/
+
 *.pyc
 *~

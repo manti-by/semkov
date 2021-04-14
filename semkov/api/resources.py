@@ -7,10 +7,10 @@ from django.utils.translation import ugettext_lazy as _
 from djrest.resource import Resource
 from wagtail.core.models import Page
 
-from semkov.ads.models import AdsModel
+from semkov.apps.ads import AdsModel
 from semkov.api.utils import resource_wrapper
-from semkov.core.models import Email
-from semkov.user.models import User
+from semkov.apps.core import Email
+from semkov.apps.user.models import User
 
 logger = logging.getLogger(__name__)
 

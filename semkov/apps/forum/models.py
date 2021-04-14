@@ -2,7 +2,7 @@ from wagtail.core.models import Page
 from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel
 
-from semkov.core.mixins import AttachmentsMixin, MenuMixin
+from semkov.apps.core.mixins import AttachmentsMixin, MenuMixin
 
 
 class ForumModel(MenuMixin, Page):

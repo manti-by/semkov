@@ -2,7 +2,7 @@ from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.core.models import Page
 from wagtail.core.fields import RichTextField
 
-from semkov.core.mixins import ImagesMixin, MenuMixin
+from semkov.apps.core.mixins import ImagesMixin, MenuMixin
 
 
 class AdsModel(MenuMixin, ImagesMixin, Page):

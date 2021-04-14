@@ -1,4 +1,3 @@
-# Use an official Python runtime as a parent image
 FROM python:3.9-slim
 
 # Install necessary system packages
@@ -23,11 +22,11 @@ RUN apt-get autoremove -y --purge git-core gcc build-essential && \
     apt-get clean -y
 
 # Add wagtail system user
-RUN useradd -m -s /bin/bash -d /home/wagtail wagtail && \
+RUN useradd -m -s /bin/bash -d /home/manti manti && \
     mkdir -p /srv/semkov/src/ /var/lib/semkov/static/ /var/lib/semkov/media/ /var/log/semkov/ && \
-    chown -R wagtail:wagtail /srv/semkov/src/ /var/lib/semkov/ /var/log/semkov/
+    chown -R manti:manti /srv/semkov/src/ /var/lib/semkov/ /var/log/semkov/
 
 # Select user, set working directory and run server
-USER wagtail
+USER manti
 WORKDIR /srv/semkov/src/
 CMD python manage.py runserver

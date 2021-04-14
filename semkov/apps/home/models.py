@@ -5,7 +5,7 @@ from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 
-from semkov.core.mixins import MenuMixin
+from semkov.apps.core.mixins import MenuMixin
 
 
 class HomepageModel(MenuMixin, Page):

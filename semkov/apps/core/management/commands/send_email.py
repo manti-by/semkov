@@ -8,7 +8,7 @@ from django.core.mail import EmailMultiAlternatives
 from django.core.management.base import BaseCommand
 from django.template.loader import render_to_string
 
-from semkov.core.models import Email
+from semkov.apps.core.models import Email
 
 logger = logging.getLogger(__name__)
 

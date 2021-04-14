@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from semkov.core.models import Email, SMS
+from semkov.apps.core.models import Email, SMS
 
 
 @admin.register(Email)

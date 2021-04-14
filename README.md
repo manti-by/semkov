@@ -46,5 +46,6 @@ Requirements: Docker, Python 3.9, SQLite
 To run app in production mode, clone repo, build image and run it
 
     $ git clone git@github.com:manti-by/semkov.git && cd semkov/
-    $ make build migrate static
+    $ make build
     $ docker-compose up -d
+    $ make migrate static
