@@ -74,7 +74,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.middleware.gzip.GZipMiddleware",
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
-    "semkov.core.middleware.language.LocaleMiddleware",
+    "semkov.apps.core.middleware.language.LocaleMiddleware",
 ]
 
 ROOT_URLCONF = "semkov.urls"
@@ -97,7 +97,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "semkov.wsgi.application"
 
-AUTH_USER_MODEL = "semkov.apps.user.User"
+AUTH_USER_MODEL = "user.User"
 
 # WAGTAIL_USER_EDIT_FORM = "user.forms.CustomUserEditForm"
 # WAGTAIL_USER_CREATION_FORM = "user.forms.CustomUserCreationForm"
