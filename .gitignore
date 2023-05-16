@@ -1,6 +1,7 @@
 #.gitignore
 .idea/
 
+semkov/apps/core/data/
 semkov/settings/local.py
 semkov/settings/prod.py
 

@@ -196,3 +196,38 @@ TWILIO_AUTH_TOKEN = ""
 
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+
+# Scrappers
+
+POSITION_FILE_PATH = PROJECT_DIR / "apps" / "core" / "data" / "position.json"
+SCHEDULE_FILE_PATH = PROJECT_DIR / "apps" / "core" / "data" / "schedule.json"
+
+POSITIONS_URL = os.getenv(
+    "POSITIONS_URL", "https://mrik.gov.by/delenie/papernyanskij-selsovet"
+)
+
+BUS_API_BASE_URL = os.getenv(
+    "BUS_API_BASE_URL", "https://minsktrans.by/suburb/get-shedule.php"
+)
+
+BUS_API_POINT_FROM_ID = os.getenv("BUS_API_POINT_FROM_ID", "500253")
+BUS_API_POINT_FROM_NAME = os.getenv("BUS_API_POINT_FROM_NAME", "ЩЕДРИНА/ЧЕРВЯКОВА")
+
+BUS_API_POINT_TO_ID = os.getenv("BUS_API_POINT_TO_ID", "501131")
+BUS_API_POINT_TO_NAME = os.getenv(
+    "BUS_API_POINT_TO_NAME", "СЕМКОВ_ГОРОДОК(Папернянский_с/с)"
+)
+
+MINIBUS_BASE_URL = os.getenv(
+    "MINIBUS_BASE_URL",
+    "https://www.tuda-suda.by/poleznyashki/raspisanie/minsk/marshrutki",
+)
+MINIBUS_ROUTES = os.getenv(
+    "MINIBUS_ROUTES",
+    [
+        "/485/komarovskij-rynok-brovki/shchedrina",
+        "/485b/komarovskij-rynok-selets/shchedrina",
+        "/485r/komarovskij-rynok-rogovo/shchedrina",
+        "/485sh/komarovskij-rynok-shershuny/shchedrina",
+    ],
+)
