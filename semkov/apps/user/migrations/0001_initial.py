@@ -7,7 +7,6 @@ import django.utils.timezone
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [("auth", "0009_alter_user_last_name_max_length")]
@@ -60,7 +59,7 @@ class Migration(migrations.Migration):
                 (
                     "first_name",
                     models.CharField(
-                        blank=True, max_length=30, verbose_name="first name"
+                        blank=True, max_length=150, verbose_name="first name"
                     ),
                 ),
                 (

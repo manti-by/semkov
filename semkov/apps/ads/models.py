@@ -1,12 +1,11 @@
-from wagtail.admin.edit_handlers import FieldPanel
-from wagtail.core.models import Page
-from wagtail.core.fields import RichTextField
+from wagtail.admin.panels import FieldPanel
+from wagtail.models import Page
+from wagtail.fields import RichTextField
 
 from semkov.apps.core.mixins import ImagesMixin, MenuMixin
 
 
 class AdsModel(MenuMixin, ImagesMixin, Page):
-
     text = RichTextField()
 
     content_panels = (

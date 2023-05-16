@@ -5,7 +5,6 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("wagtaildocs", "0010_document_file_hash"),
         ("pages", "0002_pagemodel_menu_title"),

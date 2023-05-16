@@ -13,12 +13,13 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
+from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 
 
-PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_DIR = Path(__file__).resolve().parent.parent
 
-BASE_DIR = os.path.dirname(PROJECT_DIR)
+BASE_DIR = PROJECT_DIR.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -28,15 +29,13 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Application definition
 
 INSTALLED_APPS = [
-    "semkov.api",
-    "semkov.apps.ads",
-    "semkov.apps.core",
-    "semkov.apps.forum",
-    "semkov.apps.home",
-    "semkov.apps.pages",
-    "semkov.apps.search",
-    "semkov.apps.user",
-
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.sitemaps",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
     "wagtail.api.v2",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
@@ -48,19 +47,17 @@ INSTALLED_APPS = [
     "wagtail.images",
     "wagtail.search",
     "wagtail.admin",
-    "wagtail.core",
-
+    "wagtail",
     "modelcluster",
     "taggit",
-    "compressor",
-
-    "django.contrib.admin",
-    "django.contrib.auth",
-    "django.contrib.contenttypes",
-    "django.contrib.sessions",
-    "django.contrib.sitemaps",
-    "django.contrib.messages",
-    "django.contrib.staticfiles",
+    "semkov.api",
+    "semkov.apps.ads",
+    "semkov.apps.core",
+    "semkov.apps.forum",
+    "semkov.apps.home",
+    "semkov.apps.pages",
+    "semkov.apps.search",
+    "semkov.apps.user",
 ]
 
 MIDDLEWARE = [
@@ -82,7 +79,7 @@ ROOT_URLCONF = "semkov.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(PROJECT_DIR, "templates")],
+        "DIRS": [PROJECT_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -99,10 +96,6 @@ WSGI_APPLICATION = "semkov.wsgi.application"
 
 AUTH_USER_MODEL = "user.User"
 
-# WAGTAIL_USER_EDIT_FORM = "user.forms.CustomUserEditForm"
-# WAGTAIL_USER_CREATION_FORM = "user.forms.CustomUserCreationForm"
-# WAGTAIL_USER_CUSTOM_FIELDS = ["identifier", "id_address"]
-
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
@@ -110,7 +103,7 @@ AUTH_USER_MODEL = "user.User"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 
@@ -140,37 +133,40 @@ LANGUAGE_CODE = "ru"
 
 LANGUAGES = [("ru", _("Russian")), ("en", _("English"))]
 
-LOCALE_PATHS = (os.path.join(PROJECT_DIR, "locale"),)
+LOCALE_PATHS = (PROJECT_DIR / "locale",)
 
 TIME_ZONE = "UTC"
 
 USE_I18N = True
 
-USE_L10N = True
-
 USE_TZ = True
+
+USE_THOUSAND_SEPARATOR = False
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.1/howto/static-files/
+# https://docs.djangoproject.com/en/4.2/ref/settings/#std-setting-STORAGES
 
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
-    "compressor.finders.CompressorFinder",
 ]
 
-STATICFILES_DIRS = [os.path.join(PROJECT_DIR, "static")]
+STATICFILES_DIRS = (PROJECT_DIR / "static",)
 
-# ManifestStaticFilesStorage is recommended in production, to prevent outdated
-# Javascript / CSS assets being served from cache (e.g. after a Wagtail upgrade).
-# See https://docs.djangoproject.com/en/2.1/ref/contrib/staticfiles/#manifeststaticfilesstorage
-STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+    },
+}
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = BASE_DIR / "static"
 STATIC_URL = "/static/"
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "/media/"
 
 
@@ -178,9 +174,12 @@ MEDIA_URL = "/media/"
 
 WAGTAIL_SITE_NAME = "semkov"
 
+BASE_URL = "https://semkov-gorodok.by"
+
+WAGTAILADMIN_BASE_URL = "https://semkov-gorodok.by"
+
 WAGTAIL_FRONTEND_LOGIN_URL = "/user/login/"
 
-BASE_URL = "https://semkov-gorodok.by"
 
 # Email settings
 
@@ -189,20 +188,11 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 DEFAULT_FROM_EMAIL = "no-reply@manti.by"
 DEFAULT_TO_EMAIL = "manti.by@gmail.com"
 
-# Static compressor settings
-
-COMPRESS_OUTPUT_DIR = "cache"
-COMPRESS_STORAGE = "compressor.storage.GzipCompressorFileStorage"
-COMPRESS_CSS_FILTERS = [
-    "compressor.filters.css_default.CssAbsoluteFilter",
-    "compressor.filters.cssmin.CSSMinFilter",
-]
-COMPRESS_CSS_HASHING_METHOD = None
-
-COMPRESS_ENABLED = False
-
 # Twilio account
 
 TWILIO_FROM_NUMBER = "+18577031034"
 TWILIO_ACCOUNT_SID = "AC5e57d43eceff89b329212c270e8a690e"
 TWILIO_AUTH_TOKEN = ""
+
+
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"

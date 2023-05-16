@@ -1,12 +1,11 @@
-from wagtail.core.models import Page
-from wagtail.core.fields import RichTextField
-from wagtail.admin.edit_handlers import FieldPanel
+from wagtail.models import Page
+from wagtail.fields import RichTextField
+from wagtail.admin.panels import FieldPanel
 
 from semkov.apps.core.mixins import AttachmentsMixin, MenuMixin
 
 
 class ForumModel(MenuMixin, Page):
-
     text = RichTextField()
 
     content_panels = Page.content_panels + [FieldPanel("text")]
@@ -19,7 +18,6 @@ class ForumModel(MenuMixin, Page):
 
 
 class ThreadModel(MenuMixin, AttachmentsMixin, Page):
-
     text = RichTextField()
 
     content_panels = (
@@ -34,7 +32,6 @@ class ThreadModel(MenuMixin, AttachmentsMixin, Page):
 
 
 class MessageModel(MenuMixin, AttachmentsMixin, Page):
-
     text = RichTextField()
 
     content_panels = (

@@ -7,7 +7,6 @@ import modelcluster.fields
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("taggit", "0002_auto_20150616_2121"),
         ("pages", "0003_auto_20190306_1143"),

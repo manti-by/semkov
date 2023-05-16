@@ -2,13 +2,12 @@
 
 from django.db import migrations, models
 import django.db.models.deletion
-import wagtail.core.blocks
-import wagtail.core.fields
+import wagtail.blocks
+import wagtail.fields
 import wagtail.documents.blocks
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -30,7 +29,7 @@ class Migration(migrations.Migration):
                         to="wagtailcore.Page",
                     ),
                 ),
-                ("text", wagtail.core.fields.RichTextField()),
+                ("text", wagtail.fields.RichTextField()),
             ],
             options={"abstract": False},
             bases=("wagtailcore.page",),
@@ -51,11 +50,11 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "attachments",
-                    wagtail.core.fields.StreamField(
+                    wagtail.fields.StreamField(
                         [
                             (
                                 "attachments",
-                                wagtail.core.blocks.ListBlock(
+                                wagtail.blocks.ListBlock(
                                     wagtail.documents.blocks.DocumentChooserBlock()
                                 ),
                             )
@@ -64,7 +63,7 @@ class Migration(migrations.Migration):
                         null=True,
                     ),
                 ),
-                ("text", wagtail.core.fields.RichTextField()),
+                ("text", wagtail.fields.RichTextField()),
             ],
             options={"abstract": False},
             bases=("wagtailcore.page",),
@@ -85,11 +84,11 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "attachments",
-                    wagtail.core.fields.StreamField(
+                    wagtail.fields.StreamField(
                         [
                             (
                                 "attachments",
-                                wagtail.core.blocks.ListBlock(
+                                wagtail.blocks.ListBlock(
                                     wagtail.documents.blocks.DocumentChooserBlock()
                                 ),
                             )
@@ -98,7 +97,7 @@ class Migration(migrations.Migration):
                         null=True,
                     ),
                 ),
-                ("text", wagtail.core.fields.RichTextField()),
+                ("text", wagtail.fields.RichTextField()),
             ],
             options={"abstract": False},
             bases=("wagtailcore.page",),

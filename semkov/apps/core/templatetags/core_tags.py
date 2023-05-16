@@ -1,7 +1,7 @@
 from operator import itemgetter
 
 from django import template
-from wagtail.core.models import Page
+from wagtail.models import Page
 
 register = template.Library()
 
@@ -9,7 +9,6 @@ register = template.Library()
 def get_ordered(page, is_homepage):
     result = []
     for current_page in page.get_children().live().in_menu():
-
         if is_homepage and not current_page.specific.is_homepage:
             continue
 

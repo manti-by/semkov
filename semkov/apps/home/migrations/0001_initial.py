@@ -2,11 +2,10 @@
 
 from django.db import migrations, models
 import django.db.models.deletion
-import wagtail.core.fields
+import wagtail.fields
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -29,7 +28,7 @@ class Migration(migrations.Migration):
                         to="wagtailcore.Page",
                     ),
                 ),
-                ("text", wagtail.core.fields.RichTextField()),
+                ("text", wagtail.fields.RichTextField()),
             ],
             options={"abstract": False},
             bases=("wagtailcore.page",),

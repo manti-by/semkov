@@ -4,11 +4,9 @@ DEBUG = False
 
 TEMPLATE_DEBUG = False
 
-COMPRESS_ENABLED = True
-
 SECRET_KEY = ""
 
-ALLOWED_HOSTS = ["127.0.0.1", "semkov-gorodok.by"]
+ALLOWED_HOSTS = ("127.0.0.1", "semkov-gorodok.by")
 
 STATIC_ROOT = "/var/lib/semkov/static"
 MEDIA_ROOT = "/var/lib/semkov/media"
@@ -16,7 +14,7 @@ MEDIA_ROOT = "/var/lib/semkov/media"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join("/var/lib/semkov/data", "db.sqlite3"),
+        "NAME": "/var/lib/semkov/data/db.sqlite3",
     }
 }
 

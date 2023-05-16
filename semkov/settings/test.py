@@ -4,14 +4,9 @@ DEBUG = False
 
 TEMPLATE_DEBUG = False
 
-COMPRESS_ENABLED = True
+SECRET_KEY = "insecure-key"
 
-SECRET_KEY = "m51kjn1%w(re&a^ez%kk4&y^$tccpnz%#t7)_g)p(9sq(6*gvc"
-
-ALLOWED_HOSTS = ["127.0.0.1"]
-
-STATIC_ROOT = "/srv/semkov/static"
-MEDIA_ROOT = "/srv/semkov/media"
+ALLOWED_HOSTS = ("127.0.0.1",)
 
 DATABASES = {
     "default": {

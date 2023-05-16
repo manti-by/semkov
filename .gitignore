@@ -1,12 +1,16 @@
 #.gitignore
+.idea/
 
 semkov/settings/local.py
 semkov/settings/prod.py
 
 .pytest_cache/
+.python-version
 
 static/
 media/
+
+db.sqlite3
 
 *.pyc
 *~

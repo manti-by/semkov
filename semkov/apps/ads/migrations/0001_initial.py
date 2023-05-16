@@ -2,13 +2,12 @@
 
 from django.db import migrations, models
 import django.db.models.deletion
-import wagtail.core.blocks
-import wagtail.core.fields
+import wagtail.blocks
+import wagtail.fields
 import wagtail.images.blocks
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -32,11 +31,11 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "images",
-                    wagtail.core.fields.StreamField(
+                    wagtail.fields.StreamField(
                         [
                             (
                                 "images",
-                                wagtail.core.blocks.ListBlock(
+                                wagtail.blocks.ListBlock(
                                     wagtail.images.blocks.ImageChooserBlock()
                                 ),
                             )
@@ -46,7 +45,7 @@ class Migration(migrations.Migration):
                     ),
                 ),
                 ("menu_title", models.CharField(blank=True, max_length=32)),
-                ("text", wagtail.core.fields.RichTextField()),
+                ("text", wagtail.fields.RichTextField()),
             ],
             options={"abstract": False},
             bases=("wagtailcore.page",),

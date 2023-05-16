@@ -4,7 +4,6 @@ from django.urls import reverse
 
 @pytest.mark.django_db
 class AdsTest:
-
     def test_not_logged(self, client):
         response = client.post(
             reverse("api:ads"), data={"title": "test", "text": "test"}

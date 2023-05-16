@@ -4,7 +4,6 @@ from django.urls import reverse
 
 @pytest.mark.django_db
 class ContactTest:
-
     def test_contact(self, client):
         response = client.post(
             reverse("api:contact"),

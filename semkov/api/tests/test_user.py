@@ -4,7 +4,6 @@ from django.urls import reverse
 
 @pytest.mark.django_db
 class UserTest:
-
     def test_user(self, client):
         response = client.post(
             reverse("api:register"),

@@ -4,20 +4,11 @@ DEBUG = True
 
 TEMPLATE_DEBUG = False
 
-COMPRESS_ENABLED = False
+SECRET_KEY = "insecure-key"
 
-SECRET_KEY = ""
-
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ("*",)
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-
-STATIC_URL = "/static/"
-STATIC_ROOT = "/home/manti/www/semkov-gorodok.by/static"
-
-MEDIA_URL = "/media/"
-MEDIA_ROOT = "/home/manti/www/semkov-gorodok.by/media"
-
 
 LOGGING = {
     "version": 1,
@@ -34,13 +25,13 @@ LOGGING = {
         },
         "django": {
             "handlers": ["console"],
-            "level": "DEBUG",
+            "level": "INFO",
             "propagate": True,
             "formatter": "simple",
         },
         "wagtail": {
             "handlers": ["console"],
-            "level": "DEBUG",
+            "level": "INFO",
             "propagate": True,
             "formatter": "simple",
         },

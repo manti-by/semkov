@@ -14,9 +14,15 @@ send_email:
 	docker exec -it semkov-wagtail python manage.py send_email
 
 
+update-requirements:
+	pcu requirements.txt -u
+
+test:
+	pytest
+
 check:
 	flake8 semkov/
-	black --target-version py38 semkov/
+	black semkov/
 
 
 

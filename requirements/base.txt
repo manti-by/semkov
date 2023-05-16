@@ -1,3 +1,0 @@
-wagtail>=2.12.3,<2.13.3
-git+https://github.com/manti-by/djrest.git#egg=djrest
-twilio>=6.56.0,<6.57.0

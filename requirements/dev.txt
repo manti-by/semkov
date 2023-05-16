@@ -1,8 +1,0 @@
--r base.txt
-
-pytest>=6.2.3,<6.3.0
-pytest-django>=4.2.0,<4.3.0
-
-flake8>=3.9.0,<3.10.0
-black>=20.8b1
-ipython>=7.22.0,<7.23.0
