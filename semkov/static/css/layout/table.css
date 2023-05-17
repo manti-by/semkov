@@ -1,38 +1,55 @@
-.route .days {
-    max-width: 8rem;
-    text-align: right;
+.schedule .bus {
+    background-color: #fbfde0;
 }
 
-.route th.days {
-    text-align: center;
+.schedule .bus:hover {
+    background-color: #c6e0c5;
 }
 
-.route .day {
-    position: relative;
-    display: inline-block;
+.schedule .time {
+    width: 12%;
+}
+
+.schedule .route-number {
+    width: 12%;
+}
+
+.schedule .days {
+    width: 17%;
+    vertical-align: middle;
+}
+.schedule .flex {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.schedule .day {
     width: 1rem;
     height: 1rem;
     background: #ff6f61;
     border-radius: .125rem;
 }
 
-.route .day.active {
+.schedule .day.active {
     background: forestgreen;
 }
 
-.route .day label {
-    position: absolute;
-    display: none;
-    padding: .25rem;
-    background: #fff;
-    z-index: 10;
+.position tr:hover {
+    background-color: #c6e0c5;
 }
 
-.route .day:hover label {
-    display: block;
+.position .position {
+    width: 15%;
 }
 
-.ispolkom td {
-    padding: .5rem .25rem;
-    white-space: pre-line;
+.position .full-name {
+    width: 15%;
+}
+
+.position .phone {
+    width: 15%;
+}
+
+.position .schedule {
+    width: 18%;
 }

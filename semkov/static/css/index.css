@@ -54,12 +54,11 @@ table {
 }
 
 table tr {
-    cursor: pointer;
     border-bottom: 1px solid #efefef;
 }
 
 table tr:hover {
-    background: #eeeeee;
+    background: #83b881;
 }
 
 table th,

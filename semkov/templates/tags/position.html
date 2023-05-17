@@ -1,0 +1,26 @@
+{% load static i18n %}
+
+<table class="document position">
+  <tr>
+    {% for header in headers %}
+      <th>{{ header }}</th>
+    {% endfor %}
+  </tr>
+  {% for item in items %}
+    <tr {% if item.is_minibus %}class="minibus"{% endif %}>
+      <td class="position">{{ item.position }}</td>
+      <td class="full-name">{{ item.full_name }}</td>
+      <td class="phone">{{ item.phone }}</td>
+      <td class="schedule">
+        {% for schedule in item.schedule %}
+          <div>{{ schedule }}</div>
+        {% endfor %}
+      </td>
+      <td class="operations">
+        {% for operation in item.operations %}
+          <div>{{ operation }}</div>
+        {% endfor %}
+      </td>
+    </tr>
+  {% endfor %}
+</table>

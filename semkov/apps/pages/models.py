@@ -15,20 +15,13 @@ class PageTag(TaggedItemBase):
 
 
 class PageModel(MenuMixin, ImagesMixin, ArticleMixin, Page):
-    document = models.ForeignKey(
-        "wagtaildocs.Document",
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name="+",
-    )
 
     map = models.TextField(blank=True)
 
     tags = ClusterTaggableManager(through="pages.PageTag", blank=True)
 
     content_panels = (
-        [FieldPanel("document"), FieldPanel("map"), FieldPanel("tags")]
+        [FieldPanel("map"), FieldPanel("tags")]
         + Page.content_panels
         + ArticleMixin.content_panels
         + ImagesMixin.content_panels

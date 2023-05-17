@@ -15,13 +15,13 @@ class Command(BaseCommand):
     @staticmethod
     def convert_bus_days(days: list) -> dict:
         return {
-            "sun": "вс" in days,
             "mon": "пн" in days,
             "tue": "вт" in days,
             "wed": "ср" in days,
             "thu": "чт" in days,
             "fri": "пт" in days,
             "sat": "сб" in days,
+            "sun": "вс" in days,
         }
 
     @staticmethod
@@ -81,7 +81,7 @@ class Command(BaseCommand):
                             .find("h2")
                             .text.replace("—", "-"),
                             "route_number": f"1{route_number}",
-                            "time": time,
+                            "time": time.zfill(5),
                             "days": days,
                             "is_minibus": True,
                         }

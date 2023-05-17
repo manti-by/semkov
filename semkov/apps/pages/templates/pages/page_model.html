@@ -2,43 +2,42 @@
 {% load static core_tags data_tags i18n %}
 
 {% block content %}
-{% header %}
-<main>
+  {% header %}
+  <main>
     <div class="container">
-        <article>
-            <h1>
-                {{ page.title }}
-            </h1>
-            {% if page.text %}
-                <div class="text">
-                    {% if page.map %}
-                        <div class="map">
-                            {{ page.map|safe }}
-                        </div>
-                    {% endif %}
-                    {{ page.rendered_text|safe }}
-                    {% if page.document %}
-                        <div class="document">
-                            {%  document_table page.document page.tag_slugs %}
-                        </div>
-                    {% endif %}
-                </div>
+      <article>
+        <h1>{{ page.title }}</h1>
+        {% if page.text %}
+          <div class="text">
+            {% if page.map %}
+              <div class="map">
+                {{ page.map|safe }}
+              </div>
             {% endif %}
-            <div class="row small info">
-                {% if page.source %}
-                    <div class="col-12 col-md-6">
-                        {% trans 'Source' %}: <a href="{{ page.source }}">{{ page.source_title }}</a>
-                    </div>
-                {% endif %}
-                <div class="col-12 col-md-6 {% if page.source %}text-md-right{% endif %}">
-                    {% trans 'Updated' %}: {{ page.last_published_at }}
-                </div>
+            {{ page.rendered_text|safe }}
+            {% if page.slug == "minsk-semkov-gorodok" %}
+              <div class="document">{% schedule %}</div>
+            {% endif %}
+            {% if page.slug == "ispolkom" %}
+              <div class="document">{% position %}</div>
+            {% endif %}
+          </div>
+        {% endif %}
+        <div class="row small info">
+          {% if page.source %}
+            <div class="col-12 col-md-6">
+              {% trans 'Source' %}: <a href="{{ page.source }}">{{ page.source_title }}</a>
             </div>
-        </article>
+          {% endif %}
+          <div class="col-12 col-md-6 {% if page.source %}text-md-right{% endif %}">
+            {% trans 'Updated' %}: {{ page.last_published_at }}
+          </div>
+        </div>
+      </article>
     </div>
-</main>
+  </main>
 {% endblock content %}
 
 {% block extra_css %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/layout/table.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/layout/table.css' %}">
 {% endblock %}
