@@ -9,8 +9,8 @@
         {% main_menu False True %}
     </div>
     <div class="col-12 col-lg-6 col-xl-7 right">
-        {% image page.image width-600 as page_image %}
-        <img src="{{ page_image.url }}" alt="Image">
+        {% image page.image width-600 format-webp as page_image %}
+        <img src="{{ page_image.url }}" alt="Image" width="600">
     </div>
 </main>
 {% endblock content %}

@@ -1,4 +1,5 @@
 wagtail==5.0
+pillow==9.5.0
 beautifulsoup4==4.11.2
 twilio==8.2.0
 gunicorn==20.1.0
