@@ -4,12 +4,19 @@ DEBUG = False
 
 TEMPLATE_DEBUG = False
 
+COMPRESS_ENABLED = True
+
 SECRET_KEY = ""
 
 ALLOWED_HOSTS = ("127.0.0.1", "semkov-gorodok.by")
 
+CSRF_TRUSTED_ORIGINS = ("https://semkov-gorodok.by",)
+
 STATIC_ROOT = "/var/lib/semkov/static"
 MEDIA_ROOT = "/var/lib/semkov/media"
+
+POSITION_FILE_PATH = "/var/lib/semkov/data/position.json"
+SCHEDULE_FILE_PATH = "/var/lib/semkov/data/schedule.json"
 
 DATABASES = {
     "default": {

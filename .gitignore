@@ -1,7 +1,6 @@
 #.gitignore
 .idea/
 
-semkov/apps/core/data/
 semkov/settings/local.py
 semkov/settings/prod.py
 
@@ -10,8 +9,7 @@ semkov/settings/prod.py
 
 static/
 media/
-
-db.sqlite3
+data/
 
 *.pyc
 *~

@@ -15,7 +15,6 @@ class PageTag(TaggedItemBase):
 
 
 class PageModel(MenuMixin, ImagesMixin, ArticleMixin, Page):
-
     map = models.TextField(blank=True)
 
     tags = ClusterTaggableManager(through="pages.PageTag", blank=True)

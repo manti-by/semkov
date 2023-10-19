@@ -103,7 +103,7 @@ AUTH_USER_MODEL = "user.User"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "NAME": BASE_DIR / "data" / "db.sqlite3",
     }
 }
 
@@ -199,8 +199,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 # Scrappers
 
-POSITION_FILE_PATH = PROJECT_DIR / "apps" / "core" / "data" / "position.json"
-SCHEDULE_FILE_PATH = PROJECT_DIR / "apps" / "core" / "data" / "schedule.json"
+POSITION_FILE_PATH = BASE_DIR / "data" / "position.json"
+SCHEDULE_FILE_PATH = BASE_DIR / "data" / "schedule.json"
 
 POSITIONS_URL = os.getenv(
     "POSITIONS_URL", "https://mrik.gov.by/delenie/papernyanskij-selsovet"

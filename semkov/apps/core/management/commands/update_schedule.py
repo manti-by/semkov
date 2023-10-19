@@ -1,4 +1,6 @@
 import json
+import logging
+
 from collections import defaultdict
 
 import requests
@@ -9,6 +11,8 @@ from django.conf import settings
 from django.core.management.base import BaseCommand
 
 WEEK_DAYS = ("mon", "tue", "wed", "thu", "fri", "sat", "sun")
+
+logger = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
@@ -53,6 +57,7 @@ class Command(BaseCommand):
                                 "is_minibus": False,
                             }
                         )
+        logger.info(f"Imported {len(result)} bus items")
         return result
 
     @staticmethod
@@ -86,6 +91,7 @@ class Command(BaseCommand):
                             "is_minibus": True,
                         }
                     )
+        logger.info(f"Imported {len(result)} minibus items")
         return result
 
     def handle(self, *args, **options):

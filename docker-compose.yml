@@ -10,9 +10,9 @@ services:
       - 8898:8898
     volumes:
       - /home/manti/www/semkov-gorodok.by/semkov/:/srv/semkov/src/
-      - /home/manti/www/semkov-gorodok.by/data/:/var/lib/semkov/data/
       - /mnt/nostromo/www/semkov/static/:/var/lib/semkov/static/
       - /mnt/nostromo/www/semkov/media/:/var/lib/semkov/media/
+      - /mnt/nostromo/www/semkov/data/:/var/lib/semkov/data/
       - /mnt/nostromo/www/semkov/log/:/var/log/semkov/
     environment:
       - DJANGO_SETTINGS_MODULE=semkov.settings.prod

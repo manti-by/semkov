@@ -1,10 +1,13 @@
 import json
 import requests
+import logging
 
 from bs4 import BeautifulSoup
 
 from django.conf import settings
 from django.core.management.base import BaseCommand
+
+logger = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
@@ -49,6 +52,7 @@ class Command(BaseCommand):
                         "operations": self.clean_operations(cols[5]),
                     }
                 )
+        logger.info(f"Imported {len(result)} positions")
         return result
 
     def handle(self, *args, **options):
