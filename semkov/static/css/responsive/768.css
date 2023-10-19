@@ -39,6 +39,18 @@
         opacity: 1;
     }
 
+    table {
+        font-size: .85rem;
+    }
+
+    table .column {
+        width: 16%;
+    }
+
+    table .column:last-child {
+        width: 36%;
+    }
+
     main {
         margin-top: 5rem;
     }

@@ -1,5 +1,17 @@
 @media (min-width: 375px) {
-    
+
+    table {
+        font-size: .75rem;
+    }
+
+    table .column {
+        width: 10%;
+    }
+
+    table .column:last-child {
+        width: 60%;
+    }
+
     main article h1 {
         max-width: 300px;
     }

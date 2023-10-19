@@ -33,7 +33,7 @@ class Command(BaseCommand):
         return item["title"].replace("-", " - ").replace("_", " ").title()
 
     def get_bus_schedule(self) -> list:
-        result = []
+        result = {}
         headers = {
             "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0",
         }
@@ -48,17 +48,19 @@ class Command(BaseCommand):
             for item in response.json():
                 for stop in item["sub_shedule"]:
                     if stop["point"] == settings.BUS_API_POINT_FROM_NAME:
-                        result.append(
-                            {
+                        days = self.convert_bus_days(item["days"])
+                        days_key = '-'.join(map(str, days.values()))
+                        key = f"{item['number']}:{stop['arTime']}:{days_key}"
+                        if any(days.values()):
+                            result[key] = {
                                 "route": self.clean_title(item),
                                 "route_number": item["number"],
                                 "time": stop["arTime"],
                                 "days": self.convert_bus_days(item["days"]),
                                 "is_minibus": False,
                             }
-                        )
-        logger.info(f"Imported {len(result)} bus items")
-        return result
+        logger.info(f"Imported {len(result.values())} bus items")
+        return list(result.values())
 
     @staticmethod
     def get_minibus_schedule() -> list:

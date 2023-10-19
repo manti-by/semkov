@@ -17,13 +17,14 @@ class Command(BaseCommand):
 
     @staticmethod
     def clean_schedule(item: str) -> list | None:
+        result = []
         if not item:
             return
         schedule = item.split("\n")
-        return [
-            f"{schedule[0].title()} - {schedule[1]}",
-            f"{schedule[2].replace(':', '').title()} - {schedule[3]}",
-        ]
+        result.append(f"{schedule[0].title()} - {schedule[1]}")
+        if len(schedule) > 3:
+            result.append(f"{schedule[2].replace(':', '').title()} - {schedule[3]}")
+        return result
 
     @staticmethod
     def clean_operations(item: str) -> list:

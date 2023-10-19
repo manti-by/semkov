@@ -37,19 +37,3 @@
 .position tr:hover {
     background-color: #c6e0c5;
 }
-
-.position .position {
-    width: 15%;
-}
-
-.position .full-name {
-    width: 15%;
-}
-
-.position .phone {
-    width: 15%;
-}
-
-.position .schedule {
-    width: 18%;
-}
