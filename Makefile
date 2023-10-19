@@ -18,8 +18,8 @@ update-project:
 	scp -r amon-ra:/mnt/nostromo/www/semkov/data .
 
 update-server:
-	scp -r ./media amon-ra:/mnt/nostromo/www/semkov/media
-	scp -r ./data amon-ra:/mnt/nostromo/www/semkov/data
+	scp -r ./media/ amon-ra:/mnt/nostromo/www/semkov/
+	scp -r ./data/ amon-ra:/mnt/nostromo/www/semkov/
 
 
 update-requirements:
