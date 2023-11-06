@@ -3,6 +3,7 @@ pillow==10.1.0
 beautifulsoup4==4.11.2
 twilio==8.10.0
 gunicorn==21.2.0
+psycopg2_binary==2.9.7
 
 pytest>=7.4.2
 pytest-django>=4.5.2

@@ -1,6 +1,15 @@
 version: '3.3'
 services:
 
+  semkov-postgres:
+    restart: always
+    image: postgres:latest
+    container_name: semkov-postgres
+    environment:
+      - POSTGRES_DB=semkov
+      - POSTGRES_USER=semkov
+      - POSTGRES_PASSWORD=semkov
+
   semkov-wagtail:
     restart: always
     network_mode: host
@@ -8,6 +17,8 @@ services:
     container_name: semkov-wagtail
     ports:
       - 8898:8898
+    links:
+      - semkov-postgres
     volumes:
       - /home/manti/www/semkov-gorodok.by/:/srv/semkov/src/
       - /mnt/nostromo/www/semkov/static/:/var/lib/semkov/static/
