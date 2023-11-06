@@ -12,7 +12,6 @@ services:
 
   semkov-wagtail:
     restart: always
-    network_mode: host
     image: mantiby/semkov:latest
     container_name: semkov-wagtail
     ports:
@@ -27,5 +26,6 @@ services:
       - /mnt/nostromo/www/semkov/log/:/var/log/semkov/
     environment:
       - DJANGO_SETTINGS_MODULE=semkov.settings.prod
+      - POSTGRES_HOST=semkov-postgres
     command: |
       gunicorn semkov.wsgi:application --bind 0.0.0.0:8898 --workers 2 --log-file /var/log/semkov/wsgi.log
