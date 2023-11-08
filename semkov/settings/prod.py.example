@@ -58,6 +58,8 @@ LOGGING = {
     },
 }
 
+DEFAULT_FROM_EMAIL = "no-reply@manti.by"
+
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "localhost"
 EMAIL_PORT = 25

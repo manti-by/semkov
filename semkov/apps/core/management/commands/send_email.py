@@ -37,7 +37,7 @@ class Command(BaseCommand):
                 message.mixed_subtype = "related"
                 message.attach_alternative(html_content, "text/html")
                 message.attach(self.logo_data())
-                message.send(fail_silently=False)
+                message.send()
 
                 email.is_sent = True
                 email.save()
