@@ -7,7 +7,6 @@ semkov/settings/prod.py
 .pytest_cache/
 .python-version
 
-static/
 media/
 data/
 
