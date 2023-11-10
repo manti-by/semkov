@@ -1,6 +1,6 @@
 {% extends "wagtailusers/users/create.html" %}
 
 {% block extra_fields %}
-    {% include "wagtailadmin/shared/field_as_li.html" with field=form.identifier %}
-    {% include "wagtailadmin/shared/field_as_li.html" with field=form.ip_address %}
+  {% include "wagtailadmin/shared/field_as_li.html" with field=form.identifier %}
+  {% include "wagtailadmin/shared/field_as_li.html" with field=form.ip_address %}
 {% endblock extra_fields %}

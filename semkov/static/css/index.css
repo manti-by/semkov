@@ -1,71 +1,606 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
-    line-height: 1.3;
-    color: #3F3F3F;
-    background: #ffffff;
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.3;
+  color: #3F3F3F;
+  background: #ffffff;
 }
 
-h1, h2, h3 {
-    padding: 1rem 0 0;
-    font-family: 'Playfair Display', serif;
+h1, h2, h3, h4, h5 {
+  margin: 0 0 1.25rem;
+  padding: 0;
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
 }
 
 h1 {
-    font-size: 2.125rem;
-    padding: 1.25rem 0;
+  font-size: 2.125rem;
+  margin: 0 0 1.25rem;
 }
 
 h2 {
-    font-size: 2.25rem;
+  font-size: 2.25rem;
 }
 
-h3 {
-    font-size: 1.5rem;
+h3, h4, h5 {
+  font-size: 1.5rem;
 }
 
 a {
-    color: #3F3F3F;
-    text-decoration: none;
+  color: #3F3F3F;
+  text-decoration: none;
 }
 
 a:hover {
-    color: #ff6f61;
-    text-decoration: none;
+  color: #ff6f61;
+  text-decoration: none;
 }
 
 p {
-    margin-bottom: 1.25rem;
-    font-size: calc(18rem / 16);
-    line-height: 1.625;
+  margin: 0 0 1.25rem;
+  font-size: calc(18rem / 16);
+  line-height: 1.625;
 }
 
 table {
-    width: 100%;
-    margin-bottom: 3rem;
-    line-height: 1.5;
+  width: 100%;
+  margin-bottom: 3rem;
+  line-height: 1.5;
 }
 
 table tr {
-    border-bottom: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
 }
 
 table tr:hover {
-    background: #83b881;
+  background: #83b881;
 }
 
 table th,
 table td {
-    padding: .25rem;
-    vertical-align: sub;
+  padding: .25rem;
+  vertical-align: sub;
 }
 
-ul {
-    padding: 0 0 0 1.5rem;
+dl, ol, ul {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding: 0 0 0 1.5rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Buttons and forms */
+
+button, input, optgroup, select, textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+button {
+  display: inline-block;
+  min-width: 7.5rem;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  color: #ff6f61;
+  border: 1px solid #ff6f61;
+  background-color: #ffffff;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,
+    background-color .15s ease-in-out,
+    border-color .15s ease-in-out,
+    box-shadow .15s ease-in-out;
+  cursor: pointer;
+}
+
+button.primary {
+  color: #ffffff;
+  background-color: #ff6f61;
+  border-color: #ff6f61;
+}
+
+button.secondary {
+  color: #6F6F6F;
+  border-color: #9F9F9F;
+}
+
+button.primary:hover {
+  color: #ff6f61;
+  background-color: #ffffff;
+  border-color: #ff6f61;
+}
+
+button.secondary:hover {
+  color: #ffffff;
+  background-color: #9F9F9F;
+}
+
+button.primary.focus, 
+button.outline.primary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 111, 97, .5);
+}
+
+button.primary:not(:disabled).active:focus,
+button.primary:not(:disabled):active:focus,
+.show > button.primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 111, 97, .5);
+}
+
+button.primary:not(:disabled).active,
+button.primary:not(:disabled):active,
+.show > button.primary.dropdown-toggle {
+  color: #ff6f61;
+  background-color: #ffffff;
+  border-color: #ff6f61;
+}
+
+button.outline.primary {
+  color: #ff6f61;
+  background-color: #ffffff;
+}
+
+button.outline.primary:hover {
+  color: #ffffff;
+  background-color: #ff6f61;
+  border-color: #ff6f61;
+}
+
+button.outline.primary.focus,
+button.outline.primary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 111, 97, .5);
+}
+
+button.outline.primary:not(:disabled).active:focus,
+button.outline.primary:not(:disabled):active:focus,
+.show > button.outline.primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 111, 97, .5);
+}
+
+button.outline.primary:not(:disabled).active,
+button.outline.primary:not(:disabled):active,
+.show > button.outline.primary.dropdown-toggle {
+  background-color: #ff6f61;
+  border-color: #ff6f61;
+}
+
+input, select, textarea {
+  display: block;
+  width: 100%;
+  height: calc(2.25rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+input:focus, textarea:focus, select:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+textarea {
+  height: auto;
+}
+
+form .group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.small {
+  font-size: .75rem;
+}
+
+.info {
+  color: #5C5C5C;
+}
+
+/* Header */
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1.5rem 0;
+  font-size: calc(15rem / 16);
+  z-index: 1000;
+  transition: all .4s;
+}
+
+header ul {
+  padding: 0;
+}
+
+header .left {
+  width: 60%;
+}
+
+header .right {
+  width: 40%;
+  text-align: right;
+}
+
+header.active {
+  padding: 1rem 0;
+  background: #fefefe;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+}
+
+header .mobile-menu .dropdown-menu {
+  min-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem 1.5rem;
+}
+
+header .mobile-menu .dropdown-menu li {
+  display: block;
+  margin-bottom: .5rem;
+  max-width: 100%;
+  flex: 0 0 100%;
+}
+
+header .mobile-menu .opened,
+header .mobile-menu .show .closed {
+  display: none;
+}
+
+header .mobile-menu .show .closed {
+  display: inline;
+}
+
+header .mobile-menu .home {
+  padding: .25rem 0 0 1rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  visibility: hidden;
+}
+
+header.active .mobile-menu .home {
+  visibility: visible;
+}
+
+header .mobile-menu .btn {
+  min-width: 0;
+  margin-right: 1rem;
+}
+
+header .mobile-menu .dropdown-toggle::after {
+  display: none;
+}
+
+header .mobile-menu .main-menu ul {
+  padding-top: .5rem;
+  opacity: .75;
+}
+
+/* Base page styles */
+
+article {
+  margin-bottom: 1rem;
+}
+
+article .excerpt {
+  padding: .5em 0;
+}
+
+article hr {
+  margin: 2rem 0 1rem 0;
+}
+
+article .text {
+  margin-bottom: 2.5rem;
+}
+
+article .read-more {
+  color: #ff6f61;
+}
+
+article .info .left,
+article .info .right {
+  width: 50%;
+}
+
+article .info .right {
+  text-align: right;
+}
+
+article .post-image {
+  width: 100%;
+  height: auto;
+}
+
+article .map {
+  margin-bottom: 1.5rem;
+}
+
+/* Homepage */
+
+.home {
+  width: 100%;
+  height: 100vh;
+  max-width: 1920px;
+  margin: 2rem auto 0 auto;
+  flex-direction: column-reverse;
+}
+
+.home .left {
+  width: calc(5/12 * 100%);
+}
+
+.home .right {
+  width: calc(7/12 * 100%);
+}
+
+.home .right img {
+  display: block;
+  max-width: 85%;
+  margin: 0 auto;
+}
+
+.home .main-menu {
+  padding: 0;
+  list-style: none;
+}
+
+.home .main-menu li {
+  position: relative;
+  display: block;
+  margin-bottom: .25rem;
+  padding: 0 .5rem .5rem 0;
+  list-style: none;
+}
+
+.home .main-menu li li:before {
+  content: ' ';
+  position: absolute;
+  display: block;
+  width: .25rem;
+  height: .275rem;
+  top: .6rem;
+  left: .25rem;
+  border-radius: 2px;
+  background-color: #ff6f61;
+}
+
+.home .main-menu ul {
+  position: relative;
+  height: auto;
+  margin: 0;
+  padding: 1rem 0 0;
+  background: transparent;
+  box-shadow: none;
+  opacity: 1;
+}
+
+.home .main-menu li:hover ul {
+  height: auto;
+  padding: 1rem 0 0;
+}
+
+.home .main-menu li li {
+  display: block;
+  padding: 0 1rem;
+}
+
+.home .main-menu li li a {
+  font-size: 1rem;
+  color: #5C5C5C;
+}
+
+.home .main-menu li li a:hover {
+  color: #ff6f61;
+}
+
+
+/* Schedule and positions */
+
+.schedule .bus {
+  background-color: #fbfde0;
+}
+
+.schedule .bus:hover {
+  background-color: #c6e0c5;
+}
+
+.schedule .time {
+  width: 12%;
+}
+
+.schedule .route-number {
+  width: 12%;
+}
+
+.schedule .days {
+  width: 17%;
+  vertical-align: middle;
+}
+
+.schedule .flex {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.schedule .day {
+  width: 1rem;
+  height: 1rem;
+  background: #ff6f61;
+  border-radius: .125rem;
+}
+
+.schedule .day.active {
+  background: forestgreen;
+}
+
+.position tr:hover {
+  background-color: #c6e0c5;
+}
+
+/* Modal overlay */
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  display: none;
+  overflow: hidden;
+  outline: 0;
+}
+
+.modal.active {
+  display: block;
+  overflow: inherit;
+  padding-right: 0 !important;
+  transition: opacity .15s linear;
+}
+
+.modal .dialog {
+  margin: 1.75rem auto;
+}
+
+.modal .dialog {
+  position: relative;
+  max-width: 750px;
+  top: 400px;
+  transition: all .4s;
+  opacity: 0;
+}
+
+.modal.active .dialog {
+  top: 450px;
+  transform: translate3d(0, -300px, 0);
+  opacity: 1;
+}
+
+.modal .content {
+  position: relative;
+  width: 100%;
+  padding: 1.5rem;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 0.3rem;
+  outline: 0;
+}
+
+.modal .header,
+.modal .body,
+.modal .footer {
+  padding: 0;
+}
+
+.modal .header,
+.modal .body {
+  padding: 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.modal .header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1rem 0 .5rem 0;
+}
+
+.modal .header h5 {
+  margin: 0;
+  padding: 0;
+}
+
+.modal .header .close {
+  float: right;
+  padding: 1rem 0;
+  margin: -1rem -2.5rem -1rem auto;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  background-color: transparent;
+  border: 0;
+}
+
+.modal .body {
+  margin-bottom: .75rem;
+  padding: .75rem 0;
+}
+
+.modal .footer {
+  padding-top: .75rem;
+}
+
+.modal .footer > :not(:first-child) {
+  margin-left: .5rem;
+}
+
+.modal .footer > :not(:last-child) {
+  margin-right: .5rem;
+}
+
+.modal .body .group:last-child {
+  margin-bottom: 0;
+}
+
+.overlay {
+  position: fixed;
+  display: none;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000;
+}
+
+.overlay.active {
+  display: block;
+  opacity: .5;
+  transition: all .15s;
 }

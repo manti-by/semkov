@@ -1,47 +1,54 @@
-(($) => {
+"use strict"
 
-  "use strict";
+document.addEventListener("DOMContentLoaded", () => {
+  // Floating Header
+  let header = document.querySelector("header")
+  if (header) {
+    let prev_y = window.scrollY, curr_y = window.scrollY
 
-  $.getCookie = (name, default_value) => {
-    let value = document.cookie, start = value.indexOf(" " + name + "="), end
+    setInterval(() => {
+      curr_y = window.scrollY
+      if (prev_y === curr_y) return
 
-    if (start === -1) start = value.indexOf(name + "=")
-
-    if (start === -1) {
-      value = default_value
-    } else {
-      start = value.indexOf("=", start) + 1
-      end = value.indexOf(";", start)
-
-      if (end === -1) end = value.length
-      value = decodeURIComponent(value.substring(start, end))
-    }
-
-    return value
+      curr_y < 60 ? header.classList.remove("active") : header.classList.add("active")
+      prev_y = curr_y
+    }, 250)
   }
 
-  $(document).ready(() => {
-    $(window).scroll(() => {
-      let header = $("header")
-      $(window).scrollTop() > 60 ? header.addClass("active") : header.removeClass("active")
-    })
+  // Contact Form
+  const showContactModalButton = document.getElementById("open-contact-modal"),
+    contactModal = document.getElementById("contact-modal"),
+    contactOverlay = document.getElementById("contact-overlay"),
+    contactButton = document.getElementById("contact-button"),
+    contactForm = document.getElementById("contact-form")
 
-    $("#contact-button").on("click", (e) => {
-      e.preventDefault()
+  showContactModalButton.onclick = () => {
+    contactModal.classList.add("active")
+    contactOverlay.classList.add("active")
+  }
 
-      let form = $("#contact-form"), data = {"csrfmiddlewaretoken": $.getCookie("csrftoken")}
-
-      $.each(form.find(".form-control"), (i, input) => {
-        data[input.name] = input.value
-      })
-
-      $.post(form.attr("action"), data, (response) => {
-        $('#contact-modal').modal("hide")
-          alert(response["message"])
-      }).fail(() => {
-        alert("Что-то пошло не так, попробуй позже.")
-      })
-    })
+  contactModal.querySelectorAll(".close").forEach((element) => {
+    element.onclick = () => {
+      contactModal.classList.remove("active")
+      contactOverlay.classList.remove("active")
+    }
   })
 
-})(jQuery)
+  contactButton.onclick = (e) => {
+    e.preventDefault()
+    fetch(contactForm.attributes.action.value, {
+      method: "POST",
+      body: new FormData(contactForm),
+    }).then(response => {
+      if (response.status === 200) {
+        response.json().then(data => {
+          alert(data.message)
+        })
+      } else {
+        alert("Что-то пошло не так, попробуй позже.")
+      }
+      contactModal.classList.remove("active")
+      contactOverlay.classList.remove("active")
+    })
+  }
+})

@@ -24,20 +24,16 @@
           </div>
         {% endif %}
         <div class="row small info">
+          <div class="updated left">
+            {% trans 'Updated' %}: {{ page.last_published_at }}
+          </div>
           {% if page.source %}
-            <div class="col-12 col-md-6">
+            <div class="source right">
               {% trans 'Source' %}: <a href="{{ page.source }}">{{ page.source_title }}</a>
             </div>
           {% endif %}
-          <div class="col-12 col-md-6 {% if page.source %}text-md-right{% endif %}">
-            {% trans 'Updated' %}: {{ page.last_published_at }}
-          </div>
         </div>
       </article>
     </div>
   </main>
 {% endblock content %}
-
-{% block extra_css %}
-  <link rel="stylesheet" type="text/css" href="{% static 'css/layout/table.css' %}">
-{% endblock %}
