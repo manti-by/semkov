@@ -1,12 +1,9 @@
 import json
 import logging
-
 from collections import defaultdict
 
 import requests
-
 from bs4 import BeautifulSoup
-
 from django.conf import settings
 from django.core.management.base import BaseCommand
 
@@ -43,13 +40,15 @@ class Command(BaseCommand):
             "cityTo": settings.BUS_API_POINT_TO_NAME,
             "POINT_TO": settings.BUS_API_POINT_TO_ID,
         }
-        response = requests.post(settings.BUS_API_BASE_URL, data=data, headers=headers)
+        response = requests.post(
+            settings.BUS_API_BASE_URL, data=data, headers=headers, timeout=60
+        )
         if response.ok:
             for item in response.json():
                 for stop in item["sub_shedule"]:
                     if stop["point"] == settings.BUS_API_POINT_FROM_NAME:
                         days = self.convert_bus_days(item["days"])
-                        days_key = '-'.join(map(str, days.values()))
+                        days_key = "-".join(map(str, days.values()))
                         key = f"{item['number']}:{stop['arTime']}:{days_key}"
                         if any(days.values()):
                             result[key] = {
@@ -66,7 +65,7 @@ class Command(BaseCommand):
     def get_minibus_schedule() -> list:
         result = []
         for link in settings.MINIBUS_ROUTES:
-            response = requests.get(f"{settings.MINIBUS_BASE_URL}{link}")
+            response = requests.get(f"{settings.MINIBUS_BASE_URL}{link}", timeout=60)
             if response.ok:
                 parser = BeautifulSoup(response.content, features="html5lib")
                 schedule = defaultdict(lambda: {x: False for x in WEEK_DAYS})
