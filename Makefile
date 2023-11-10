@@ -37,9 +37,5 @@ test:
 	pytest
 
 check:
-	flake8 semkov/
-	black semkov/
-
-
-
-
+	git add .
+	pre-commit run
