@@ -1,31 +1,30 @@
 {% load static i18n core_tags %}
 <header>
   <div class="container">
-    <div class="row">
+    <div class="desktop-menu row">
       <div class="left">
         {% main_menu True %}
       </div>
       <div class="right">
-        <button id="open-contact-modal" type="button" class="outline primary">
+        <button type="button" class="open-contact-modal outline primary">
           {% trans 'Contact Us' %}
         </button>
       </div>
     </div>
     <div class="mobile-menu row">
-      <div class="home">
+      <div class="left">
         <a href="/">
-          {% trans 'Home' %}
+          <h5>{% trans 'Home' %}</h5>
         </a>
       </div>
-      <div class="dropdown">
-        <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false" id="mobile-menu-button">
-          <img src="{% static 'svg/menu.svg' %}" class="closed" alt="Menu">
-          <img src="{% static 'svg/close.svg' %}" class="opened" alt="Close">
+      <div class="right">
+        <button type="button" class="menu-button">
+          <img id="open-mobile-menu" src="{% static 'svg/menu.svg' %}" alt="Menu">
+          <img id="close-mobile-menu" src="{% static 'svg/close.svg' %}" class="hidden" alt="Close">
         </button>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="mobile-menu-button">
+        <div id="mobile-menu" class="menu">
           {% main_menu False %}
-          <button id="open-contact-modal" class="outline primary" data-toggle="modal">
+          <button class="open-contact-modal outline primary">
             {% trans 'Contact Us' %}
           </button>
         </div>
@@ -38,7 +37,7 @@
   <div class="dialog">
     <div class="content">
       <div class="header">
-        <h5 class="title">{% trans 'Contact' %}</h5>
+        <h5 class="title">{% trans 'Feedback' %}</h5>
         <button type="button" class="close">
           <span>&times;</span>
         </button>

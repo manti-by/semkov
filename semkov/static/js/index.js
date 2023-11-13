@@ -15,17 +15,34 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 250)
   }
 
+  // Mobile Menu
+  let mobileMenu = document.getElementById("mobile-menu"),
+    mobileMenuOpenButton = document.getElementById("open-mobile-menu"),
+    mobileMenuCloseButton = document.getElementById("close-mobile-menu")
+
+  mobileMenuOpenButton.onclick = () => {
+    mobileMenu.classList.add("active")
+    mobileMenuOpenButton.classList.add("hidden")
+    mobileMenuCloseButton.classList.remove("hidden")
+  }
+
+  mobileMenuCloseButton.onclick = () => {
+    mobileMenu.classList.remove("active")
+    mobileMenuOpenButton.classList.remove("hidden")
+    mobileMenuCloseButton.classList.add("hidden")
+  }
+
   // Contact Form
-  const showContactModalButton = document.getElementById("open-contact-modal"),
-    contactModal = document.getElementById("contact-modal"),
+  let contactModal = document.getElementById("contact-modal"),
     contactOverlay = document.getElementById("contact-overlay"),
-    contactButton = document.getElementById("contact-button"),
     contactForm = document.getElementById("contact-form")
 
-  showContactModalButton.onclick = () => {
-    contactModal.classList.add("active")
-    contactOverlay.classList.add("active")
-  }
+  document.querySelectorAll(".open-contact-modal").forEach((element) => {
+    element.onclick = () => {
+      contactModal.classList.add("active")
+      contactOverlay.classList.add("active")
+    }
+  })
 
   contactModal.querySelectorAll(".close").forEach((element) => {
     element.onclick = () => {
@@ -34,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })
 
-  contactButton.onclick = (e) => {
+  document.getElementById("contact-button").onclick = (e) => {
     e.preventDefault()
     fetch(contactForm.attributes.action.value, {
       method: "POST",
