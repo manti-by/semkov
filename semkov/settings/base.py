@@ -137,7 +137,7 @@ LANGUAGE_CODE = "ru"
 
 LANGUAGES = [("ru", _("Russian")), ("en", _("English"))]
 
-LOCALE_PATHS = (PROJECT_DIR / "locale",)
+LOCALE_PATHS = (PROJECT_DIR / "apps" / "core" / "locale",)
 
 TIME_ZONE = "UTC"
 

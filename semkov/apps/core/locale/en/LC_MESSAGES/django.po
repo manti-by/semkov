@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-17 15:52+0000\n"
+"POT-Creation-Date: 2023-11-13 09:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,165 +18,149 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: app/ads/templates/ads/ads_form.html:6
-msgid "Add new advertisement"
-msgstr ""
-
-#: app/ads/templates/ads/ads_form.html:10
-msgid "Please login first to have ability to add advertisements"
-msgstr ""
-
-#: app/ads/templates/ads/ads_form.html:15
-msgid "Title"
-msgstr ""
-
-#: app/ads/templates/ads/ads_form.html:19
-msgid "Advertisement"
-msgstr ""
-
-#: app/ads/templates/ads/ads_form.html:22
-msgid "Submit"
-msgstr ""
-
-#: app/api/resources.py:28
+#: semkov/api/views.py:24
 msgid "Submission request from Semkov app"
 msgstr ""
 
-#: app/api/resources.py:36
+#: semkov/api/views.py:32
 msgid "Thanks for submission, we'll get in touch soon"
 msgstr ""
 
-#: app/api/resources.py:47
+#: semkov/api/views.py:41
 msgid "Please login first"
 msgstr ""
 
-#: app/api/resources.py:62
+#: semkov/api/views.py:56
 msgid "Thanks for submission, we'll post it after moderation"
 msgstr ""
 
-#: app/api/resources.py:81 app/api/resources.py:107
+#: semkov/api/views.py:65 semkov/api/views.py:92
 msgid "Already logged in"
 msgstr ""
 
-#: app/api/resources.py:95
+#: semkov/api/views.py:83
 msgid "Account successfully created, please wait for activation"
 msgstr ""
 
-#: app/api/resources.py:118
+#: semkov/api/views.py:103
 msgid "Can't find user with provided credentials"
 msgstr ""
 
-#: app/api/resources.py:125
+#: semkov/api/views.py:110
 msgid "Successfully logged in"
 msgstr ""
 
-#: app/api/resources.py:134
+#: semkov/api/views.py:117
 msgid "Successfully logged out"
 msgstr ""
 
-#: app/core/settings/base.py:142
+#: semkov/apps/ads/templates/ads/ads_form.html:6
+msgid "Add new advertisement"
+msgstr ""
+
+#: semkov/apps/ads/templates/ads/ads_form.html:10
+msgid "Please login first to have ability to add advertisements"
+msgstr ""
+
+#: semkov/apps/ads/templates/ads/ads_form.html:15
+msgid "Title"
+msgstr ""
+
+#: semkov/apps/ads/templates/ads/ads_form.html:19
+msgid "Advertisement"
+msgstr ""
+
+#: semkov/apps/ads/templates/ads/ads_form.html:22
+msgid "Submit"
+msgstr ""
+
+#: semkov/apps/home/templates/home/category_model.html:22
+#: semkov/apps/pages/templates/pages/page_model.html:28
+msgid "Updated"
+msgstr ""
+
+#: semkov/apps/home/templates/home/category_model.html:28
+msgid "Read More"
+msgstr ""
+
+#: semkov/apps/pages/templates/pages/page_model.html:32
+msgid "Source"
+msgstr ""
+
+#: semkov/apps/search/templates/search/search.html:13
+msgid "Search"
+msgstr ""
+
+#: semkov/settings/base.py:138
 msgid "Russian"
 msgstr ""
 
-#: app/core/settings/base.py:142
+#: semkov/settings/base.py:138
 msgid "English"
 msgstr ""
 
-#: app/core/templates/base.html:24 app/core/templates/base.html:33
+#: semkov/templates/base.html:24 semkov/templates/base.html:33
 msgid ""
 "Semkov Gorodok - a village in Papernyansky village council of Minsk region "
 "of the Republic of Belarus"
 msgstr ""
 
-#: app/core/templates/base.html:31
+#: semkov/templates/base.html:31
 msgid "Semkov Gorodok"
 msgstr ""
 
-#: app/core/templates/emails/email.html:75
+#: semkov/templates/emails/email.html:75
 msgid "From"
 msgstr ""
 
-#: app/core/templates/emails/email.html:83
-#: app/core/templates/tags/header.html:103
+#: semkov/templates/emails/email.html:83 semkov/templates/tags/header.html:61
 msgid "Message"
 msgstr ""
 
-#: app/core/templates/emails/email.html:89
+#: semkov/templates/emails/email.html:89
 msgid "Created"
 msgstr ""
 
-#: app/core/templates/tags/document_table.html:11
+#: semkov/templates/tags/document_table.html:11
 msgid "Days"
 msgstr ""
 
-#: app/core/templates/tags/header.html:11
-#: app/core/templates/tags/header.html:35
-#: app/core/templates/tags/header.html:51
-#: app/core/templates/tags/header.html:70
-msgid "Login"
-msgstr ""
-
-#: app/core/templates/tags/header.html:15
-#: app/core/templates/tags/header.html:39
+#: semkov/templates/tags/header.html:10 semkov/templates/tags/header.html:28
 msgid "Contact Us"
 msgstr ""
 
-#: app/core/templates/tags/header.html:22
-#: app/core/templates/tags/main_menu.html:7
+#: semkov/templates/tags/header.html:17 semkov/templates/tags/main_menu.html:7
 msgid "Home"
 msgstr ""
 
-#: app/core/templates/tags/header.html:59
-msgid "Email"
+#: semkov/templates/tags/header.html:40
+msgid "Feedback"
 msgstr ""
 
-#: app/core/templates/tags/header.html:63
-msgid "Password"
-msgstr ""
-
-#: app/core/templates/tags/header.html:66
-msgid "Don't have an account"
-msgstr ""
-
-#: app/core/templates/tags/header.html:71
-#: app/core/templates/tags/header.html:110
-msgid "Close"
-msgstr ""
-
-#: app/core/templates/tags/header.html:81
-#: app/core/templates/tags/header.html:94
-msgid "Contact"
-msgstr ""
-
-#: app/core/templates/tags/header.html:89
+#: semkov/templates/tags/header.html:49
 msgid "Name"
 msgstr ""
 
-#: app/core/templates/tags/header.html:91
+#: semkov/templates/tags/header.html:50
 msgid "Enter your name"
 msgstr ""
 
-#: app/core/templates/tags/header.html:97
+#: semkov/templates/tags/header.html:53
+msgid "Contact"
+msgstr ""
+
+#: semkov/templates/tags/header.html:55
 msgid "Enter your email or phone"
 msgstr ""
 
-#: app/core/templates/tags/header.html:99
+#: semkov/templates/tags/header.html:57
 msgid "We'll never share your email or phone with anyone else."
 msgstr ""
 
-#: app/core/templates/tags/header.html:109
+#: semkov/templates/tags/header.html:67
 msgid "Send"
 msgstr ""
 
-#: app/home/templates/home/category_model.html:22
-#: app/pages/templates/pages/page_model.html:27
-msgid "Updated"
-msgstr ""
-
-#: app/home/templates/home/category_model.html:28
-msgid "Read More"
-msgstr ""
-
-#: app/pages/templates/pages/page_model.html:24
-msgid "Source"
+#: semkov/templates/tags/header.html:68
+msgid "Close"
 msgstr ""
