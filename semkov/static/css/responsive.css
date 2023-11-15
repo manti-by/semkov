@@ -1,4 +1,4 @@
-@media (min-width: 375px) {
+@media (min-width: 320px) {
 
   table {
     font-size: .75rem;
@@ -83,31 +83,13 @@
 
   header .main-menu li {
     position: relative;
-    display: inline;
     margin-right: 2rem;
     overflow: visible;
-  }
-
-  header .main-menu li ul {
-    position: absolute;
-    left: 0;
-    padding: 0;
-    min-width: 15rem;
-    background: #ffffff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
-    opacity: 0;
-    transition: all .6s;
   }
 
   header .main-menu li ul li {
     display: block;
     margin-bottom: .25rem;
-  }
-
-  header .main-menu li:hover ul {
-    display: block;
-    padding: 1rem 1.5rem;
-    opacity: 1;
   }
 
   table {
@@ -130,21 +112,13 @@
     max-width: initial;
     font-size: 2.5rem;
   }
-
-  main.home {
-    height: 100vh;
-  }
-
-  main.home .left {
-    width: calc(5/12 * 100%);
-  }
-  
-  main.home .right {
-    width: calc(7/12 * 100%);
-  }
   
   main.home h1 {
     padding: 1rem 0 1.25rem;
+  }
+
+  main.home .left {
+    margin-top: 3rem;
   }
 
   main.home .right img {
@@ -183,6 +157,7 @@
 
   main.home {
     width: 100%;
+    height: 100vh;
     margin: 0 auto;
     flex-direction: inherit;
     overflow: hidden;
@@ -194,12 +169,13 @@
     padding: 17.5vh 0 0 10%;
   }
 
-  main.home .right {
-    padding-left: 0;
+  main.home .left {
+    width: calc(5/12 * 100%);
   }
 
-
   main.home .right {
+    width: calc(7/12 * 100%);
+    padding-left: 0;
     background: #EEEEEE;
   }
 
@@ -222,12 +198,18 @@
     margin-bottom: 2rem;
   }
 
+  header .main-menu li:hover ul {
+    display: block;
+    padding: 1rem 1.5rem;
+    opacity: 1;
+  }
+
   main.home .main-menu li a {
     font-size: 2rem;
   }
 
   main.home .main-menu li li {
-    width: 40%;
+    width: 100%;
     margin-bottom: 1rem;
   }
 
@@ -243,6 +225,21 @@
 
 @media (min-width: 1200px) {
 
+  header .main-menu li {
+    display: inline;
+  }
+
+  header .main-menu li ul {
+    position: absolute;
+    left: 0;
+    padding: 0;
+    min-width: 15rem;
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
+    opacity: 0;
+    transition: all .6s;
+  }
+
   main.home h1 {
     margin-bottom: 8rem;
     margin-top: 6rem;
@@ -252,10 +249,6 @@
   main.home .main-menu li a {
     font-size: 2.5rem;
   }
-
-}
-
-@media (min-width: 1920px) {
 
   main.home .main-menu li li {
     width: auto;
