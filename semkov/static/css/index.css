@@ -162,7 +162,7 @@ a {
 }
 
 a:hover {
-  color: #ff6f61;
+  color: #bf4b31;
   text-decoration: none;
 }
 
@@ -231,8 +231,8 @@ button {
   white-space: nowrap;
   vertical-align: middle;
   user-select: none;
-  color: #ff6f61;
-  border: 1px solid #ff6f61;
+  color: #bf4b31;
+  border: 1px solid #bf4b31;
   background-color: #ffffff;
   padding: .375rem .75rem;
   font-size: 1rem;
@@ -247,8 +247,8 @@ button {
 
 button.primary {
   color: #ffffff;
-  background-color: #ff6f61;
-  border-color: #ff6f61;
+  background-color: #bf4b31;
+  border-color: #bf4b31;
 }
 
 button.secondary {
@@ -257,9 +257,9 @@ button.secondary {
 }
 
 button.primary:hover {
-  color: #ff6f61;
+  color: #bf4b31;
   background-color: #ffffff;
-  border-color: #ff6f61;
+  border-color: #bf4b31;
 }
 
 button.secondary:hover {
@@ -281,20 +281,20 @@ button.primary:not(:disabled):active:focus,
 button.primary:not(:disabled).active,
 button.primary:not(:disabled):active,
 .show > button.primary.dropdown-toggle {
-  color: #ff6f61;
+  color: #bf4b31;
   background-color: #ffffff;
-  border-color: #ff6f61;
+  border-color: #bf4b31;
 }
 
 button.outline.primary {
-  color: #ff6f61;
+  color: #bf4b31;
   background-color: #ffffff;
 }
 
 button.outline.primary:hover {
   color: #ffffff;
-  background-color: #ff6f61;
-  border-color: #ff6f61;
+  background-color: #bf4b31;
+  border-color: #bf4b31;
 }
 
 button.outline.primary.focus,
@@ -311,8 +311,8 @@ button.outline.primary:not(:disabled):active:focus,
 button.outline.primary:not(:disabled).active,
 button.outline.primary:not(:disabled):active,
 .show > button.outline.primary.dropdown-toggle {
-  background-color: #ff6f61;
-  border-color: #ff6f61;
+  background-color: #bf4b31;
+  border-color: #bf4b31;
 }
 
 input, select, textarea {
@@ -481,7 +481,7 @@ article .text {
 }
 
 article .read-more {
-  color: #ff6f61;
+  color: #bf4b31;
 }
 
 article .info .left,
@@ -540,7 +540,7 @@ main.home .main-menu li li:before {
   top: .6rem;
   left: .25rem;
   border-radius: 2px;
-  background-color: #ff6f61;
+  background-color: #bf4b31;
 }
 
 main.home .main-menu ul {
@@ -569,7 +569,7 @@ main.home .main-menu li li a {
 }
 
 main.home .main-menu li li a:hover {
-  color: #ff6f61;
+  color: #bf4b31;
 }
 
 
@@ -604,7 +604,7 @@ main.home .main-menu li li a:hover {
 .schedule .day {
   width: 1rem;
   height: 1rem;
-  background: #ff6f61;
+  background: #bf4b31;
   border-radius: .125rem;
 }
 
