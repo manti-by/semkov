@@ -173,6 +173,12 @@ STATIC_URL = "/static/"
 MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "/media/"
 
+WAGTAILIMAGES_FORMAT_CONVERSIONS = {
+    "avif": "avif",
+    "bmp": "webp",
+    "png": "png",
+    "webp": "webp",
+}
 
 # Wagtail settings
 
@@ -195,7 +201,7 @@ DEFAULT_TO_EMAIL = "manti.by@gmail.com"
 # Twilio account
 
 TWILIO_FROM_NUMBER = "+18577031034"
-TWILIO_ACCOUNT_SID = "AC5e57d43eceff89b329212c270e8a690e"
+TWILIO_ACCOUNT_SID = ""
 TWILIO_AUTH_TOKEN = ""
 
 
