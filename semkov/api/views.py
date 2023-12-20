@@ -8,6 +8,7 @@ from wagtail.models import Page
 
 from semkov.apps.ads.models import AdsModel
 from semkov.apps.core.models import Email
+from semkov.apps.core.services.recaptcha import is_valid_recaptcha_token
 from semkov.apps.user.models import User
 
 logger = logging.getLogger(__name__)
@@ -17,6 +18,14 @@ def contact_view(request):
     meta = {}
     for item in ["HTTP_ACCEPT_LANGUAGE", "HTTP_REFERER", "HTTP_USER_AGENT"]:
         meta[item] = request.META.get(item)
+
+    if not is_valid_recaptcha_token(request.POST.get("token")):
+        return JsonResponse(
+            {
+                "message": _("ReCaptcha token is invalid"),
+            },
+            status=403,
+        )
 
     e = Email(
         name=request.POST.get("name"),
@@ -28,7 +37,6 @@ def contact_view(request):
     e.save()
     return JsonResponse(
         {
-            "status": 200,
             "message": _("Thanks for submission, we'll get in touch soon"),
         },
         status=200,

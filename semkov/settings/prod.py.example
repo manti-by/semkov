@@ -65,3 +65,4 @@ EMAIL_HOST = "localhost"
 EMAIL_PORT = 25
 
 GOOGLE_RECAPTCHA_SITE_KEY = "some-recaptcha-site-key"
+GOOGLE_RECAPTCHA_SECRET = "some-recaptcha-secret"

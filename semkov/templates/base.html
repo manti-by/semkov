@@ -1,4 +1,4 @@
-{% load static wagtailuserbar i18n %}
+{% load static wagtailuserbar i18n core_tags %}
 
 <!DOCTYPE html>
 <html class="no-js" lang="ru">
@@ -60,9 +60,12 @@
 
 {% block content %}{% endblock %}
 
+<script type="application/javascript">
+  const GOOGLE_RECAPTCHA_SITE_KEY = "{% get_settings 'GOOGLE_RECAPTCHA_SITE_KEY' %}"
+</script>
 {% block extra_js %}{% endblock %}
 
-<script async src="https://www.google.com/recaptcha/api.js"></script>
+<script async src="https://www.google.com/recaptcha/api.js?render={% get_settings 'GOOGLE_RECAPTCHA_SITE_KEY' %}"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142198021-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];

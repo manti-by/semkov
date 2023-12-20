@@ -65,10 +65,7 @@
         </form>
       </div>
       <div class="modal-footer justify-content-start">
-        <button type="button" class="primary g-recaptcha" data-sitekey="{% get_settings 'GOOGLE_RECAPTCHA_SITE_KEY' %}"
-                data-callback="submitContactForm" data-action="submit">
-          {% trans "Send" %}
-        </button>
+        <button id="contact-button" type="button" class="primary">{% trans 'Send' %}</button>
         <button type="button" class="close outline secondary" data-dismiss="modal">{% trans 'Close' %}</button>
       </div>
     </div>

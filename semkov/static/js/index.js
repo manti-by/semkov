@@ -51,21 +51,31 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })
 
-  function submitContactForm(e) {
+  document.getElementById("contact-button").onclick = (e) => {
     e.preventDefault()
-    fetch(contactForm.attributes.action.value, {
-      method: "POST",
-      body: new FormData(contactForm),
-    }).then(response => {
-      if (response.status === 200) {
-        response.json().then(data => {
-          alert(data.message)
+
+    grecaptcha.ready(function() {
+      grecaptcha.execute(GOOGLE_RECAPTCHA_SITE_KEY, { action: "submit"}).then((token) => {
+        let formData = new FormData(contactForm)
+        formData.append("token", token)
+
+        fetch(contactForm.attributes.action.value, {
+          method: "POST",
+          body: formData,
+        }).then(response => {
+          if (response.status === 200) {
+            response.json().then(data => {
+              alert(data.message)
+            })
+          } else {
+            alert("Что-то пошло не так, попробуй позже.")
+          }
+          contactModal.classList.remove("active")
+          contactOverlay.classList.remove("active")
         })
-      } else {
-        alert("Что-то пошло не так, попробуй позже.")
-      }
-      contactModal.classList.remove("active")
-      contactOverlay.classList.remove("active")
+      })
     })
+
+
   }
 })
