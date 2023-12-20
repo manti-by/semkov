@@ -9,12 +9,12 @@
   {% for item in items %}
     <tr {% if not item.is_minibus %}class="bus"{% endif %}>
       <td class="time">{{ item.time }}</td>
-      <td class="route-number">{{ item.route_number }}</td>
+      <td class="route-number">{{ item.number }}</td>
       <td class="route">{{ item.route }}</td>
       <td class="days">
         <div class="flex">
-          {% for key, value in item.days.items %}
-            <span class="day {% if value %}active{% endif %}"></span>
+          {% for day in days %}
+            <span class="day {% if day in item.days %}active{% endif %}"></span>
           {% endfor %}
         </div>
       </td>

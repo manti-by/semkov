@@ -11,7 +11,7 @@ def schedule():
     headers = ["Время", "№№", "Маршрут", "Дни недели"]
     with open(settings.SCHEDULE_FILE_PATH, mode="r") as file:
         items = json.loads(file.read())
-    return {"headers": headers, "items": items}
+    return {"headers": headers, "days": range(1, 8), "items": items.values()}
 
 
 @register.inclusion_tag("tags/position.html")
