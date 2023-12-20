@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })
 
-  document.getElementById("contact-button").onclick = (e) => {
+  function submitContactForm(e) {
     e.preventDefault()
     fetch(contactForm.attributes.action.value, {
       method: "POST",

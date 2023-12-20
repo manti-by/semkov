@@ -1,6 +1,7 @@
 from operator import itemgetter
 
 from django import template
+from django.conf import settings
 from wagtail.models import Page
 
 register = template.Library()
@@ -41,3 +42,8 @@ def main_menu(show_index=False, is_homepage=False):
 @register.inclusion_tag("tags/header.html", takes_context=True)
 def header(context):
     return context
+
+
+@register.simple_tag
+def get_settings(value):
+    return getattr(settings, value)

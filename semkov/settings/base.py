@@ -241,3 +241,5 @@ MINIBUS_ROUTES = os.getenv(
         "/485sh/komarovskij-rynok-shershuny/shchedrina",
     ],
 )
+
+GOOGLE_RECAPTCHA_SITE_KEY = os.getenv("GOOGLE_RECAPTCHA_SITE_KEY", None)

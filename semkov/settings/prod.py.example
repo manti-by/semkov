@@ -63,3 +63,5 @@ DEFAULT_FROM_EMAIL = "no-reply@manti.by"
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "localhost"
 EMAIL_PORT = 25
+
+GOOGLE_RECAPTCHA_SITE_KEY = "some-recaptcha-site-key"

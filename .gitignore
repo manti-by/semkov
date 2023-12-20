@@ -10,5 +10,8 @@ semkov/settings/prod.py
 media/
 data/
 
+.venv/
+.env
+
 *.pyc
 *~
