@@ -1,7 +1,6 @@
-wagtail==5.2.0
+wagtail==5.2.2
 pillow==10.1.0
-beautifulsoup4==4.11.2
-twilio==8.10.1
+twilio==8.11.0
 gunicorn==21.2.0
 psycopg2_binary==2.9.9
 requests==2.31.0
@@ -9,10 +8,10 @@ requests==2.31.0
 pytest>=7.4.3
 pytest-django>=4.7.0
 
-pre_commit>=3.5.0
-isort>=5.12.0
+pre_commit>=3.6.0
+isort>=5.13.2
 pyupgrade>=3.15.0
-black>=23.11.0
+black>=23.12.0
 prospector>=1.10.3
-bandit>=1.7.5
+bandit>=1.7.6
 pip-check-updates>=0.23.0
