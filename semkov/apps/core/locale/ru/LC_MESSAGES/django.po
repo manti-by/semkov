@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-13 09:58+0000\n"
+"POT-Creation-Date: 2023-12-21 08:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,39 +20,43 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: semkov/api/views.py:24
+#: semkov/api/views.py:25
+msgid "ReCaptcha token is invalid"
+msgstr ""
+
+#: semkov/api/views.py:33
 msgid "Submission request from Semkov app"
 msgstr "Сообщение из Семкова Городка"
 
-#: semkov/api/views.py:32
+#: semkov/api/views.py:40
 msgid "Thanks for submission, we'll get in touch soon"
 msgstr "Спасибо за сообщение, мы скоро свяжемся с вами"
 
-#: semkov/api/views.py:41
+#: semkov/api/views.py:49
 msgid "Please login first"
 msgstr "Пожалуйста войдите на сайт"
 
-#: semkov/api/views.py:56
+#: semkov/api/views.py:64
 msgid "Thanks for submission, we'll post it after moderation"
 msgstr "Спасибо за ваше объявление, мы опубликуем его после модерации"
 
-#: semkov/api/views.py:65 semkov/api/views.py:92
+#: semkov/api/views.py:73 semkov/api/views.py:100
 msgid "Already logged in"
 msgstr "Вход уже выполнен"
 
-#: semkov/api/views.py:83
+#: semkov/api/views.py:91
 msgid "Account successfully created, please wait for activation"
 msgstr "Аккаунт успешно создан, дождитесь активации"
 
-#: semkov/api/views.py:103
+#: semkov/api/views.py:111
 msgid "Can't find user with provided credentials"
 msgstr "Не могу найти пользователя с такими данными"
 
-#: semkov/api/views.py:110
+#: semkov/api/views.py:118
 msgid "Successfully logged in"
 msgstr "Вход произведен успешно"
 
-#: semkov/api/views.py:117
+#: semkov/api/views.py:125
 msgid "Successfully logged out"
 msgstr "Вход произведен успешно"
 
@@ -117,7 +121,7 @@ msgstr "Семков Городок"
 msgid "From"
 msgstr "От"
 
-#: semkov/templates/emails/email.html:83 semkov/templates/tags/header.html:61
+#: semkov/templates/emails/email.html:83 semkov/templates/tags/header.html:62
 msgid "Message"
 msgstr "Сообщение"
 
@@ -149,22 +153,30 @@ msgstr "Имя"
 msgid "Enter your name"
 msgstr "Ваше имя"
 
-#: semkov/templates/tags/header.html:53
+#: semkov/templates/tags/header.html:54
 msgid "Contact"
 msgstr "Контакт"
 
-#: semkov/templates/tags/header.html:55
+#: semkov/templates/tags/header.html:56
 msgid "Enter your email or phone"
 msgstr "Как с Вами связаться"
 
-#: semkov/templates/tags/header.html:57
+#: semkov/templates/tags/header.html:58
 msgid "We'll never share your email or phone with anyone else."
 msgstr "Мы не раскрываем эту информацию третьим лицам"
 
-#: semkov/templates/tags/header.html:67
+#: semkov/templates/tags/header.html:68
 msgid "Send"
 msgstr "Отправить"
 
-#: semkov/templates/tags/header.html:68
+#: semkov/templates/tags/header.html:69
 msgid "Close"
 msgstr "Закрыть"
+
+#: semkov/templates/tags/schedule.html:4
+msgid "Arrival"
+msgstr "Прибытие"
+
+#: semkov/templates/tags/schedule.html:5
+msgid "Departure"
+msgstr "Отправление"

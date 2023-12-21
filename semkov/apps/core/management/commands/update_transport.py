@@ -1,12 +1,18 @@
+from __future__ import annotations
+
 import json
 import logging
-from collections import defaultdict, OrderedDict
+from collections import defaultdict
+from typing import TYPE_CHECKING
 
 import requests
 from django.conf import settings
 from django.core.management.base import BaseCommand
 
 logger = logging.getLogger(__name__)
+
+if TYPE_CHECKING:
+    from pathlib import PosixPath
 
 
 class Command(BaseCommand):
@@ -16,12 +22,14 @@ class Command(BaseCommand):
         "Content-Type": "application/json",
     }
     timeout = 60
-    stop_ids = ("25948176", "114793481")
-    minibus_stop_id = "114793481"
 
-    def get_routes(self) -> list | None:
+    bus_type = 3
+    arrival_stop_ids = ("25948176", "114793481")
+    departure_stop_ids = ("25699328",)
+
+    def get_routes(self, stop_ids: tuple) -> list[dict] | None:
         result = []
-        for stop_id in self.stop_ids:
+        for stop_id in stop_ids:
             response = requests.post(
                 f"{self.base_url}/GetStopRouts",
                 data=json.dumps({"StopId": stop_id, "Types": None}),
@@ -40,7 +48,7 @@ class Command(BaseCommand):
                                 "route_id": data.get("RouteId"),
                                 "number": data.get("Number"),
                                 "route": f"{data.get('StartStopName')} - {data.get('FinishStopName')}",
-                                "is_minibus": self.minibus_stop_id == stop_id,
+                                "is_minibus": data.get("Type") == self.bus_type,
                             }
                         )
         return result
@@ -60,15 +68,18 @@ class Command(BaseCommand):
         sorted_values = {key: sorted(list(set(value))) for key, value in result.items()}
         return dict(sorted(sorted_values.items(), key=lambda x: x[0]))
 
-    def handle(self, *args, **options):
+    def get_schedule(self, stop_ids: tuple, file_path: PosixPath):
         result = {}
-        for route in self.get_routes():
+        for route in self.get_routes(stop_ids):
             for time, days in self.get_route_schedule(route).items():
                 result[time] = route.copy()
                 result[time]["time"] = time
                 result[time]["days"] = list(map(int, days))
-
-        with open(settings.SCHEDULE_FILE_PATH, "w") as f:
+        with open(file_path, "w") as f:
             result = dict(sorted(result.items(), key=lambda x: x[0]))
             f.write(json.dumps(result, indent=2, ensure_ascii=False))
-        logger.info(f"Imported {len(result)} routes")
+        logger.info(f"Imported {len(result)} routes to file {file_path.name}")
+
+    def handle(self, *args, **options):
+        self.get_schedule(self.arrival_stop_ids, settings.ARRIVAL_FILE_PATH)
+        self.get_schedule(self.departure_stop_ids, settings.DEPARTURE_FILE_PATH)

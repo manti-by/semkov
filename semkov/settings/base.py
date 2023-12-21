@@ -200,9 +200,9 @@ DEFAULT_TO_EMAIL = "manti.by@gmail.com"
 
 # Twilio account
 
-TWILIO_FROM_NUMBER = "+18577031034"
-TWILIO_ACCOUNT_SID = ""
-TWILIO_AUTH_TOKEN = ""
+TWILIO_FROM_NUMBER = None
+TWILIO_ACCOUNT_SID = None
+TWILIO_AUTH_TOKEN = None
 
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
@@ -210,7 +210,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 # Scrappers
 
 POSITION_FILE_PATH = BASE_DIR / "data" / "position.json"
-SCHEDULE_FILE_PATH = BASE_DIR / "data" / "schedule.json"
+ARRIVAL_FILE_PATH = BASE_DIR / "data" / "arrival.json"
+DEPARTURE_FILE_PATH = BASE_DIR / "data" / "departure.json"
 
 POSITIONS_URL = os.getenv(
     "POSITIONS_URL", "https://mrik.gov.by/delenie/papernyanskij-selsovet"

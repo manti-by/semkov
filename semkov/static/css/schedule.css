@@ -1,0 +1,55 @@
+.tab-headers {
+  display: flex;
+}
+
+.tab-header {
+  margin-right: 2rem;
+  color: #6F6F6F;
+  cursor: pointer;
+}
+
+.tab-header.active {
+  color: #3F3F3F;
+  border-bottom: 2px solid #3F3F3F;
+}
+
+.schedule .bus {
+  background-color: #fbfde0;
+}
+
+.schedule .bus:hover {
+  background-color: #c6e0c5;
+}
+
+.schedule .time {
+  width: 12%;
+}
+
+.schedule .route-number {
+  width: 12%;
+}
+
+.schedule .days {
+  width: 17%;
+  vertical-align: middle;
+}
+
+.schedule .flex {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.schedule .day {
+  width: 1rem;
+  height: 1rem;
+  background: #bf4b31;
+  border-radius: .125rem;
+}
+
+.schedule .day.active {
+  background: forestgreen;
+}
+
+.position tr:hover {
+  background-color: #c6e0c5;
+}
