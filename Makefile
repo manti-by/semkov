@@ -14,7 +14,7 @@ send_email:
 	docker exec -it semkov-wagtail python manage.py send_email
 
 update-project:
-	ssh amon-ra "docker exec -it semkov-postgres pg_dump -U semkov -d semkov > /mnt/nostromo/www/semkov/data/semkov.sql"
+	ssh amon-ra "docker exec -i semkov-postgres pg_dump -U semkov -d semkov > /mnt/nostromo/www/semkov/data/semkov.sql"
 	scp -r amon-ra:/mnt/nostromo/www/semkov/media .
 	scp -r amon-ra:/mnt/nostromo/www/semkov/data .
 	export PGPASSWORD=semkov && psql -h localhost -U semkov semkov -c "drop database semkov; create database semkov;"
@@ -28,7 +28,6 @@ update-server:
 	ssh amon-ra "cd ~/www/semkov-gorodok.by/ && docker-compose up -d"
 	ssh amon-ra "docker cp /mnt/nostromo/www/semkov/data/semkov.sql semkov-postgres:/tmp/semkov.sql"
 	ssh amon-ra "docker exec -it semkov-postgres psql -U semkov semkov -f /tmp/semkov.sql"
-
 
 update-requirements:
 	pcu requirements.txt -u

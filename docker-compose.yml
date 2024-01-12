@@ -19,7 +19,7 @@ services:
     links:
       - semkov-postgres
     volumes:
-      - /home/manti/www/semkov-gorodok.by/:/srv/semkov/src/
+      - /home/manti/www/semkov/:/srv/semkov/src/
       - /mnt/nostromo/www/semkov/static/:/var/lib/semkov/static/
       - /mnt/nostromo/www/semkov/media/:/var/lib/semkov/media/
       - /mnt/nostromo/www/semkov/data/:/var/lib/semkov/data/
