@@ -1,5 +1,5 @@
 wagtail==5.2.2
-pillow==10.1.0
+pillow==10.2.0
 twilio==8.11.0
 gunicorn==21.2.0
 psycopg2_binary==2.9.9
