@@ -3,6 +3,7 @@ from django.utils import translation
 
 class LocaleMiddleware:
     def __init__(self, get_response):
+        """Basic middleware constructor."""
         self.get_response = get_response
 
     def __call__(self, request):

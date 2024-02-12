@@ -1,10 +1,10 @@
-from .base import *
+from .base import *  # noqa
 
 DEBUG = False
 
 TEMPLATE_DEBUG = False
 
-SECRET_KEY = "insecure-key"
+SECRET_KEY = "insecure-key"  # noqa
 
 ALLOWED_HOSTS = ("127.0.0.1",)
 
