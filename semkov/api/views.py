@@ -37,6 +37,7 @@ def contact_view(request):
     e.save()
     return JsonResponse(
         {
+            "status": 200,
             "message": _("Thanks for submission, we'll get in touch soon"),
         },
         status=200,

@@ -209,6 +209,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 # Scrappers
 
+POSITION_PAGE_SLUG = os.environ.get("POSITION_PAGE_SLUG", "ispolkom")
+TRANSPORT_PAGE_SLUG = os.environ.get("TRANSPORT_PAGE_SLUG", "minsk-semkov-gorodok")
+CATEGORY_PAGE_SLUG = os.environ.get("TRANSPORT_PAGE_SLUG", "pages")
+
 POSITION_FILE_PATH = BASE_DIR / "data" / "position.json"
 ARRIVAL_FILE_PATH = BASE_DIR / "data" / "arrival.json"
 DEPARTURE_FILE_PATH = BASE_DIR / "data" / "departure.json"

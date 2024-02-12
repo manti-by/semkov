@@ -1,17 +1,17 @@
 wagtail==5.2.2
-pillow==10.1.0
-twilio==8.11.0
+pillow==10.2.0
+twilio==8.13.0
 gunicorn==21.2.0
 psycopg2_binary==2.9.9
 requests==2.31.0
 
-pytest>=7.4.3
-pytest-django>=4.7.0
+pytest>=8.0.0
+pytest-django>=4.8.0
 
-pre_commit>=3.6.0
+pre_commit>=3.6.1
 isort>=5.13.2
 pyupgrade>=3.15.0
-black>=23.12.0
+black>=24.1.1
 prospector>=1.10.3
-bandit>=1.7.6
-pip-check-updates>=0.23.0
+bandit>=1.7.7
+pip-check-updates>=0.23.1

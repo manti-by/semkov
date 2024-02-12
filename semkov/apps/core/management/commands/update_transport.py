@@ -8,6 +8,8 @@ from typing import TYPE_CHECKING
 import requests
 from django.conf import settings
 from django.core.management.base import BaseCommand
+from django.utils import timezone
+from wagtail.models import Page
 
 logger = logging.getLogger(__name__)
 
@@ -83,3 +85,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         self.get_schedule(self.arrival_stop_ids, settings.ARRIVAL_FILE_PATH)
         self.get_schedule(self.departure_stop_ids, settings.DEPARTURE_FILE_PATH)
+
+        Page.objects.filter(
+            slug__in=(settings.TRANSPORT_PAGE_SLUG, settings.CATEGORY_PAGE_SLUG)
+        ).update(last_published_at=timezone.now())

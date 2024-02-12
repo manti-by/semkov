@@ -32,9 +32,17 @@ update-server:
 update-requirements:
 	pcu requirements.txt -u
 
+update-data:
+	./manage.py update_transport
+	./manage.py update_positions
+
 test:
-	pytest
+	pytest --create-db --disable-warnings --ds=semkov.settings.test semkov/
 
 check:
 	git add .
 	pre-commit run
+
+django-check:
+	./manage.py makemigrations --dry-run --check --verbosity=3 --settings=semkov.settings.test
+	./manage.py check --fail-level WARNING --settings=semkov.settings.test
