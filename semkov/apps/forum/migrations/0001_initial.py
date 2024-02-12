@@ -10,9 +10,7 @@ import wagtail.documents.blocks
 class Migration(migrations.Migration):
     initial = True
 
-    dependencies = [
-        ("wagtailcore", "0041_group_collection_permissions_verbose_name_plural")
-    ]
+    dependencies = [("wagtailcore", "0041_group_collection_permissions_verbose_name_plural")]
 
     operations = [
         migrations.CreateModel(
@@ -54,9 +52,7 @@ class Migration(migrations.Migration):
                         [
                             (
                                 "attachments",
-                                wagtail.blocks.ListBlock(
-                                    wagtail.documents.blocks.DocumentChooserBlock()
-                                ),
+                                wagtail.blocks.ListBlock(wagtail.documents.blocks.DocumentChooserBlock()),
                             )
                         ],
                         blank=True,
@@ -88,9 +84,7 @@ class Migration(migrations.Migration):
                         [
                             (
                                 "attachments",
-                                wagtail.blocks.ListBlock(
-                                    wagtail.documents.blocks.DocumentChooserBlock()
-                                ),
+                                wagtail.blocks.ListBlock(wagtail.documents.blocks.DocumentChooserBlock()),
                             )
                         ],
                         blank=True,

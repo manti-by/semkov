@@ -121,9 +121,7 @@ CACHES = {"default": {"BACKEND": "django.core.cache.backends.dummy.DummyCache"}}
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
-    },
+    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
@@ -217,21 +215,15 @@ POSITION_FILE_PATH = BASE_DIR / "data" / "position.json"
 ARRIVAL_FILE_PATH = BASE_DIR / "data" / "arrival.json"
 DEPARTURE_FILE_PATH = BASE_DIR / "data" / "departure.json"
 
-POSITIONS_URL = os.getenv(
-    "POSITIONS_URL", "https://mrik.gov.by/delenie/papernyanskij-selsovet"
-)
+POSITIONS_URL = os.getenv("POSITIONS_URL", "https://mrik.gov.by/delenie/papernyanskij-selsovet")
 
-BUS_API_BASE_URL = os.getenv(
-    "BUS_API_BASE_URL", "https://minsktrans.by/suburb/get-shedule.php"
-)
+BUS_API_BASE_URL = os.getenv("BUS_API_BASE_URL", "https://minsktrans.by/suburb/get-shedule.php")
 
 BUS_API_POINT_FROM_ID = os.getenv("BUS_API_POINT_FROM_ID", "500253")
 BUS_API_POINT_FROM_NAME = os.getenv("BUS_API_POINT_FROM_NAME", "ЩЕДРИНА/ЧЕРВЯКОВА")
 
 BUS_API_POINT_TO_ID = os.getenv("BUS_API_POINT_TO_ID", "501131")
-BUS_API_POINT_TO_NAME = os.getenv(
-    "BUS_API_POINT_TO_NAME", "СЕМКОВ_ГОРОДОК(Папернянский_с/с)"
-)
+BUS_API_POINT_TO_NAME = os.getenv("BUS_API_POINT_TO_NAME", "СЕМКОВ_ГОРОДОК(Папернянский_с/с)")
 
 MINIBUS_BASE_URL = os.getenv(
     "MINIBUS_BASE_URL",

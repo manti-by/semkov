@@ -19,9 +19,7 @@ class Migration(migrations.Migration):
                 [
                     (
                         "images",
-                        wagtail.blocks.ListBlock(
-                            wagtail.images.blocks.ImageChooserBlock()
-                        ),
+                        wagtail.blocks.ListBlock(wagtail.images.blocks.ImageChooserBlock()),
                     )
                 ],
                 blank=True,

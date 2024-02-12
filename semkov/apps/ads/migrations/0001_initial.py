@@ -10,9 +10,7 @@ import wagtail.images.blocks
 class Migration(migrations.Migration):
     initial = True
 
-    dependencies = [
-        ("wagtailcore", "0041_group_collection_permissions_verbose_name_plural")
-    ]
+    dependencies = [("wagtailcore", "0041_group_collection_permissions_verbose_name_plural")]
 
     operations = [
         migrations.CreateModel(
@@ -35,9 +33,7 @@ class Migration(migrations.Migration):
                         [
                             (
                                 "images",
-                                wagtail.blocks.ListBlock(
-                                    wagtail.images.blocks.ImageChooserBlock()
-                                ),
+                                wagtail.blocks.ListBlock(wagtail.images.blocks.ImageChooserBlock()),
                             )
                         ],
                         blank=True,

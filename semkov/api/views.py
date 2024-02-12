@@ -46,9 +46,7 @@ def contact_view(request):
 
 def ads_view(request):
     if not request.user.is_authenticated:
-        return JsonResponse(
-            {"status": 403, "message": _("Please login first")}, status=200
-        )
+        return JsonResponse({"status": 403, "message": _("Please login first")}, status=200)
 
     ads_category = Page.objects.get(slug="ads")
     ads_page = AdsModel(
@@ -70,9 +68,7 @@ def ads_view(request):
 
 def register_view(request):
     if request.user.is_authenticated:
-        return JsonResponse(
-            {"status": 400, "message": _("Already logged in")}, status=200
-        )
+        return JsonResponse({"status": 400, "message": _("Already logged in")}, status=200)
 
     ip_address = request.META.get("REMOTE_ADDR")
     x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
@@ -97,9 +93,7 @@ def register_view(request):
 
 def login_view(request):
     if request.user.is_authenticated:
-        return JsonResponse(
-            {"status": 400, "message": _("Already logged in")}, status=200
-        )
+        return JsonResponse({"status": 400, "message": _("Already logged in")}, status=200)
 
     user = User.authenticate(
         identifier=request.POST.get("identifier"),
@@ -115,13 +109,9 @@ def login_view(request):
         )
 
     login(request, user)
-    return JsonResponse(
-        {"status": 200, "message": _("Successfully logged in")}, status=200
-    )
+    return JsonResponse({"status": 200, "message": _("Successfully logged in")}, status=200)
 
 
 def logout_view(request):
     logout(request)
-    return JsonResponse(
-        {"status": 200, "message": _("Successfully logged out")}, status=200
-    )
+    return JsonResponse({"status": 200, "message": _("Successfully logged out")}, status=200)

@@ -86,6 +86,6 @@ class Command(BaseCommand):
         self.get_schedule(self.arrival_stop_ids, settings.ARRIVAL_FILE_PATH)
         self.get_schedule(self.departure_stop_ids, settings.DEPARTURE_FILE_PATH)
 
-        Page.objects.filter(
-            slug__in=(settings.TRANSPORT_PAGE_SLUG, settings.CATEGORY_PAGE_SLUG)
-        ).update(last_published_at=timezone.now())
+        Page.objects.filter(slug__in=(settings.TRANSPORT_PAGE_SLUG, settings.CATEGORY_PAGE_SLUG)).update(
+            last_published_at=timezone.now()
+        )

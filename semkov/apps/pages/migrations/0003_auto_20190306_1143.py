@@ -32,7 +32,5 @@ class Migration(migrations.Migration):
             name="is_homepage",
             field=models.BooleanField(default=False),
         ),
-        migrations.AlterField(
-            model_name="pagemodel", name="source", field=models.URLField(blank=True)
-        ),
+        migrations.AlterField(model_name="pagemodel", name="source", field=models.URLField(blank=True)),
     ]

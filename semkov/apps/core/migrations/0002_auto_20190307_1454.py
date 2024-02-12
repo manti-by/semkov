@@ -11,12 +11,8 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="email",
             name="created",
-            field=models.DateTimeField(
-                auto_now_add=True, default=django.utils.timezone.now
-            ),
+            field=models.DateTimeField(auto_now_add=True, default=django.utils.timezone.now),
             preserve_default=False,
         ),
-        migrations.AlterField(
-            model_name="email", name="contact", field=models.CharField(max_length=255)
-        ),
+        migrations.AlterField(model_name="email", name="contact", field=models.CharField(max_length=255)),
     ]

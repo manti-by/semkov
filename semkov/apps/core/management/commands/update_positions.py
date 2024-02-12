@@ -32,18 +32,14 @@ class Command(BaseCommand):
 
     @staticmethod
     def clean_operations(item: str) -> list:
-        return [
-            x.capitalize() for x in item.replace("- ", "").replace(";", "").split("\n")
-        ]
+        return [x.capitalize() for x in item.replace("- ", "").replace(";", "").split("\n")]
 
     def get_positions(self) -> list:
         result = []
         response = requests.get(settings.POSITIONS_URL, timeout=self.timeout)
         if response.ok:
             parser = BeautifulSoup(response.content, features="html5lib")
-            for index, row in enumerate(
-                parser.find(class_="newscontainer-itemFullText").find_all("tr")
-            ):
+            for index, row in enumerate(parser.find(class_="newscontainer-itemFullText").find_all("tr")):
                 if not index:
                     continue
                 cols = [self.clean_data(x) for x in row.find_all("td")]
@@ -65,6 +61,6 @@ class Command(BaseCommand):
         with open(settings.POSITION_FILE_PATH, "w") as f:
             f.write(json.dumps(result, indent=2, ensure_ascii=False))
 
-        Page.objects.filter(
-            slug__in=(settings.POSITION_PAGE_SLUG, settings.CATEGORY_PAGE_SLUG)
-        ).update(last_published_at=timezone.now())
+        Page.objects.filter(slug__in=(settings.POSITION_PAGE_SLUG, settings.CATEGORY_PAGE_SLUG)).update(
+            last_published_at=timezone.now()
+        )

@@ -7,9 +7,7 @@ class User(AbstractUser):
     REQUIRED_FIELDS = ["username", "email"]
 
     identifier = models.CharField(max_length=254, unique=True)
-    ip_address = models.GenericIPAddressField(
-        default="127.0.0.1", blank=True, null=True
-    )
+    ip_address = models.GenericIPAddressField(default="127.0.0.1", blank=True, null=True)
     is_active = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
 
