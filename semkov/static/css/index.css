@@ -268,7 +268,7 @@ button.secondary:hover {
   background-color: #9F9F9F;
 }
 
-button.primary.focus, 
+button.primary.focus,
 button.outline.primary:focus {
   box-shadow: 0 0 0 0.2rem rgba(255, 111, 97, .5);
 }
@@ -488,7 +488,7 @@ article .read-more {
 article .info .left,
 article .info .right {
   width: 50%;
-}  
+}
 
 article .info .left,
 article .info .right {
