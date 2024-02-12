@@ -78,7 +78,7 @@ class Command(BaseCommand):
         with open(file_path, "w") as f:
             result = dict(sorted(result.items(), key=lambda x: x[0]))
             f.write(json.dumps(result, indent=2, ensure_ascii=False))
-        logger.info(f"Imported {len(result)} routes to file {file_path.name}")
+        logger.info(f"Imported {len(result)} routes to file {file_path}")
 
     def handle(self, *args, **options):
         self.get_schedule(self.arrival_stop_ids, settings.ARRIVAL_FILE_PATH)
