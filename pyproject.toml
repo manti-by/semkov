@@ -1,0 +1,30 @@
+[tool.pytest.ini_options]
+log_cli = true
+log_cli_format = "%(levelname)s %(asctime)s %(message)s"
+django_find_project = true
+addopts = '-p no:warnings --color=yes --ds=db_benchmarks.core.settings'
+norecursedirs = '''
+.git
+'''
+
+[tool.black]
+line-length = 120
+target_version = ['py311']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.curlylint.rules]
+indent = 2
+html_has_lang = true
