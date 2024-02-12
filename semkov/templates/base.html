@@ -2,78 +2,81 @@
 
 <!DOCTYPE html>
 <html class="no-js" lang="ru">
-<head>
-  <title>
-    {% block title %}
-      {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
-    {% endblock %}
-    {% block title_suffix %}
-      {% with self.get_site.site_name as site_name %}
-        {% if site_name %}- {{ site_name }}{% endif %}
-      {% endwith %}
-    {% endblock %}
-  </title>
+  <head>
+    <title>
+      {% block title %}
+        {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
+      {% endblock %}
+      {% block title_suffix %}
+        {% with self.get_site.site_name as site_name %}
+          {% if site_name %}- {{ site_name }}{% endif %}
+        {% endwith %}
+      {% endblock %}
+    </title>
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
-  <meta name="theme-color" content="#ff6f61">
-  <meta name="application-name" content="Semkov Gorodok">
-  <meta name="description"
-        content="{% trans 'Semkov Gorodok - a village in Papernyansky village council, Minsk region, Belarus' %}">
-
-  <meta name="mobile-web-app-capable" content="yes">
-
-  {% block open-graph %}
-    <meta property="og:type" content="website">
-    <meta property="og:title"
-          content="{% trans 'Semkov Gorodok' %}">
-    <meta property="og:description"
+    <meta name="theme-color" content="#ff6f61">
+    <meta name="application-name" content="Semkov Gorodok">
+    <meta name="description"
           content="{% trans 'Semkov Gorodok - a village in Papernyansky village council, Minsk region, Belarus' %}">
-    <meta property="og:image" content="{% static 'img/semkov-gorodok.jpg' %}">
-  {% endblock %}
 
-  <link rel="manifest" href="{% static "manifest.json" %}">
+    <meta name="mobile-web-app-capable" content="yes">
 
-  <link rel="icon" type="image/x-icon" href="{% static "favicon.ico" %}">
-  <link rel="icon" type="image/png" sizes="18x18" href="{% static "img/appicon/18x18.png" %}">
-  <link rel="icon" type="image/png" sizes="24x24" href="{% static "img/appicon/24x24.png" %}">
-  <link rel="icon" type="image/png" sizes="36x36" href="{% static "img/appicon/36x36.png" %}">
-  <link rel="icon" type="image/png" sizes="48x48" href="{% static "img/appicon/48x48.png" %}">
-  <link rel="icon" type="image/png" sizes="72x72" href="{% static "img/appicon/72x72.png" %}">
-  <link rel="icon" type="image/png" sizes="96x96" href="{% static "img/appicon/96x96.png" %}">
-  <link rel="icon" type="image/png" sizes="128x128" href="{% static "img/appicon/128x128.png" %}">
-  <link rel="icon" type="image/png" sizes="144x144" href="{% static "img/appicon/144x144.png" %}">
-  <link rel="icon" type="image/png" sizes="192x192" href="{% static "img/appicon/192x192.png" %}">
+    {% block open-graph %}
+      <meta property="og:type" content="website">
+      <meta property="og:title"
+            content="{% trans 'Semkov Gorodok' %}">
+      <meta property="og:description"
+            content="{% trans 'Semkov Gorodok - a village in Papernyansky village council, Minsk region, Belarus' %}">
+      <meta property="og:image" content="{% static 'img/semkov-gorodok.jpg' %}">
+    {% endblock %}
 
-  <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
-  {% block extra_css %}{% endblock %}
-  <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}" media="screen">
+    <link rel="manifest" href="{% static "manifest.json" %}">
 
-  <link rel="preconnect" href="https://www.google-analytics.com">
-  <link rel="preconnect" href="https://www.googletagmanager.com">
-</head>
+    <link rel="icon" type="image/x-icon" href="{% static "favicon.ico" %}">
+    <link rel="icon" type="image/png" sizes="18x18" href="{% static "img/appicon/18x18.png" %}">
+    <link rel="icon" type="image/png" sizes="24x24" href="{% static "img/appicon/24x24.png" %}">
+    <link rel="icon" type="image/png" sizes="36x36" href="{% static "img/appicon/36x36.png" %}">
+    <link rel="icon" type="image/png" sizes="48x48" href="{% static "img/appicon/48x48.png" %}">
+    <link rel="icon" type="image/png" sizes="72x72" href="{% static "img/appicon/72x72.png" %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static "img/appicon/96x96.png" %}">
+    <link rel="icon" type="image/png" sizes="128x128" href="{% static "img/appicon/128x128.png" %}">
+    <link rel="icon" type="image/png" sizes="144x144" href="{% static "img/appicon/144x144.png" %}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static "img/appicon/192x192.png" %}">
 
-<body class="{% block body_class %}{% endblock %}">
-{% wagtailuserbar %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    {% block extra_css %}{% endblock %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}" media="screen">
 
-{% block content %}{% endblock %}
+    <link rel="preconnect" href="https://www.google-analytics.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+  </head>
 
-<script type="application/javascript">
-  const GOOGLE_RECAPTCHA_SITE_KEY = "{% get_settings 'GOOGLE_RECAPTCHA_SITE_KEY' %}"
-</script>
-{% block extra_js %}{% endblock %}
+  <body class="{% block body_class %}{% endblock %}">
+    {% wagtailuserbar %}
 
-<script async src="https://www.google.com/recaptcha/api.js?render={% get_settings 'GOOGLE_RECAPTCHA_SITE_KEY' %}"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142198021-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-  gtag('js', new Date());
-  gtag('config', 'UA-142198021-1');
-</script>
-</body>
+    {% block content %}{% endblock %}
+
+    <script type="application/javascript">
+      const GOOGLE_RECAPTCHA_SITE_KEY = "{% get_settings 'GOOGLE_RECAPTCHA_SITE_KEY' %}"
+    </script>
+    {% block extra_js %}{% endblock %}
+
+    <script async
+            src="https://www.google.com/recaptcha/api.js?render={% get_settings 'GOOGLE_RECAPTCHA_SITE_KEY' %}"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142198021-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      gtag('js', new Date());
+      gtag('config', 'UA-142198021-1');
+    </script>
+  </body>
 </html>
