@@ -3,21 +3,6 @@
   "display": "standalone",
   "icons": [
     {
-      "sizes": "18x18",
-      "src": "/static/img/appicon/18x18.png",
-      "type": "image/png"
-    },
-    {
-      "sizes": "24x24",
-      "src": "/static/img/appicon/24x24.png",
-      "type": "image/png"
-    },
-    {
-      "sizes": "36x36",
-      "src": "/static/img/appicon/36x36.png",
-      "type": "image/png"
-    },
-    {
       "sizes": "48x48",
       "src": "/static/img/appicon/48x48.png",
       "type": "image/png"
@@ -33,18 +18,19 @@
       "type": "image/png"
     },
     {
-      "sizes": "144x144",
-      "src": "/static/img/appicon/144x144.png",
+      "sizes": "128x128",
+      "src": "/static/img/appicon/128x128.png",
       "type": "image/png"
     },
     {
+      "purpose": "maskable",
       "sizes": "192x192",
       "src": "/static/img/appicon/192x192.png",
       "type": "image/png"
     },
     {
-      "sizes": "256x256",
-      "src": "/static/img/appicon/256x256.png",
+      "sizes": "384x384",
+      "src": "/static/img/appicon/384x384.png",
       "type": "image/png"
     },
     {
