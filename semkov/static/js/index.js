@@ -76,4 +76,14 @@ document.addEventListener("DOMContentLoaded", () => {
       })
     })
   }
+
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/static/js/sw.js")
+      .then(() => navigator.serviceWorker.ready.then((worker) => {
+        if (worker.sync) {
+          worker.sync.register('syncdata')
+        }
+      }))
+      .catch((err) => console.log(err))
+  }
 })

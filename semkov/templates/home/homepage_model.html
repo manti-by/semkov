@@ -10,7 +10,7 @@
     </div>
     <div class="right">
       {% image page.image width-600 format-webp as page_image %}
-      <img src="{{ page_image.url }}" alt="Image" width="600">
+      <img src="{{ page_image.url }}" alt="Image" width="{{ page_image.width }}" height="{{ page_image.height }}">
     </div>
   </main>
 {% endblock content %}

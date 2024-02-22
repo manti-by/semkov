@@ -41,6 +41,16 @@
       "sizes": "192x192",
       "src": "/static/img/appicon/192x192.png",
       "type": "image/png"
+    },
+    {
+      "sizes": "256x256",
+      "src": "/static/img/appicon/256x256.png",
+      "type": "image/png"
+    },
+    {
+      "sizes": "512x512",
+      "src": "/static/img/appicon/512x512.png",
+      "type": "image/png"
     }
   ],
   "name": "Semkov Gorodok",
