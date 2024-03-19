@@ -20,10 +20,10 @@ services:
       - semkov-postgres
     volumes:
       - /home/manti/www/semkov/:/srv/semkov/src/
-      - /mnt/nostromo/www/semkov/static/:/var/lib/semkov/static/
-      - /mnt/nostromo/www/semkov/media/:/var/lib/semkov/media/
-      - /mnt/nostromo/www/semkov/data/:/var/lib/semkov/data/
-      - /mnt/nostromo/www/semkov/log/:/var/log/semkov/
+      - /mnt/data/www/semkov/static/:/var/lib/semkov/static/
+      - /mnt/data/www/semkov/media/:/var/lib/semkov/media/
+      - /mnt/data/www/semkov/data/:/var/lib/semkov/data/
+      - /mnt/data/www/semkov/log/:/var/log/semkov/
     environment:
       - DJANGO_SETTINGS_MODULE=semkov.settings.prod
       - POSTGRES_HOST=semkov-postgres
