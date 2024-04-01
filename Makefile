@@ -20,12 +20,16 @@ restore:
 	docker cp database.sql semkov-postgres:/tmp/database.sql
 	docker exec -it semkov-postgres psql -U semkov semkov -f /tmp/database.sql
 
-update-requirements:
-	pcu requirements.txt -u
-
 update-data:
 	./manage.py update_transport
 	./manage.py update_positions
+
+update-requirements:
+	pcu requirements.txt -u
+	pre-commit autoupdate
+
+pip:
+	pip install -r requirements.txt
 
 test:
 	pytest --create-db --disable-warnings --ds=semkov.settings.test semkov/

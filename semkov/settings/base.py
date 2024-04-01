@@ -111,6 +111,12 @@ DATABASES = {
     }
 }
 
+
+# Models settings
+
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+
+
 # Cache backend
 # https://docs.djangoproject.com/en/2.1/topics/cache/
 
@@ -195,15 +201,6 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 DEFAULT_FROM_EMAIL = "no-reply@manti.by"
 DEFAULT_TO_EMAIL = "manti.by@gmail.com"
-
-# Twilio account
-
-TWILIO_FROM_NUMBER = None
-TWILIO_ACCOUNT_SID = None
-TWILIO_AUTH_TOKEN = None
-
-
-DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 # Scrappers
 

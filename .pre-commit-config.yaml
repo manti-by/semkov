@@ -15,10 +15,10 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.15.0
+    rev: v3.15.2
     hooks:
       - id: pyupgrade
-        args: [--py311-plus]
+        args: [--py312-plus]
 
   - repo: local
     hooks:
@@ -43,5 +43,5 @@ repos:
       - id: curlylint
         types: [ file ]
         files: \.(html|sls)$
-        language_version: python3.11
+        language_version: python3.12
         additional_dependencies: ['click<8.1']

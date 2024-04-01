@@ -31,7 +31,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.11"
+          python-version: "3.12"
 
       - name: Cache pip
         uses: actions/cache@v3
@@ -62,3 +62,7 @@ jobs:
       - name: Run Pytest suite
         run: |
           pytest --create-db --disable-warnings --ds=semkov.settings.test semkov/
+
+      - name: Build docker image
+        run: |
+          docker build -t mantiby/semkov:latest .
