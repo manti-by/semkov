@@ -22,6 +22,20 @@ repos:
 
   - repo: local
     hooks:
+    - id: bandit
+      name: bandit
+      entry: bandit
+      language: python
+      types: [ python ]
+      exclude: .+/settings/.+
+      language_version: python3
+    - id: isort
+      name: isort-local
+      entry: isort
+      language: python
+      types: [ python ]
+      exclude: .+/settings/.+
+      pass_filenames: true
     - id: black
       name: black-local
       entry: black
@@ -34,7 +48,6 @@ repos:
       entry: prospector --messages-only
       language: python
       types: [python]
-      exclude: .+/settings/.+
       pass_filenames: true
 
   - repo: https://github.com/thibaudcolas/curlylint

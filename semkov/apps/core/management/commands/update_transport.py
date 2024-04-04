@@ -9,7 +9,10 @@ import requests
 from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 from wagtail.models import Page
+
+from ...services.amon_ra import send_message
 
 logger = logging.getLogger(__name__)
 
@@ -83,9 +86,13 @@ class Command(BaseCommand):
         logger.info(f"Imported {len(result)} routes to file {file_path}")
 
     def handle(self, *args, **options):
-        self.get_schedule(self.arrival_stop_ids, settings.ARRIVAL_FILE_PATH)
-        self.get_schedule(self.departure_stop_ids, settings.DEPARTURE_FILE_PATH)
+        try:
+            self.get_schedule(self.arrival_stop_ids, settings.ARRIVAL_FILE_PATH)
+            self.get_schedule(self.departure_stop_ids, settings.DEPARTURE_FILE_PATH)
 
-        Page.objects.filter(slug__in=(settings.TRANSPORT_PAGE_SLUG, settings.CATEGORY_PAGE_SLUG)).update(
-            last_published_at=timezone.now()
-        )
+            Page.objects.filter(slug__in=(settings.TRANSPORT_PAGE_SLUG, settings.CATEGORY_PAGE_SLUG)).update(
+                last_published_at=timezone.now()
+            )
+        except Exception as e:
+            logger.error(e)
+            send_message(_("Transport update error"), str(e))

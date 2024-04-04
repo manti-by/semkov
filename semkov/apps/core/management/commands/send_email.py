@@ -1,5 +1,4 @@
 import logging
-
 from email.mime.image import MIMEImage
 
 from django.conf import settings
@@ -7,8 +6,10 @@ from django.contrib.staticfiles import finders
 from django.core.mail import EmailMultiAlternatives
 from django.core.management.base import BaseCommand
 from django.template.loader import render_to_string
+from django.utils.translation import gettext_lazy as _
 
-from semkov.apps.core.models import Email
+from ...models import Email
+from ...services.amon_ra import send_message
 
 logger = logging.getLogger(__name__)
 
@@ -43,3 +44,4 @@ class Command(BaseCommand):
                 email.save()
             except Exception as e:
                 logger.error(e)
+                send_message(_("Send email error"), str(e))

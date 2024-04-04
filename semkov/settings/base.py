@@ -238,3 +238,7 @@ MINIBUS_ROUTES = os.getenv(
 
 GOOGLE_RECAPTCHA_SITE_KEY = os.getenv("GOOGLE_RECAPTCHA_SITE_KEY", None)
 GOOGLE_RECAPTCHA_SECRET = os.getenv("GOOGLE_RECAPTCHA_SECRET", None)
+
+AMON_RA_BASE_URL = os.getenv("AMON_RA_BASE_URL", "https://amon-ra.manti.by")
+AMON_RA_APP_KEY = os.getenv("AMON_RA_APP_KEY", "app-key")
+AMON_RA_HASH_KEY = os.getenv("AMON_RA_HASH_KEY", "hash-key")
