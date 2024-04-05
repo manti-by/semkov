@@ -1,6 +1,11 @@
 build:
 	docker build -t mantiby/semkov:latest .
 
+deploy:
+	docker container stop semkov-wagtail
+	docker container rm semkov-wagtail
+	docker compose up -d
+
 static:
 	docker exec -it semkov-wagtail python manage.py collectstatic --no-input
 
