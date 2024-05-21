@@ -2,7 +2,7 @@ wagtail==6.0.2
 pillow==10.3.0
 gunicorn==21.2.0
 psycopg2_binary==2.9.9
-requests==2.31.0
+requests==2.32.0
 
 pytest>=8.1.1
 pytest-django>=4.8.0
