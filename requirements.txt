@@ -1,4 +1,4 @@
-wagtail==6.0.2
+wagtail==6.0.5
 pillow==10.3.0
 gunicorn==21.2.0
 psycopg2_binary==2.9.9
