@@ -30,7 +30,7 @@ class Command(BaseCommand):
 
     bus_type = 3
     arrival_stop_ids = ("25948176", "114793481")
-    departure_stop_ids = ("25699328",)
+    departure_stop_ids = ("60014592",)
 
     def get_routes(self, stop_ids: tuple) -> list[dict] | None:
         result = []

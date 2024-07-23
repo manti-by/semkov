@@ -1,4 +1,3 @@
-version: '3.3'
 services:
 
   semkov-postgres:
@@ -19,13 +18,13 @@ services:
     links:
       - semkov-postgres
     volumes:
-      - /home/manti/www/semkov/:/srv/semkov/src/
-      - /mnt/data/www/semkov/static/:/var/lib/semkov/static/
-      - /mnt/data/www/semkov/media/:/var/lib/semkov/media/
-      - /mnt/data/www/semkov/data/:/var/lib/semkov/data/
-      - /mnt/data/www/semkov/log/:/var/log/semkov/
+      - /home/manti/www/semkov/:/srv/app/src/
+      - /mnt/data/www/semkov/static/:/var/lib/app/static/
+      - /mnt/data/www/semkov/media/:/var/lib/app/media/
+      - /mnt/data/www/semkov/data/:/var/lib/app/data/
+      - /mnt/data/www/semkov/log/:/var/log/app/
     environment:
       - DJANGO_SETTINGS_MODULE=semkov.settings.prod
       - POSTGRES_HOST=semkov-postgres
     command: |
-      gunicorn semkov.wsgi:application --bind 0.0.0.0:8898 --workers 2 --log-file /var/log/semkov/wsgi.log
+      gunicorn semkov.wsgi:application --bind 0.0.0.0:8898 --workers 2 --log-file /var/log/app/wsgi.log

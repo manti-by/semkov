@@ -29,7 +29,7 @@ update-data:
 	./manage.py update_transport
 	./manage.py update_positions
 
-update-requirements:
+update:
 	pcu requirements.txt -u
 	pre-commit autoupdate
 
