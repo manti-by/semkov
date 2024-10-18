@@ -1,6 +1,6 @@
 from django import forms
 
-from wagtail.users.forms import UserEditForm, UserCreationForm
+from wagtail.users.forms import UserCreationForm, UserEditForm
 
 
 class CustomUserEditForm(UserEditForm):

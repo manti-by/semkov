@@ -2,7 +2,7 @@
 
 ## About
 
-[![Wagtail 5.2.2](https://img.shields.io/badge/wagtail-5.2.2-green.svg)](https://pypi.org/project/wagtail/)
+[![Wagtail 6.2.2](https://img.shields.io/badge/wagtail-6.2.2-green.svg)](https://pypi.org/project/wagtail/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 [![License](https://img.shields.io/badge/license-BSD-blue.svg)](https://bitbucket.org/manti_by/semkov/raw/c61190bd891b532908a64fdbdb1cd53a7f259c87/LICENSE)
 
@@ -10,7 +10,7 @@ Author: Alexander Chaika <manti.by@gmail.com>
 
 Source link: https://github.com/manti-by/semkov
 
-Requirements: Docker, Python 3.11, PostgreSQL
+Requirements: Python 3.12, PostgreSQL, Docker
 
 
 ## Setup development environment

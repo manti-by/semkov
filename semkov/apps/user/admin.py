@@ -3,4 +3,5 @@ from django.contrib.auth.admin import UserAdmin
 
 from semkov.apps.user.models import User
 
+
 admin.register(User, UserAdmin)

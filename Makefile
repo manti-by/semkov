@@ -29,6 +29,9 @@ update-data:
 	./manage.py update_transport
 	./manage.py update_positions
 
+upload-data:
+	scp -r data/* amon-ra:/mnt/data/www/semkov/data/
+
 update:
 	pcu requirements.txt -u
 	pre-commit autoupdate
@@ -46,3 +49,5 @@ check:
 django-check:
 	./manage.py makemigrations --dry-run --check --verbosity=3 --settings=semkov.settings.test
 	./manage.py check --fail-level WARNING --settings=semkov.settings.test
+
+ci: pip check django-check test

@@ -2,9 +2,9 @@ from unittest import mock
 
 from django.urls import reverse
 
-from semkov.tests import MockedResponse
-
 import pytest
+
+from semkov.tests import MockedResponse
 
 
 @pytest.mark.django_db

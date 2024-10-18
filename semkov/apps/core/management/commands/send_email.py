@@ -11,6 +11,7 @@ from django.utils.translation import gettext_lazy as _
 from ...models import Email
 from ...services.amon_ra import send_message
 
+
 logger = logging.getLogger(__name__)
 
 
@@ -42,6 +43,6 @@ class Command(BaseCommand):
 
                 email.is_sent = True
                 email.save()
-            except Exception as e:
+            except ValueError as e:
                 logger.error(e)
                 send_message(_("Send email error"), str(e))

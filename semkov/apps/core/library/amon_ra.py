@@ -4,12 +4,12 @@ import logging
 
 import requests
 
+
 logger = logging.getLogger(__name__)
 
 
 class AmonRaClient:
-
-    def __init__(self, app_key: str, hash_key: str, base_url: str = None, timeout: int = 60):
+    def __init__(self, app_key: str, hash_key: str, base_url: str | None = None, timeout: int = 60):
         """Amon-Ra server client."""
         self.app_key = app_key
         self.hash_key = hash_key

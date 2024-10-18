@@ -1,12 +1,13 @@
 from django.urls import path
 
 from semkov.api.views import (
-    contact_view,
     ads_view,
-    register_view,
+    contact_view,
     login_view,
     logout_view,
+    register_view,
 )
+
 
 app_name = "api"
 

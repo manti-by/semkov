@@ -9,4 +9,5 @@ https://docs.djangoproject.com/en/dev/howto/deployment/asgi/
 
 from django.core.asgi import get_asgi_application
 
+
 application = get_asgi_application()

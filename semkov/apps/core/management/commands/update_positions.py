@@ -1,21 +1,23 @@
 import json
 import logging
 
-import requests
-from bs4 import BeautifulSoup
 from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+
+import requests
+from bs4 import BeautifulSoup
+from requests import RequestException
 from wagtail.models import Page
 
 from ...services.amon_ra import send_message
+
 
 logger = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
-
     timeout = 60
 
     @staticmethod
@@ -67,6 +69,6 @@ class Command(BaseCommand):
             Page.objects.filter(slug__in=(settings.POSITION_PAGE_SLUG, settings.CATEGORY_PAGE_SLUG)).update(
                 last_published_at=timezone.now()
             )
-        except Exception as e:
+        except RequestException as e:
             logger.error(e)
             send_message(_("Positions update error"), str(e))

@@ -12,8 +12,8 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-
 from pathlib import Path
+
 from django.utils.translation import gettext_lazy as _
 
 
@@ -218,10 +218,10 @@ POSITIONS_URL = os.getenv("POSITIONS_URL", "https://mrik.gov.by/delenie/papernya
 BUS_API_BASE_URL = os.getenv("BUS_API_BASE_URL", "https://minsktrans.by/suburb/get-shedule.php")
 
 BUS_API_POINT_FROM_ID = os.getenv("BUS_API_POINT_FROM_ID", "500253")
-BUS_API_POINT_FROM_NAME = os.getenv("BUS_API_POINT_FROM_NAME", "ЩЕДРИНА/ЧЕРВЯКОВА")
+BUS_API_POINT_FROM_NAME = os.getenv("BUS_API_POINT_FROM_NAME", "ЩЕДРИНА/ЧЕРВЯКОВА")  # noqa
 
 BUS_API_POINT_TO_ID = os.getenv("BUS_API_POINT_TO_ID", "501131")
-BUS_API_POINT_TO_NAME = os.getenv("BUS_API_POINT_TO_NAME", "СЕМКОВ_ГОРОДОК(Папернянский_с/с)")
+BUS_API_POINT_TO_NAME = os.getenv("BUS_API_POINT_TO_NAME", "СЕМКОВ_ГОРОДОК(Папернянский_с/с)")  # noqa
 
 MINIBUS_BASE_URL = os.getenv(
     "MINIBUS_BASE_URL",

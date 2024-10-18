@@ -1,8 +1,8 @@
 from django.db import models
 
-from wagtail.models import Page
-from wagtail.fields import RichTextField
 from wagtail.admin.panels import FieldPanel
+from wagtail.fields import RichTextField
+from wagtail.models import Page
 
 from semkov.apps.core.mixins import MenuMixin
 
@@ -23,12 +23,8 @@ class HomepageModel(MenuMixin, Page):
         related_name="homepage_backgrounds",
     )
 
-    content_panels = Page.content_panels + [
-        FieldPanel("image"),
-        FieldPanel("background"),
-    ]
-
-    promote_panels = Page.promote_panels + MenuMixin.promote_panels
+    content_panels = [*Page.content_panels, FieldPanel("image"), FieldPanel("background")]
+    promote_panels = [*Page.promote_panels, *MenuMixin.promote_panels]
 
     class Meta:
         verbose_name = "Homepage"
@@ -38,9 +34,8 @@ class HomepageModel(MenuMixin, Page):
 class CategoryModel(MenuMixin, Page):
     text = RichTextField()
 
-    content_panels = Page.content_panels + [FieldPanel("text")]
-
-    promote_panels = Page.promote_panels + MenuMixin.promote_panels
+    content_panels = [*Page.content_panels, FieldPanel("text")]
+    promote_panels = [*Page.promote_panels, *MenuMixin.promote_panels]
 
     class Meta:
         verbose_name = "Category"

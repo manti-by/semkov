@@ -4,12 +4,14 @@ import logging
 from django.contrib.auth import login, logout
 from django.http import JsonResponse
 from django.utils.translation import gettext_lazy as _
+
 from wagtail.models import Page
 
 from semkov.apps.ads.models import AdsModel
 from semkov.apps.core.models import Email
 from semkov.apps.core.services.recaptcha import is_valid_recaptcha_token
 from semkov.apps.user.models import User
+
 
 logger = logging.getLogger(__name__)
 

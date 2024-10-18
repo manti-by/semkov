@@ -3,11 +3,11 @@ from django.db import models
 from wagtail.admin.panels import FieldPanel
 from wagtail.api import APIField
 from wagtail.blocks import ListBlock
-from wagtail.fields import StreamField, RichTextField
+from wagtail.documents.blocks import DocumentChooserBlock
+from wagtail.fields import RichTextField, StreamField
+from wagtail.images.blocks import ImageChooserBlock
 from wagtail.models import Page
 from wagtail.templatetags import wagtailcore_tags
-from wagtail.images.blocks import ImageChooserBlock
-from wagtail.documents.blocks import DocumentChooserBlock
 
 
 class ImagesMixin(Page):
