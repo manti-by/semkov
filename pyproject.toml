@@ -12,7 +12,6 @@ include = '\.pyi?$'
 exclude = '''
 /(
     \.git
-  | \.mypy_cache
   | \.pytest_cache
   | \.venv
   | _build
@@ -32,32 +31,18 @@ target-version = "py312"
 
 [tool.ruff.lint]
 select = [
-    # pycodestyle
-    "E",
-    # Pyflakes
-    "F",
-    # pep8-naming
-    "N",
-    # pyupgrade
-    "UP",
-    # flake8-bugbear
-    "B",
-    # flake8-bandit
-    "S",
-    # flake8-blind-except
-    "BLE",
-    # flake8-builtins
-    "A",
-    # flake8-django
-    "DJ",
-    # isort
-    "I",
-    #    # flake8-logging-format
-    #    "G",
-    # flake8-no-pep420
-    "INP",
-    # Ruff-specific rules
-    "RUF"
+    "E", # pycodestyle
+    "F", # Pyflakes
+    "N", # pep8-naming
+    "UP", # pyupgrade
+    "B", # flake8-bugbear
+    "S", # flake8-bandit
+    "BLE", # flake8-blind-except
+    "A", # flake8-builtins
+    "DJ", # flake8-django
+    "I", # isort
+    "INP", # flake8-no-pep420
+    "RUF" # Ruff-specific rules
 ]
 exclude = [
     ".bzr",
@@ -71,7 +56,7 @@ exclude = [
     ".venv",
     "venv",
     "__pypackages__",
-    "pinata_ui/settings/*",
+    "semkov/settings/*"
 ]
 ignore = [
     # Disable eradicate (commented code removal)
