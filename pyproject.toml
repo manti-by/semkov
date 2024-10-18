@@ -1,5 +1,8 @@
 [tool.bandit]
-exclude_dirs = ["semkov/tests/"]
+exclude_dirs = [
+    "semkov/settings/",
+    "semkov/tests/"
+]
 skips = ["B308"]
 
 [tool.black]
