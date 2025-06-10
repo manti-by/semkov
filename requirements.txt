@@ -11,5 +11,5 @@ psycopg2_binary==2.9.10
 pytest>=8.3.3
 pytest-django>=4.9.0
 pyupgrade>=3.18.0
-requests==2.32.3
+requests==2.32.4
 wagtail==6.2.2
