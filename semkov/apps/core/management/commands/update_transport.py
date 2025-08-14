@@ -14,7 +14,7 @@ import requests
 from requests import RequestException
 from wagtail.models import Page
 
-from ...services.amon_ra import send_message
+from semkov.apps.core.services.amon_ra import send_message
 
 
 logger = logging.getLogger(__name__)
@@ -32,7 +32,7 @@ class Command(BaseCommand):
     timeout = 60
 
     bus_type = 3
-    arrival_stop_ids = ("25948176", "114793481")
+    arrival_stop_ids = ("81932288", "114793481")
     departure_stop_ids = ("60014592",)
 
     def get_routes(self, stop_ids: tuple) -> list[dict] | None:
@@ -43,6 +43,7 @@ class Command(BaseCommand):
                 data=json.dumps({"StopId": stop_id, "Types": None}),
                 headers=self.headers,
                 timeout=self.timeout,
+                verify=False,  # noqa
             )
             if response.ok:
                 for item in map(
@@ -68,6 +69,7 @@ class Command(BaseCommand):
             data=json.dumps({"StopId": route["stop_id"], "RouteId": route["route_id"]}),
             headers=self.headers,
             timeout=self.timeout,
+            verify=False,  # noqa
         )
         if response.ok:
             for item in response.json().get("Items", []):

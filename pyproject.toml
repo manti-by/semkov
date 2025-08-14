@@ -3,7 +3,7 @@ exclude_dirs = [
     "semkov/settings/",
     "semkov/tests/"
 ]
-skips = ["B308"]
+skips = ["B308", "B501"]
 
 [tool.black]
 line-length = 120

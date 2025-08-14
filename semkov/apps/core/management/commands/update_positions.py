@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 from requests import RequestException
 from wagtail.models import Page
 
-from ...services.amon_ra import send_message
+from semkov.apps.core.services.amon_ra import send_message
 
 
 logger = logging.getLogger(__name__)

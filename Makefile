@@ -37,7 +37,7 @@ update:
 	pre-commit autoupdate
 
 pip:
-	pip install -r requirements.txt
+	uv pip install -r requirements.txt
 
 test:
 	pytest --create-db --disable-warnings --ds=semkov.settings.test semkov/
