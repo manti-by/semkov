@@ -32,7 +32,12 @@ log_cli = true
 log_cli_format = "%(levelname)s %(asctime)s %(message)s"
 django_find_project = true
 asyncio_mode = "auto"
-addopts = '-p no:warnings --color=yes'
+addopts = '-p no:warnings --color=yes --ds=semkov.settings.test'
+python_classes = '*Test'
+filterwarnings = '''
+ignore::DeprecationWarning
+ignore::PendingDeprecationWarning
+'''
 norecursedirs = '''
 .git
 .github

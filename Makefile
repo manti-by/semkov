@@ -46,7 +46,7 @@ pip:
 	uv sync --all-extras --dev
 
 test:
-	uv run pytest --create-db --disable-warnings --ds=semkov.settings.test semkov/
+	uv run pytest --disable-warnings semkov/
 
 check:
 	git add .
