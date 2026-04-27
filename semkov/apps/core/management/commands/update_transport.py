@@ -29,13 +29,13 @@ class Command(BaseCommand):
         "User-Agent": "User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:121.0) Gecko/20100101 Firefox/121.0",
         "Content-Type": "application/json",
     }
-    timeout = 60
+    timeout = 30
 
     bus_type = 3
-    arrival_stop_ids = ("81932288", "114793481")
-    departure_stop_ids = ("60014592",)
+    arrival_stop_ids = ("81932288",)
+    departure_stop_ids = ("84106240",)
 
-    def get_routes(self, stop_ids: tuple) -> list[dict] | None:
+    def get_routes(self, stop_ids: tuple) -> list[dict]:
         result = []
         for stop_id in stop_ids:
             response = requests.post(
@@ -43,7 +43,6 @@ class Command(BaseCommand):
                 data=json.dumps({"StopId": stop_id, "Types": None}),
                 headers=self.headers,
                 timeout=self.timeout,
-                verify=False,  # noqa
             )
             if response.ok:
                 for item in map(
@@ -60,6 +59,8 @@ class Command(BaseCommand):
                                 "is_minibus": data.get("Type") == self.bus_type,
                             }
                         )
+            else:
+                logger.error(f"Can not retrieve a stop #{stop_id}: {response.text}")
         return result
 
     def get_route_schedule(self, route: dict) -> dict:
@@ -69,7 +70,6 @@ class Command(BaseCommand):
             data=json.dumps({"StopId": route["stop_id"], "RouteId": route["route_id"]}),
             headers=self.headers,
             timeout=self.timeout,
-            verify=False,  # noqa
         )
         if response.ok:
             for item in response.json().get("Items", []):
@@ -92,12 +92,17 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         try:
+            logger.info("Importing arrival data")
             self.get_schedule(self.arrival_stop_ids, settings.ARRIVAL_FILE_PATH)
+
+            logger.info("Importing departure data")
             self.get_schedule(self.departure_stop_ids, settings.DEPARTURE_FILE_PATH)
 
-            Page.objects.filter(slug__in=(settings.TRANSPORT_PAGE_SLUG, settings.CATEGORY_PAGE_SLUG)).update(
+            logger.info("Updating database records")
+            updated = Page.objects.filter(slug__in=(settings.TRANSPORT_PAGE_SLUG, settings.CATEGORY_PAGE_SLUG)).update(
                 last_published_at=timezone.now()
             )
+            logger.info(f"{updated} database records were updated")
         except RequestException as e:
             logger.error(e)
             send_message(_("Transport update error"), str(e))

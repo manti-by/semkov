@@ -18,7 +18,8 @@ logger = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
-    timeout = 60
+    url = "https://mrik.gov.by/delenie/papernyanskij-selsovet"
+    timeout = 30
 
     @staticmethod
     def clean_data(data) -> str:
@@ -41,10 +42,10 @@ class Command(BaseCommand):
 
     def get_positions(self) -> list:
         result = []
-        response = requests.get(settings.POSITIONS_URL, timeout=self.timeout)
+        response = requests.get(url=self.url, timeout=self.timeout)
         if response.ok:
             parser = BeautifulSoup(response.content, features="html5lib")
-            for index, row in enumerate(parser.find(class_="newscontainer-itemFullText").find_all("tr")):
+            for index, row in enumerate(parser.find(class_="newscontainer-itemFullText").find_all("tr")):  # ty: ignore
                 if not index:
                     continue
                 cols = [self.clean_data(x) for x in row.find_all("td")]

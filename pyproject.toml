@@ -1,24 +1,52 @@
+[project]
+name = "semkov"
+version = "1.5.0"
+description = "semkov-gorodok.by local blog"
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "beautifulsoup4==4.13.4",
+    "django==5.2.5",
+    "gunicorn==23.0.0",
+    "html5lib==1.1",
+    "pillow==11.3.0",
+    "psycopg2_binary==2.9.10",
+    "requests==2.32.4",
+    "uvicorn[standard]==0.35.0",
+    "wagtail==7.1",
+]
+
+[dependency-groups]
+dev = [
+    "bandit>=1.9.4",
+    "ipython>=9.13.0",
+    "pip-check-updates>=0.28.0",
+    "pre_commit>=4.3.0",
+    "pytest>=9.0.3",
+    "pytest-django>=4.12.0",
+    "ruff>=0.15.12",
+    "uv-bump>=0.5.0",
+]
+
+[tool.pytest.ini_options]
+log_cli = true
+log_cli_format = "%(levelname)s %(asctime)s %(message)s"
+django_find_project = true
+asyncio_mode = "auto"
+addopts = '-p no:warnings --color=yes'
+norecursedirs = '''
+.git
+.github
+.pytest_cache
+.ruff_cache
+.venv
+'''
+
 [tool.bandit]
 exclude_dirs = [
     "semkov/settings/",
     "semkov/tests/"
 ]
 skips = ["B308", "B501"]
-
-[tool.black]
-line-length = 120
-target_version = ["py312"]
-include = '\.pyi?$'
-exclude = '''
-/(
-    \.git
-  | \.pytest_cache
-  | \.venv
-  | _build
-  | build
-  | dist
-)/
-'''
 
 [tool.curlylint.rules]
 indent = 2
@@ -28,6 +56,15 @@ html_has_lang = true
 line-length = 120
 indent-width = 4
 target-version = "py312"
+include = ['\.pyi?$']
+exclude = [
+    ".git",
+    ".pytest_cache",
+    ".venv",
+    "_build",
+    "build",
+    "dist",
+]
 
 [tool.ruff.lint]
 select = [
@@ -104,3 +141,13 @@ lines-after-imports = 2
 "**/*test*.py" = ["E402", "F403", "F405", "S", "N802"]
 "**/{settings}/*" = ["E402", "F403", "F405"]
 "**/migrations/*" = ["RUF", "I"]
+
+[tool.ty.src]
+exclude = [
+    ".git",
+    ".idea",
+    ".vscode",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".venv",
+]

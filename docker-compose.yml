@@ -22,9 +22,10 @@ services:
       - /mnt/data/www/semkov/static/:/var/lib/app/static/
       - /mnt/data/www/semkov/media/:/var/lib/app/media/
       - /mnt/data/www/semkov/data/:/var/lib/app/data/
-      - /mnt/data/www/semkov/log/:/var/log/app/
+      - /mnt/data/www/semkov/logs/:/var/log/app/
     environment:
       - DJANGO_SETTINGS_MODULE=semkov.settings.prod
       - POSTGRES_HOST=semkov-postgres
+      - DATA_DIR=/var/lib/app/data/
     command: |
       gunicorn semkov.wsgi:application --bind 0.0.0.0:8898 --workers 2 --log-file /var/log/app/wsgi.log

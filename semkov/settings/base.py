@@ -172,10 +172,10 @@ STORAGES = {
     },
 }
 
-STATIC_ROOT = BASE_DIR / "static"
+STATIC_ROOT = os.environ.get("STATIC_ROOT", BASE_DIR / "static")
 STATIC_URL = "/static/"
 
-MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_ROOT = os.environ.get("MEDIA_ROOT", BASE_DIR / "media")
 MEDIA_URL = "/media/"
 
 WAGTAILIMAGES_FORMAT_CONVERSIONS = {
@@ -209,33 +209,13 @@ POSITION_PAGE_SLUG = os.environ.get("POSITION_PAGE_SLUG", "ispolkom")
 TRANSPORT_PAGE_SLUG = os.environ.get("TRANSPORT_PAGE_SLUG", "minsk-semkov-gorodok")
 CATEGORY_PAGE_SLUG = os.environ.get("TRANSPORT_PAGE_SLUG", "pages")
 
-POSITION_FILE_PATH = BASE_DIR / "data" / "position.json"
-ARRIVAL_FILE_PATH = BASE_DIR / "data" / "arrival.json"
-DEPARTURE_FILE_PATH = BASE_DIR / "data" / "departure.json"
+DATA_DIR = Path(os.environ.get("DATA_DIR", "/mnt/data/www/semkov/data/"))
+
+POSITION_FILE_PATH = DATA_DIR / "position.json"
+ARRIVAL_FILE_PATH = DATA_DIR / "arrival.json"
+DEPARTURE_FILE_PATH = DATA_DIR / "departure.json"
 
 POSITIONS_URL = os.getenv("POSITIONS_URL", "https://mrik.gov.by/delenie/papernyanskij-selsovet")
-
-BUS_API_BASE_URL = os.getenv("BUS_API_BASE_URL", "https://minsktrans.by/suburb/get-shedule.php")
-
-BUS_API_POINT_FROM_ID = os.getenv("BUS_API_POINT_FROM_ID", "500253")
-BUS_API_POINT_FROM_NAME = os.getenv("BUS_API_POINT_FROM_NAME", "ЩЕДРИНА/ЧЕРВЯКОВА")  # noqa
-
-BUS_API_POINT_TO_ID = os.getenv("BUS_API_POINT_TO_ID", "501131")
-BUS_API_POINT_TO_NAME = os.getenv("BUS_API_POINT_TO_NAME", "СЕМКОВ_ГОРОДОК(Папернянский_с/с)")  # noqa
-
-MINIBUS_BASE_URL = os.getenv(
-    "MINIBUS_BASE_URL",
-    "https://www.tuda-suda.by/poleznyashki/raspisanie/minsk/marshrutki",
-)
-MINIBUS_ROUTES = os.getenv(
-    "MINIBUS_ROUTES",
-    [
-        "/485/komarovskij-rynok-brovki/shchedrina",
-        "/485b/komarovskij-rynok-selets/shchedrina",
-        "/485r/komarovskij-rynok-rogovo/shchedrina",
-        "/485sh/komarovskij-rynok-shershuny/shchedrina",
-    ],
-)
 
 GOOGLE_RECAPTCHA_SITE_KEY = os.getenv("GOOGLE_RECAPTCHA_SITE_KEY", None)
 GOOGLE_RECAPTCHA_SECRET = os.getenv("GOOGLE_RECAPTCHA_SECRET", None)
